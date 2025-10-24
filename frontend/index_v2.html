@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente AI - PETCIMAGENES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-petci: #284A89;
+            --verde-limon: #9DD43B;
+            --gris-claro: #f5f7fa;
+            --gris-medio: #e1e8ed;
+            --gris-oscuro: #657786;
+            --blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gris-claro);
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, var(--azul-petci) 0%, #1a3561 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--azul-petci);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .brand-info h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .brand-info p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* LAYOUT PRINCIPAL */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 92px);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 320px;
+            background: white;
+            border-right: 1px solid var(--gris-medio);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--gris-medio);
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gris-oscuro);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .upload-button {
+            background: var(--gris-medio);
+            color: var(--azul-petci);
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .upload-button:hover {
+            background: var(--gris-oscuro);
+            color: white;
+        }
+
+        .send-to-vector-button {
+            background: var(--verde-limon);
+            color: var(--azul-petci);
+            border: none;
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(157, 212, 59, 0.3);
+        }
+
+        .send-to-vector-button:hover:not(:disabled) {
+            background: #8bc432;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(157, 212, 59, 0.4);
+        }
+
+        .send-to-vector-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .files-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .file-item {
+            background: var(--gris-claro);
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .file-item:hover {
+            background: var(--gris-medio);
+        }
+
+        .file-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--azul-petci);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .file-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .file-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-size {
+            font-size: 0.75rem;
+            color: var(--gris-oscuro);
+        }
+
+        .file-remove {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ef4444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .file-remove:hover {
+            background: #dc2626;
+            transform: scale(1.1);
+        }
+
+        /* CHAT AREA */
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            max-width: 80%;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: var(--verde-limon);
+            color: var(--azul-petci);
+        }
+
+        .message.assistant .message-avatar {
+            background: var(--azul-petci);
+            color: white;
+        }
+
+        .message-content {
+            background: var(--gris-claro);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .message.user .message-content {
+            background: var(--verde-limon);
+            color: var(--azul-petci);
+        }
+
+        .message.assistant .message-content {
+            background: var(--gris-claro);
+        }
+
+        /* ATTACHMENTS IN MESSAGE */
+        .message-attachments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .attachment-chip {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 0.375rem 0.75rem;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        /* INPUT AREA */
+        .chat-input-container {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid var(--gris-medio);
+            background: white;
+        }
+
+        /* CHAT ATTACHMENTS PREVIEW */
+        .chat-attachments-preview {
+            display: none;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chat-attachments-preview.active {
+            display: flex;
+        }
+
+        .chat-attachment-item {
+            background: var(--gris-claro);
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .chat-attachment-remove {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .attach-button {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gris-claro);
+            color: var(--azul-petci);
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .attach-button:hover {
+            background: var(--gris-medio);
+            transform: scale(1.05);
+        }
+
+        #messageInput {
+            flex: 1;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--gris-medio);
+            border-radius: 24px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #messageInput:focus {
+            border-color: var(--azul-petci);
+            box-shadow: 0 0 0 3px rgba(40, 74, 137, 0.1);
+        }
+
+        #sendButton {
+            background: var(--azul-petci);
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(40, 74, 137, 0.3);
+            flex-shrink: 0;
+        }
+
+        #sendButton:hover:not(:disabled) {
+            background: #1a3561;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(40, 74, 137, 0.4);
+        }
+
+        #sendButton:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--gris-oscuro);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .empty-state h2 {
+            font-size: 1.5rem;
+            color: var(--azul-petci);
+            margin-bottom: 0.5rem;
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gris-claro);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gris-medio);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gris-oscuro);
+        }
+
+        /* LOADING */
+        .typing-indicator {
+            display: inline-flex;
+            gap: 4px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gris-oscuro);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { opacity: 0.3; }
+            30% { opacity: 1; }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo">P</div>
+            <div class="brand-info">
+                <h1>PETCIMAGENES</h1>
+                <p>Asistente Inteligente · Análisis Estratégico</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <!-- SIDEBAR - VECTOR STORE -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">📚 Base de Conocimiento (Vector Store)</div>
+                <button class="upload-button" onclick="document.getElementById('vectorStoreInput').click()">
+                    📂 Seleccionar Archivos
+                </button>
+                <button class="send-to-vector-button" id="sendToVectorButton" onclick="uploadToVectorStore()" disabled>
+                    ⬆️ Enviar al Vector Store
+                </button>
+                <input type="file" id="vectorStoreInput" multiple accept=".pdf,.doc,.docx,.txt,.xlsx,.xls,.csv,.png,.jpg,.jpeg" style="display: none;" onchange="handleVectorStoreSelection(event)">
+            </div>
+            <div class="files-list" id="vectorStoreList">
+                <div class="empty-state" style="padding: 2rem 1rem;">
+                    <div style="font-size: 3rem; opacity: 0.2;">📁</div>
+                    <p style="font-size: 0.85rem;">Selecciona archivos para subirlos permanentemente</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CHAT AREA -->
+        <main class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="empty-state">
+                    <div class="empty-state-icon">💬</div>
+                    <h2>¡Hola! Soy tu asistente de PETCIMAGENES</h2>
+                    <p>Pregúntame sobre la empresa, adjunta archivos para análisis temporal, o sube documentos permanentes al Vector Store.</p>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <!-- Preview de archivos adjuntos al chat -->
+                <div class="chat-attachments-preview" id="chatAttachmentsPreview"></div>
+                
+                <div class="input-wrapper">
+                    <button class="attach-button" onclick="document.getElementById('chatFilesInput').click()" title="Adjuntar archivos (análisis temporal)">
+                        📎
+                    </button>
+                    <input type="file" id="chatFilesInput" multiple accept=".pdf,.doc,.docx,.txt,.xlsx,.xls,.csv,.png,.jpg,.jpeg" style="display: none;" onchange="handleChatAttachment(event)">
+                    
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="Escribe tu mensaje aquí..."
+                        onkeypress="if(event.key === 'Enter') sendMessage()"
+                    >
+                    <button id="sendButton" onclick="sendMessage()">Enviar ✉️</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Variables globales
+        let vectorStoreFiles = [];
+        let chatAttachments = [];
+        let threadId = null;
+
+        // ==========================================
+        // SECCIÓN 1: VECTOR STORE (SIDEBAR)
+        // ==========================================
+
+        function getFileExtension(filename) {
+            return filename.split('.').pop().toUpperCase();
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+
+        function handleVectorStoreSelection(event) {
+            const files = Array.from(event.target.files);
+            
+            if (vectorStoreFiles.length + files.length > 10) {
+                alert('Máximo 10 archivos permitidos');
+                return;
+            }
+
+            files.forEach(file => vectorStoreFiles.push(file));
+            updateVectorStoreList();
+            
+            // Habilitar botón de enviar
+            document.getElementById('sendToVectorButton').disabled = vectorStoreFiles.length === 0;
+        }
+
+        function updateVectorStoreList() {
+            const list = document.getElementById('vectorStoreList');
+            
+            if (vectorStoreFiles.length === 0) {
+                list.innerHTML = `
+                    <div class="empty-state" style="padding: 2rem 1rem;">
+                        <div style="font-size: 3rem; opacity: 0.2;">📁</div>
+                        <p style="font-size: 0.85rem;">Selecciona archivos para subirlos permanentemente</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = '';
+            vectorStoreFiles.forEach((file, index) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <div class="file-icon">${getFileExtension(file.name)}</div>
+                    <div class="file-info">
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-size">${formatFileSize(file.size)}</div>
+                    </div>
+                    <button class="file-remove" onclick="removeVectorStoreFile(${index})" title="Eliminar">×</button>
+                `;
+                list.appendChild(fileItem);
+            });
+        }
+
+        function removeVectorStoreFile(index) {
+            vectorStoreFiles.splice(index, 1);
+            updateVectorStoreList();
+            document.getElementById('sendToVectorButton').disabled = vectorStoreFiles.length === 0;
+        }
+
+        async function uploadToVectorStore() {
+            if (vectorStoreFiles.length === 0) return;
+
+            const button = document.getElementById('sendToVectorButton');
+            button.disabled = true;
+            button.textContent = '⏳ Subiendo...';
+
+            try {
+                const formData = new FormData();
+                vectorStoreFiles.forEach(file => formData.append('files', file));
+
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                console.log('Archivos subidos al Vector Store:', data);
+                
+                // Limpiar lista
+                vectorStoreFiles = [];
+                updateVectorStoreList();
+                
+                // Notificar en el chat
+                addMessage('assistant', `✅ ${data.files.length} archivo(s) subido(s) permanentemente al Vector Store. Ya están disponibles para todas las consultas.`);
+                
+                button.textContent = '⬆️ Enviar al Vector Store';
+                button.disabled = true;
+                
+            } catch (error) {
+                console.error('Error subiendo al Vector Store:', error);
+                addMessage('assistant', '❌ Error subiendo archivos al Vector Store. Por favor intenta de nuevo.');
+                button.textContent = '⬆️ Enviar al Vector Store';
+                button.disabled = false;
+            }
+        }
+
+        // ==========================================
+        // SECCIÓN 2: CHAT ATTACHMENTS (TEMPORAL)
+        // ==========================================
+
+        function handleChatAttachment(event) {
+            const files = Array.from(event.target.files);
+            
+            if (chatAttachments.length + files.length > 10) {
+                alert('Máximo 10 archivos por mensaje');
+                return;
+            }
+
+            files.forEach(file => chatAttachments.push(file));
+            updateChatAttachmentsPreview();
+        }
+
+        function updateChatAttachmentsPreview() {
+            const preview = document.getElementById('chatAttachmentsPreview');
+            
+            if (chatAttachments.length === 0) {
+                preview.classList.remove('active');
+                return;
+            }
+
+            preview.classList.add('active');
+            preview.innerHTML = '';
+            
+            chatAttachments.forEach((file, index) => {
+                const item = document.createElement('div');
+                item.className = 'chat-attachment-item';
+                item.innerHTML = `
+                    <span>📎 ${file.name} (${formatFileSize(file.size)})</span>
+                    <button class="chat-attachment-remove" onclick="removeChatAttachment(${index})">×</button>
+                `;
+                preview.appendChild(item);
+            });
+        }
+
+        function removeChatAttachment(index) {
+            chatAttachments.splice(index, 1);
+            updateChatAttachmentsPreview();
+        }
+
+        // ==========================================
+        // SECCIÓN 3: CHAT
+        // ==========================================
+
+        function addMessage(role, content, attachments = []) {
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            const emptyState = messagesContainer.querySelector('.empty-state');
+            if (emptyState) {
+                emptyState.remove();
+            }
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            
+            const avatar = role === 'user' ? 'TÚ' : 'AI';
+            
+            let attachmentsHTML = '';
+            if (attachments.length > 0) {
+                attachmentsHTML = '<div class="message-attachments">';
+                attachments.forEach(file => {
+                    attachmentsHTML += `<span class="attachment-chip">📎 ${file.name}</span>`;
+                });
+                attachmentsHTML += '</div>';
+            }
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    ${content}
+                    ${attachmentsHTML}
+                </div>
+            `;
+
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message assistant';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">AI</div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+
+            if (!message && chatAttachments.length === 0) return;
+
+            // Mostrar mensaje del usuario con attachments
+            addMessage('user', message || 'Archivos adjuntos', chatAttachments);
+            
+            const currentAttachments = [...chatAttachments];
+            input.value = '';
+            chatAttachments = [];
+            updateChatAttachmentsPreview();
+
+            const sendButton = document.getElementById('sendButton');
+            sendButton.disabled = true;
+
+            showTypingIndicator();
+
+            try {
+                const formData = new FormData();
+                formData.append('message', message || 'Analiza estos archivos');
+                currentAttachments.forEach(file => formData.append('files', file));
+
+                const response = await fetch('/api/chat/stream', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let assistantMessage = '';
+
+                removeTypingIndicator();
+
+                const messagesContainer = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message assistant';
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">AI</div>
+                    <div class="message-content" id="streamingMessage"></div>
+                `;
+                messagesContainer.appendChild(messageDiv);
+
+                const streamingElement = document.getElementById('streamingMessage');
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n');
+
+                    for (const line of lines) {
+                        if (line.startsWith('data: ')) {
+                            const data = line.slice(6);
+                            
+                            if (data === '[DONE]') {
+                                continue;
+                            }
+
+                            try {
+                                const parsed = JSON.parse(data);
+                                
+                                if (parsed.content) {
+                                    assistantMessage += parsed.content;
+                                    streamingElement.textContent = assistantMessage;
+                                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                                }
+                            } catch (e) {
+                                // Ignorar errores de parsing
+                            }
+                        }
+                    }
+                }
+
+                streamingElement.removeAttribute('id');
+
+            } catch (error) {
+                console.error('Error:', error);
+                removeTypingIndicator();
+                addMessage('assistant', '❌ Error al procesar el mensaje. Por favor intenta de nuevo.');
+            } finally {
+                sendButton.disabled = false;
+            }
+        }
+
+        // Auto-focus en el input
+        document.getElementById('messageInput').focus();
+    </script>
+</body>
+</html>
