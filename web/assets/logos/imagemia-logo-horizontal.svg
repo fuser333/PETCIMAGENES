@@ -1,0 +1,36 @@
+<svg width="240" height="60" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Horizontal Imagem.ia - Concepto Slot-Fill -->
+
+  <!-- Símbolo: Cuadrícula 3x3 con slot accentuado -->
+  <g id="slot-fill-symbol" transform="translate(30, 30)">
+    <!-- Grid 3x3 - Slots vacíos (outline) -->
+    <!-- Fila 1 -->
+    <rect x="-24" y="-24" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+    <rect x="-7" y="-24" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+    <rect x="10" y="-24" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+
+    <!-- Fila 2 -->
+    <rect x="-24" y="-7" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+    <!-- Slot central OCUPADO - Acento cyan con efecto de actividad -->
+    <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#06B6D4" stroke="#06B6D4" stroke-width="2">
+      <animate attributeName="opacity" values="1;0.7;1" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Punto central brillante -->
+    <circle cx="0" cy="0" r="3" fill="white" opacity="0.9">
+      <animate attributeName="r" values="2;3.5;2" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <rect x="10" y="-7" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+
+    <!-- Fila 3 -->
+    <rect x="-24" y="10" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+    <rect x="-7" y="10" width="14" height="14" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
+    <!-- Slot ocupado secundario - Verde salud -->
+    <rect x="10" y="10" width="14" height="14" rx="2" fill="#16A34A" stroke="#16A34A" stroke-width="2" opacity="0.6"/>
+    <circle cx="17" cy="17" r="2" fill="white" opacity="0.8"/>
+  </g>
+
+  <!-- Texto: imagem.ia -->
+  <text x="70" y="38" font-family="Manrope, sans-serif" font-weight="700" font-size="24" fill="#0F172A" letter-spacing="-0.5">
+    imagem<tspan fill="#06B6D4">.ia</tspan>
+  </text>
+</svg>
