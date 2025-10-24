@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETCIMAGENES - AgentKit</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #9DD43B 0%, #7FB82E 100%);
+            color: white;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <p class="loading-text">Cargando AgentKit PETCIMAGENES...</p>
+    </div>
+
+    <script>
+        // Redirigir al AgentKit
+        // En desarrollo local, esto apuntará al puerto 8080
+        // En producción, apuntará a la URL configurada
+
+        window.addEventListener('load', function() {
+            // Por ahora, redirigir al frontend existente
+            // En producción, esto debe apuntar al dominio correcto
+            setTimeout(() => {
+                // Cambia esta URL según tu configuración
+                window.location.href = 'http://localhost:8080';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

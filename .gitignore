@@ -6,6 +6,7 @@ yarn-error.log*
 
 # Variables de entorno (IMPORTANTE: Protege tus API keys)
 .env
+.env.*
 .env.local
 .env.*.local
 
