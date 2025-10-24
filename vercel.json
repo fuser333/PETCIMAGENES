@@ -1,4 +1,5 @@
 {
+  "name": "imagemia",
   "version": 2,
   "builds": [
     {
@@ -6,25 +7,9 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/web/imagemia/index.html"
-    },
-    {
-      "src": "/empresas",
-      "dest": "/web/empresas/index.html"
-    },
-    {
-      "src": "/empresas/petcimagenes",
-      "dest": "/web/empresas/petcimagenes/index.html"
-    },
-    {
-      "src": "/empresas/(.*)",
-      "dest": "/web/empresas/$1"
-    }
-  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/web/$1" }
+    { "source": "/", "destination": "/web/imagemia/index.html" },
+    { "source": "/empresas", "destination": "/web/empresas/index.html" },
+    { "source": "/empresas/petcimagenes", "destination": "/web/empresas/petcimagenes/index.html" }
   ]
 }
