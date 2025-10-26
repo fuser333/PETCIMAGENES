@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem.ia - Recupera $300K-$500K Anuales | Centros de Imagenología LATAM</title>
+    <meta name="description" content="Aumentamos utilización de equipos de imagenología del 76% al 90%+. Recupera $300K-$500K anuales eliminando cancelaciones y maximizando activos.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logos/imagemia-favicon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Clinical Calm Palette - Del brief original */
+            --primary: #2563EB;        /* Azul médico - confianza */
+            --secondary: #16A34A;      /* Verde salud - eficiencia */
+            --accent: #06B6D4;         /* Cyan - innovación IA */
+            --dark: #0F172A;           /* Texto principal */
+            --light: #F8FAFC;          /* Fondo claro */
+            --gray: #64748B;           /* Texto secundario */
+            --border: #E2E8F0;         /* Bordes */
+            --warning: #DC2626;        /* Rojo - problema */
+
+            /* Sombras */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+            /* Tipografía */
+            --font-heading: 'Manrope', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 120px;
+            background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 50%, #F0FDF4 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #DCFCE7, #D1FAE5);
+            color: var(--secondary);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            border: 1px solid var(--secondary);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 44px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 80px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 800;
+            text-align: center;
+            color: var(--dark);
+            margin-bottom: 60px;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .pain-card {
+            background: var(--light);
+            padding: 32px;
+            border-radius: 16px;
+            border-left: 4px solid var(--warning);
+        }
+
+        .pain-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .pain-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Before-After-Bridge */
+        .transformation {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, #FFFFFF 100%);
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .before-box, .after-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .before-box {
+            border-top: 6px solid var(--warning);
+        }
+
+        .after-box {
+            border-top: 6px solid var(--secondary);
+        }
+
+        .before-box h3, .after-box h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .before-box h3 {
+            color: var(--warning);
+        }
+
+        .after-box h3 {
+            color: var(--secondary);
+        }
+
+        .before-box ul, .after-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .before-box li, .after-box li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 44px;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            font-size: 17px;
+            padding: 18px 44px;
+        }
+
+        .btn-white:hover {
+            background: var(--light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .stats-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .pain-points {
+                grid-template-columns: 1fr;
+            }
+
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <a href="#hero">
+                    <img src="assets/logos/imagemia-logo-horizontal-final.svg" alt="Imagem.ia Logo" class="logo-img">
+                </a>
+                <div class="nav-links">
+                    <a href="#problema" class="nav-link">El Problema</a>
+                    <a href="#solucion" class="nav-link">Solución</a>
+                    <a href="#contacto" class="btn btn-primary">Solicitar Diagnóstico</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Especialistas en Imagenología LATAM</div>
+
+                <h1>
+                    Recupera <span class="highlight">$300K-$500K Anuales</span> en Ingresos Perdidos
+                </h1>
+
+                <p class="hero-subtitle">
+                    Llevamos la utilización de tus equipos de imagenología del 76% al 90%+ mediante sistemas inteligentes que eliminan cancelaciones y maximizan cada slot de tu resonador.
+                </p>
+
+                <div class="hero-ctas">
+                    <a href="#contacto" class="btn btn-primary">Solicita tu Diagnóstico Gratuito →</a>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <div class="stat-number">$300K-$500K</div>
+                        <div class="stat-label">Ingresos Recuperables / Año</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">+14pp</div>
+                        <div class="stat-label">Aumento Utilización Equipos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">45 días</div>
+                        <div class="stat-label">Para Ver Resultados</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problema" class="problem">
+        <div class="container">
+            <h2 class="section-title">El Problema Real que Enfrenta Tu Centro</h2>
+
+            <div class="pain-points">
+                <div class="pain-card">
+                    <h3>🚨 24% de Ausentismo/Cancelaciones</h3>
+                    <p>
+                        1 de cada 4 citas programadas nunca se materializa. Tus equipos de $2M+ están parados
+                        mientras el personal técnico espera pacientes que nunca llegan.
+                    </p>
+                </div>
+
+                <div class="pain-card">
+                    <h3>💸 $300K-$500K en Pérdidas Anuales</h3>
+                    <p>
+                        Cada slot vacío es dinero directo que no entra a tu cuenta. Con equipos operando al 76%,
+                        estás dejando 24% de ingresos potenciales sobre la mesa, cada día.
+                    </p>
+                </div>
+
+                <div class="pain-card">
+                    <h3>📊 Flujo de Caja Impredecible</h3>
+                    <p>
+                        No sabes cuánto facturarás esta semana porque no sabes cuántos pacientes realmente vendrán.
+                        Imposible planificar nóminas, mantenimiento o expansión.
+                    </p>
+                </div>
+
+                <div class="pain-card">
+                    <h3>⏱️ Gestión Manual y Caótica</h3>
+                    <p>
+                        Llamadas telefónicas, recordatorios manuales, reprogramaciones de último minuto.
+                        Tu equipo administrativo apagando incendios en lugar de optimizar operaciones.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation (Before-After-Bridge) -->
+    <section id="solucion" class="transformation">
+        <div class="container">
+            <h2 class="section-title">La Transformación que Lograremos Juntos</h2>
+
+            <div class="before-after">
+                <div class="before-box">
+                    <h3>❌ ANTES (Tu Realidad Actual)</h3>
+                    <ul>
+                        <li>✖ Equipos operando al 76% de capacidad</li>
+                        <li>✖ 24% de cancelaciones y no-shows</li>
+                        <li>✖ Flujo de caja variable e impredecible</li>
+                        <li>✖ Personal técnico esperando pacientes</li>
+                        <li>✖ $300K-$500K anuales que no entran</li>
+                        <li>✖ Gestión manual de agendamiento</li>
+                        <li>✖ Imposibilidad de proyectar capacidad</li>
+                    </ul>
+                </div>
+
+                <div class="after-box">
+                    <h3>✅ DESPUÉS (Con Imagem.ia)</h3>
+                    <ul>
+                        <li>✓ Equipos operando al 90%+ de capacidad</li>
+                        <li>✓ Cancelaciones reducidas en 30-50%</li>
+                        <li>✓ Flujo de caja predecible y proyectable</li>
+                        <li>✓ Máxima productividad del personal</li>
+                        <li>✓ +$300K-$500K anuales adicionales</li>
+                        <li>✓ Sistema inteligente automatizado</li>
+                        <li>✓ Capacidad planificable con certeza</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <h3 style="font-size: 32px; font-weight: 800; margin-bottom: 24px;">¿Cómo Lo Logramos?</h3>
+                <p style="font-size: 18px; color: var(--gray); max-width: 700px; margin: 0 auto 40px;">
+                    En 4 semanas implementamos un sistema inteligente que confirma citas, re-agenda automáticamente
+                    y llena huecos en tiempo real. Sin cambiar tus sistemas actuales.
+                </p>
+                <a href="#contacto" class="btn btn-primary">Solicita tu Diagnóstico de 30 Minutos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contacto" class="cta-section">
+        <div class="container">
+            <h2>¿Listo Para Recuperar Tus Ingresos Perdidos?</h2>
+            <p>Solicita un diagnóstico gratuito de 30 minutos. Te mostraremos exactamente cuánto dinero estás dejando sobre la mesa.</p>
+            <a href="mailto:hector@imagemia.com?subject=Solicitud de Diagnóstico Gratuito" class="btn btn-white">
+                Solicitar Diagnóstico Ahora →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Imagem.ia</h4>
+                    <p style="color: var(--gray); font-size: 14px; line-height: 1.7;">
+                        Especialistas en maximizar la utilización de equipos de imagenología en LATAM mediante sistemas inteligentes.
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hector@imagemia.com">hector@imagemia.com</a></li>
+                        <li><a href="https://imagemia.com">imagemia.com</a></li>
+                        <li>Quito, Ecuador | LATAM</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Protección de Datos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 Imagem.ia - Todos los derechos reservados. | Recuperamos ingresos, no vendemos tecnología.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

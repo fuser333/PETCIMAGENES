@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TU_AGENCIA] - Diagnóstico Gratuito de Automatización IA | [NICHO]</title>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Recibe un diagnóstico personalizado de automatización con IA para [NICHO]. Identifica oportunidades de ahorro en 5 minutos.">
+    <meta name="keywords" content="diagnostico ia, automatizacion [NICHO], consultoria ia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="[TU_AGENCIA] - Diagnóstico IA para [NICHO]">
+    <meta property="og:description" content="Calcula tu ROI e identifica automatizaciones críticas en [PLAZO_DIAGNOSTICO].">
+    <meta property="og:image" content="[OG_IMAGE_URL]">
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════
+    INSTRUCCIONES DE PERSONALIZACIÓN - FORMULARIO MULTIPASO (DARK)
+    ═══════════════════════════════════════════════════════════════════
+    1. Reemplaza placeholders principales:
+       - [TU_AGENCIA], [NICHO], [ICP], [CTA_EMAIL], [CTA_URL], [PLAZO_DIAGNOSTICO]
+       - [PROCESO_CRITICO], [EMPRESAS_ANALIZADAS], [METRICA_CLAVE_1], [METRICA_CLAVE_2], [PAYBACK_ESTIMADO], [CTA_BOTON_TEXTO]
+       - [BENEFICIO_1]...[BENEFICIO_3], [PAINPOINT_X], [OBJETIVO_X], [STACK_ACTUAL_X]
+       - [LINK_PRIVACIDAD], [LINK_TERMINOS]
+    2. Ajusta preguntas por paso:
+       - Personaliza copy, opciones y placeholders para reflejar tu discovery real
+       - Añade/elimina preguntas manteniendo la estructura de steps y validaciones
+    3. Configura integraciones:
+       - Sustituye Formspree/Webhook en el submit por tu stack (Make, Zapier, API propia)
+    4. Activa mensajes finales:
+       - Edita la sección de éxito con lo que entregas realmente (documentos, llamada, etc.)
+    ═══════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            /* Dark Theme - Premium */
+            --bg-primary: #0A0E1A;
+            --bg-secondary: #151B2E;
+            --bg-tertiary: #1E2738;
+            --text-primary: #F8FAFC;
+            --text-secondary: #CBD5E1;
+            --text-muted: #64748B;
+            --accent-primary: #6366F1; /* Indigo */
+            --accent-secondary: #8B5CF6; /* Purple */
+            --accent-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --success: #10B981;
+            --warning: #F59E0B;
+            --border: #2D3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Smooth animations */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            right: 40px;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            height: 2px;
+            background: var(--accent-gradient);
+            z-index: 1;
+            transition: width 0.4s ease;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+
+        .progress-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .progress-circle {
+            background: var(--accent-gradient);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .progress-step.completed .progress-circle {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .progress-step.completed .progress-circle::after {
+            content: '✓';
+            font-size: 18px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .progress-step.active .progress-label {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .hero-value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .hero-value-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .hero-value-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-primary);
+        }
+
+        .hero-value-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .hero-value-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Form Container */
+        .form-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 40px auto;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Form Step */
+        .form-step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Input Styles */
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Radio/Checkbox Cards */
+        .option-card {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .option-card:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .option-card input[type="radio"],
+        .option-card input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .option-card input:checked + label {
+            color: var(--accent-primary);
+        }
+
+        .option-card.selected {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .option-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            margin-right: 12px;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .option-card.selected .option-icon {
+            background: var(--accent-gradient);
+            border-color: var(--accent-primary);
+        }
+
+        .option-card.selected .option-icon::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        /* Summary Card */
+        .summary-card {
+            background: rgba(99, 102, 241, 0.05);
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Success State */
+        .success-state {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-center;
+            font-size: 40px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 24px;
+                margin: 20px;
+            }
+
+            .progress-steps {
+                padding: 0 16px;
+            }
+
+            .progress-label {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-[var(--bg-secondary)] border-b border-[var(--border)]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-bold text-xl" style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    [TU_AGENCIA]
+                </div>
+                <div class="text-sm text-[var(--text-muted)]">
+                    💬 ¿Necesitas ayuda? <a href="mailto:[CTA_EMAIL]" class="text-[var(--accent-primary)] hover:underline">Escríbenos</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-steps">
+            <div class="progress-line" id="progressLine" style="width: 0%"></div>
+
+            <div class="progress-step active" data-step="1">
+                <div class="progress-circle">1</div>
+                <div class="progress-label">Sobre tu negocio</div>
+            </div>
+
+            <div class="progress-step" data-step="2">
+                <div class="progress-circle">2</div>
+                <div class="progress-label">Procesos actuales</div>
+            </div>
+
+            <div class="progress-step" data-step="3">
+                <div class="progress-circle">3</div>
+                <div class="progress-label">Objetivos</div>
+            </div>
+
+            <div class="progress-step" data-step="4">
+                <div class="progress-circle">4</div>
+                <div class="progress-label">Tus datos</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border)] text-sm font-semibold mb-6">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" style="color: var(--success);" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                100% Gratuito • Sin compromiso • [PLAZO_DIAGNOSTICO]
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl font-extrabold mb-6" style="line-height: 1.1;">
+                [NICHO]: calcula el ROI de automatizar
+                <span style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    [PROCESO_CRITICO]
+                </span> en [PLAZO_DIAGNOSTICO]
+            </h1>
+
+            <p class="text-xl mb-8" style="color: var(--text-secondary);">
+                Responde 12 preguntas y recibe: potencial de ahorro, procesos priorizados y un plan de implementación de 90 días para <strong>[ICP]</strong>.
+            </p>
+
+            <div class="flex items-center justify-center space-x-8 text-sm" style="color: var(--text-muted);">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" style="color: var(--accent-primary);" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>[EMPRESAS_ANALIZADAS]+ diagnósticos realizados</span>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" style="color: var(--success);" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span>Diagnóstico en &lt; 1 hora</span>
+                </div>
+            </div>
+
+            <div class="hero-value-grid">
+                <div class="hero-value-card">
+                    <div class="hero-value-title">🧠 Insight accionable</div>
+                    <div class="hero-value-text">Prioridad de procesos + quick wins para <strong>[PROCESO_CRITICO]</strong>.</div>
+                </div>
+                <div class="hero-value-card">
+                    <div class="hero-value-title">💶 ROI estimado</div>
+                    <div class="hero-value-text">Proyección de ahorro mensual de <strong>[METRICA_CLAVE_1]</strong> y payback en [PAYBACK_ESTIMADO].</div>
+                </div>
+                <div class="hero-value-card">
+                    <div class="hero-value-title">📅 Roadmap 90 días</div>
+                    <div class="hero-value-text">Pasos concretos, herramientas sugeridas y responsables recomendados.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Container -->
+    <div class="form-card">
+        <form id="multiStepForm">
+            <!-- Step 1: Sobre tu negocio -->
+            <div class="form-step active" data-step="1">
+                <h2 class="text-3xl font-bold mb-2">Cuéntanos sobre tu negocio</h2>
+                <p class="mb-6" style="color: var(--text-muted);">Necesitamos entender tu contexto para darte recomendaciones precisas.</p>
+
+                <div class="input-group">
+                    <label for="nombreEmpresa">Nombre de la empresa</label>
+                    <input type="text" id="nombreEmpresa" name="nombreEmpresa" placeholder="Acme Corp" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="industria">¿En qué industria operas?</label>
+                    <select id="industria" name="industria" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="ecommerce">E-commerce y Retail</option>
+                        <option value="servicios">Servicios Profesionales</option>
+                        <option value="manufactura">Manufactura</option>
+                        <option value="salud">Salud y Bienestar</option>
+                        <option value="tech">Tecnología y Software</option>
+                        <option value="inmobiliaria">Inmobiliaria</option>
+                        <option value="educacion">Educación</option>
+                        <option value="legal">Legal y Compliance</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Tamaño de la empresa</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="option-card" onclick="selectOption(this, 'tamaño', '1-10')">
+                            <input type="radio" name="tamaño" value="1-10" id="size1">
+                            <label for="size1" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">1-10 empleados</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Startup / Micro</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="selectOption(this, 'tamaño', '11-50')">
+                            <input type="radio" name="tamaño" value="11-50" id="size2">
+                            <label for="size2" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">11-50 empleados</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Pequeña empresa</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="selectOption(this, 'tamaño', '51-200')">
+                            <input type="radio" name="tamaño" value="51-200" id="size3">
+                            <label for="size3" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">51-200 empleados</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Mediana empresa</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="selectOption(this, 'tamaño', '200+')">
+                            <input type="radio" name="tamaño" value="200+" id="size4">
+                            <label for="size4" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">200+ empleados</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Gran empresa</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Procesos actuales -->
+            <div class="form-step" data-step="2">
+                <h2 class="text-3xl font-bold mb-2">Procesos actuales</h2>
+                <p class="mb-6" style="color: var(--text-muted);">Identifica qué procesos podrían beneficiarse más de la automatización.</p>
+
+                <div class="input-group">
+                    <label>¿Qué procesos consumen más tiempo? (Selecciona todos los que apliquen)</label>
+                    <div class="space-y-3">
+                        <div class="option-card" onclick="toggleCheckbox(this, 'proceso1')">
+                            <input type="checkbox" name="procesos" value="atencion-cliente" id="proceso1">
+                            <label for="proceso1" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">Atención al cliente</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Consultas, soporte, tickets</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="toggleCheckbox(this, 'proceso2')">
+                            <input type="checkbox" name="procesos" value="documentacion" id="proceso2">
+                            <label for="proceso2" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">Documentación y reportes</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Informes, actas, documentos</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="toggleCheckbox(this, 'proceso3')">
+                            <input type="checkbox" name="procesos" value="datos" id="proceso3">
+                            <label for="proceso3" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">Entrada y procesamiento de datos</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Data entry, validación, limpieza</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="toggleCheckbox(this, 'proceso4')">
+                            <input type="checkbox" name="procesos" value="ventas" id="proceso4">
+                            <label for="proceso4" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">Prospección y ventas</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Lead gen, seguimiento, CRM</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="toggleCheckbox(this, 'proceso5')">
+                            <input type="checkbox" name="procesos" value="operaciones" id="proceso5">
+                            <label for="proceso5" class="flex items-center cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold">Operaciones internas</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Workflows, aprobaciones, coordinación</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="desafioMayor">¿Cuál es tu mayor desafío operativo actual?</label>
+                    <textarea id="desafioMayor" name="desafioMayor" rows="3" placeholder="Ej: Tardamos 4 horas/día en responder emails de clientes y los tiempos de respuesta están afectando la satisfacción..." required></textarea>
+                </div>
+            </div>
+
+            <!-- Step 3: Objetivos -->
+            <div class="form-step" data-step="3">
+                <h2 class="text-3xl font-bold mb-2">Tus objetivos</h2>
+                <p class="mb-6" style="color: var(--text-muted);">¿Qué quieres lograr con la automatización?</p>
+
+                <div class="input-group">
+                    <label>Prioridad principal (selecciona una)</label>
+                    <div class="space-y-3">
+                        <div class="option-card" onclick="selectOption(this, 'prioridad', 'tiempo')">
+                            <input type="radio" name="prioridad" value="tiempo" id="pri1">
+                            <label for="pri1" class="flex items-start cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold mb-1">Ahorrar tiempo del equipo</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Reducir horas en tareas repetitivas para enfocarnos en estrategia</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="selectOption(this, 'prioridad', 'costos')">
+                            <input type="radio" name="prioridad" value="costos" id="pri2">
+                            <label for="pri2" class="flex items-start cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold mb-1">Reducir costos operativos</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Hacer más con menos recursos y optimizar presupuesto</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="selectOption(this, 'prioridad', 'calidad')">
+                            <input type="radio" name="prioridad" value="calidad" id="pri3">
+                            <label for="pri3" class="flex items-start cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold mb-1">Mejorar calidad y reducir errores</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Minimizar errores humanos y estandarizar procesos</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="option-card" onclick="selectOption(this, 'prioridad', 'escalar')">
+                            <input type="radio" name="prioridad" value="escalar" id="pri4">
+                            <label for="pri4" class="flex items-start cursor-pointer">
+                                <div class="option-icon"></div>
+                                <div>
+                                    <div class="font-semibold mb-1">Escalar sin contratar</div>
+                                    <div class="text-sm" style="color: var(--text-muted);">Crecer el negocio sin aumentar proporcional el equipo</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="urgencia">¿Cuándo necesitas ver resultados?</label>
+                    <select id="urgencia" name="urgencia" required>
+                        <option value="">Selecciona timeframe</option>
+                        <option value="30-dias">En 30 días - Urgente</option>
+                        <option value="90-dias">En 90 días - Planificado</option>
+                        <option value="6-meses">En 6 meses - Estratégico</option>
+                        <option value="explorando">Explorando opciones</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="presupuesto">Presupuesto aproximado (€)</label>
+                    <select id="presupuesto" name="presupuesto" required>
+                        <option value="">Selecciona rango</option>
+                        <option value="5-15k">€5,000 - €15,000</option>
+                        <option value="15-30k">€15,000 - €30,000</option>
+                        <option value="30-50k">€30,000 - €50,000</option>
+                        <option value="50k+">€50,000+</option>
+                        <option value="flexible">Flexible según ROI</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Step 4: Tus datos -->
+            <div class="form-step" data-step="4">
+                <h2 class="text-3xl font-bold mb-2">¡Casi listo!</h2>
+                <p class="mb-6" style="color: var(--text-muted);">Solo necesitamos tus datos para enviarte el diagnóstico personalizado.</p>
+
+                <div class="input-group">
+                    <label for="nombreContacto">Tu nombre completo</label>
+                    <input type="text" id="nombreContacto" name="nombreContacto" placeholder="Juan Pérez" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email corporativo</label>
+                    <input type="email" id="email" name="email" placeholder="juan@empresa.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefono">Teléfono (opcional)</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                </div>
+
+                <div class="input-group">
+                    <label for="cargo">Tu cargo/rol</label>
+                    <input type="text" id="cargo" name="cargo" placeholder="CEO, CTO, Director Operaciones..." required>
+                </div>
+
+                <!-- Summary -->
+                <div class="summary-card">
+                    <h3 class="font-bold text-lg mb-3">📊 Resumen de tu diagnóstico</h3>
+                    <div class="summary-item">
+                        <span style="color: var(--text-muted);">Empresa:</span>
+                        <span id="summaryEmpresa" class="font-semibold">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span style="color: var(--text-muted);">Industria:</span>
+                        <span id="summaryIndustria" class="font-semibold">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span style="color: var(--text-muted);">Tamaño:</span>
+                        <span id="summaryTamaño" class="font-semibold">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span style="color: var(--text-muted);">Prioridad:</span>
+                        <span id="summaryPrioridad" class="font-semibold">-</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 rounded-lg" style="background: rgba(99, 102, 241, 0.05); border: 1px solid rgba(99, 102, 241, 0.2);">
+                    <label class="flex items-start cursor-pointer">
+                        <input type="checkbox" name="gdpr" required class="mt-1 mr-3">
+                        <span class="text-sm" style="color: var(--text-secondary);">
+                            Acepto recibir el diagnóstico personalizado y comunicaciones relacionadas. Sin spam. GDPR compliant. <a href="[LINK_PRIVACIDAD]" class="underline" style="color: var(--accent-primary);">Ver política de privacidad</a>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Success Step -->
+            <div class="form-step" data-step="5">
+                <div class="success-state">
+                    <div class="success-icon">✓</div>
+                    <h2 class="text-3xl font-bold mb-4">¡Diagnóstico enviado!</h2>
+                    <p class="text-lg mb-6" style="color: var(--text-secondary);">
+                        Recibirás tu diagnóstico personalizado en <strong>[PLAZO_DIAGNOSTICO]</strong> en <strong id="emailConfirmacion"></strong>
+                    </p>
+
+                    <div class="inline-flex items-center px-6 py-3 rounded-lg mb-8" style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success);">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" style="color: var(--success);" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                        </svg>
+                        <span style="color: var(--success); font-weight: 600;">Revisa tu bandeja de entrada</span>
+                    </div>
+
+                    <div class="text-left max-w-md mx-auto space-y-4 mb-8">
+                        <h3 class="font-semibold text-lg mb-3">📋 Tu diagnóstico incluirá:</h3>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="currentColor" style="color: var(--accent-primary);" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Análisis de oportunidades</div>
+                                <div class="text-sm" style="color: var(--text-muted);">Top 3 procesos con mayor ROI potencial</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="currentColor" style="color: var(--accent-primary);" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Estimación de ahorros</div>
+                                <div class="text-sm" style="color: var(--text-muted);">Proyección de tiempo y coste ahorrados</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="currentColor" style="color: var(--accent-primary);" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Roadmap sugerido</div>
+                                <div class="text-sm" style="color: var(--text-muted);">Plan de implementación de 90 días</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 mr-3 mt-1 flex-shrink-0" fill="currentColor" style="color: var(--accent-primary);" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <div class="font-semibold">Llamada estratégica (30 min)</div>
+                                <div class="text-sm" style="color: var(--text-muted);">Sesión para responder tus preguntas</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="window.location.href='[CTA_URL]'" class="btn btn-primary">
+                        Volver a [CTA_BOTON_TEXTO]
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between mt-8 pt-6 border-t border-[var(--border)]" id="formNav">
+                <button type="button" id="prevBtn" class="btn btn-secondary" style="display: none;">
+                    ← Anterior
+                </button>
+                <div></div>
+                <button type="button" id="nextBtn" class="btn btn-primary">
+                    Siguiente →
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4" style="background: var(--bg-secondary); border-top: 1px solid var(--border);">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="font-bold text-xl mb-4" style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                [TU AGENCIA]
+            </div>
+            <p class="mb-4" style="color: var(--text-muted);">
+                Automatización con IA para [NICHO]. Resultados medibles en 90 días.
+            </p>
+            <div class="flex justify-center space-x-6 text-sm" style="color: var(--text-muted);">
+                <a href="[LINK_PRIVACIDAD]" class="hover:text-[var(--accent-primary)]">Política de privacidad</a>
+                <a href="[LINK_TERMINOS]" class="hover:text-[var(--accent-primary)]">Términos</a>
+                <a href="[CTA_URL]" class="hover:text-[var(--accent-primary)]">Contacto</a>
+            </div>
+            <p class="mt-6 text-sm" style="color: var(--text-muted);">
+                &copy; 2025 [TU AGENCIA]. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Form Logic -->
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        // Initialize
+        updateProgress();
+        updateButtons();
+
+        // Event Listeners
+        document.getElementById('prevBtn').addEventListener('click', prevStep);
+        document.getElementById('nextBtn').addEventListener('click', nextStep);
+
+        function nextStep() {
+            if (!validateCurrentStep()) {
+                return;
+            }
+
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                submitForm();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+
+            // Show current step
+            document.querySelector(`.form-step[data-step="${step}"]`).classList.add('active');
+
+            // Update progress
+            updateProgress();
+            updateButtons();
+
+            // Update summary if on last step
+            if (step === 4) {
+                updateSummary();
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function validateCurrentStep() {
+            const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+            const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+
+            for (let input of inputs) {
+                if (!input.value && input.type !== 'radio' && input.type !== 'checkbox') {
+                    input.focus();
+                    alert('Por favor completa todos los campos requeridos');
+                    return false;
+                }
+
+                // Validate radio groups
+                if (input.type === 'radio') {
+                    const radioGroup = currentStepEl.querySelectorAll(`input[name="${input.name}"]`);
+                    const checked = Array.from(radioGroup).some(r => r.checked);
+                    if (!checked) {
+                        alert('Por favor selecciona una opción');
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        function updateProgress() {
+            const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            document.getElementById('progressLine').style.width = `${percentage}%`;
+
+            // Update step indicators
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+
+                if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                } else if (stepNum === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const formNav = document.getElementById('formNav');
+
+            if (currentStep === 1) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'block';
+            }
+
+            if (currentStep === totalSteps) {
+                nextBtn.textContent = 'Enviar diagnóstico →';
+            } else {
+                nextBtn.textContent = 'Siguiente →';
+            }
+
+            if (currentStep === totalSteps + 1) {
+                formNav.style.display = 'none';
+            } else {
+                formNav.style.display = 'flex';
+            }
+        }
+
+        function updateSummary() {
+            document.getElementById('summaryEmpresa').textContent =
+                document.getElementById('nombreEmpresa').value || '-';
+
+            const industriaSelect = document.getElementById('industria');
+            document.getElementById('summaryIndustria').textContent =
+                industriaSelect.options[industriaSelect.selectedIndex]?.text || '-';
+
+            const tamañoRadio = document.querySelector('input[name="tamaño"]:checked');
+            document.getElementById('summaryTamaño').textContent =
+                tamañoRadio?.value || '-';
+
+            const prioridadRadio = document.querySelector('input[name="prioridad"]:checked');
+            const prioridadLabel = prioridadRadio ? prioridadRadio.nextElementSibling?.querySelector('.font-semibold').textContent : '-';
+            document.getElementById('summaryPrioridad').textContent = prioridadLabel;
+        }
+
+        function submitForm() {
+            // Get form data
+            const formData = new FormData(document.getElementById('multiStepForm'));
+            const data = Object.fromEntries(formData.entries());
+
+            // TODO: Send to your backend/webhook
+            console.log('Form submitted:', data);
+
+            // Show success step
+            currentStep = totalSteps + 1;
+            document.getElementById('emailConfirmacion').textContent = data.email;
+            showStep(5);
+
+            // Track event (optional)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'form_submit', {
+                    'event_category': 'engagement',
+                    'event_label': 'multistep_diagnostic',
+                    'value': 1
+                });
+            }
+        }
+
+        // Helper functions for option cards
+        function selectOption(card, name, value) {
+            // Deselect all in group
+            const group = document.querySelectorAll(`input[name="${name}"]`);
+            group.forEach(input => {
+                input.closest('.option-card').classList.remove('selected');
+                input.checked = false;
+            });
+
+            // Select clicked
+            card.classList.add('selected');
+            card.querySelector('input').checked = true;
+        }
+
+        function toggleCheckbox(card, checkboxId) {
+            const checkbox = document.getElementById(checkboxId);
+            checkbox.checked = !checkbox.checked;
+
+            if (checkbox.checked) {
+                card.classList.add('selected');
+            } else {
+                card.classList.remove('selected');
+            }
+        }
+    </script>
+</body>
+</html>

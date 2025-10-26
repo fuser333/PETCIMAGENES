@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImagemIA - Recupera $300K-$500K Anuales en Ingresos Perdidos | Centros de Imagenología</title>
+    <meta name="description" content="Aumentamos utilización de equipos de imagenología del 76% al 90%+, recuperando $300K-$500K anuales. Diagnóstico gratuito sin compromiso.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ImagemIA - Recupera $300K-$500K Anuales">
+    <meta property="og:description" content="Transformamos centros de imagenología: llevar utilización del 76% al 90%+ con IA. ROI visible en 45 días.">
+    <meta property="og:url" content="https://imagemia.com">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Manrope', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#3B82F6',      // Azul - confianza tech
+                            secondary: '#1E293B',   // Gris oscuro - profesional
+                            accent: '#10B981',      // Verde - éxito/resultados
+                            danger: '#EF4444',      // Rojo - gravedad del problema
+                            light: '#F8FAFC',       // Gris muy claro
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        *:focus-visible {
+            outline: 3px solid #3B82F6;
+            outline-offset: 2px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-down {
+            animation: slideDown 0.6s ease-out;
+        }
+
+        /* Sticky CTA Bar */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            transform: translateY(100px);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-cta.show {
+            transform: translateY(0);
+        }
+
+        .sticky-cta.hidden {
+            display: none;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .comparison-table td, .comparison-table th {
+            padding: 16px;
+            border: 1px solid #E5E7EB;
+        }
+
+        .comparison-table .before {
+            background-color: #FEE2E2;
+        }
+
+        .comparison-table .after {
+            background-color: #ECFDF5;
+        }
+
+        /* Form Progress */
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #3B82F6 var(--progress), #E5E7EB var(--progress));
+        }
+
+        /* KPI Panel */
+        .kpi-card {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F0F9FF 100%);
+            border: 1px solid #E0E7FF;
+        }
+
+        .kpi-card.success {
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            border: 1px solid #BBEF63;
+        }
+
+        .kpi-value {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #3B82F6;
+        }
+
+        .kpi-card.success .kpi-value {
+            color: #10B981;
+        }
+
+        /* Scrollspy */
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active {
+            color: #3B82F6;
+            border-bottom: 2px solid #3B82F6;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body class="font-body text-gray-900 bg-white">
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- NAVEGACIÓN (STICKY) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#hero" class="font-heading text-2xl font-bold text-brand-primary">
+                ImagemIA
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#problema" class="nav-link hover:text-brand-primary transition-colors">El Problema</a>
+                <a href="#transformacion" class="nav-link hover:text-brand-primary transition-colors">Transformación</a>
+                <a href="#como-funciona" class="nav-link hover:text-brand-primary transition-colors">Cómo Funciona</a>
+                <a href="#beneficios" class="nav-link hover:text-brand-primary transition-colors">Beneficios</a>
+            </div>
+            <a href="#formulario" class="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
+                Diagnóstico Gratis →
+            </a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- HERO (StoryBrand Framework) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="hero" class="bg-gradient-to-br from-blue-50 to-white py-20 md:py-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- Subtítulo -->
+                <p class="text-brand-secondary font-semibold text-sm uppercase tracking-widest mb-6 fade-in-up">
+                    Para Centros de Imagenología Premium
+                </p>
+
+                <!-- H1 Principal -->
+                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-brand-secondary mb-8 leading-tight fade-in-up">
+                    Recupera <span class="text-brand-primary">$300K-$500K</span> anuales en ingresos perdidos
+                </h1>
+
+                <!-- Descripción -->
+                <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed fade-in-up">
+                    Llevamos la utilización de tus equipos de imagenología del <strong>76% al 90%+</strong>, sin invertir un solo peso en equipamiento nuevo. <strong>Resultados medibles en 45 días.</strong>
+                </p>
+
+                <!-- CTAs Principales -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 fade-in-up">
+                    <a href="#formulario" class="inline-flex items-center justify-center px-8 py-4 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-lg">
+                        Solicita Diagnóstico 30 min — Gratis
+                    </a>
+                    <a href="#transformacion" class="inline-flex items-center justify-center px-8 py-4 border-2 border-brand-primary text-brand-primary font-bold rounded-lg hover:bg-blue-50 transition-all text-lg">
+                        Ver Transformación →
+                    </a>
+                </div>
+
+                <!-- Trust Line -->
+                <p class="text-sm text-gray-600 mb-12">
+                    ✓ Sin compromiso • ✓ Especialistas en imagenología • ✓ Garantía de resultados
+                </p>
+
+                <!-- Hero Stats -->
+                <div class="grid grid-cols-3 gap-4 md:gap-8 bg-white rounded-lg shadow-md p-8 border border-blue-100">
+                    <div>
+                        <p class="text-3xl md:text-4xl font-bold text-brand-primary">$300K-$500K</p>
+                        <p class="text-xs md:text-sm text-gray-600 mt-2">Ingresos recuperables/año</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-bold text-brand-accent">+14pp</p>
+                        <p class="text-xs md:text-sm text-gray-600 mt-2">Aumento utilización equipo</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl md:text-4xl font-bold text-brand-accent">45 días</p>
+                        <p class="text-xs md:text-sm text-gray-600 mt-2">Para ver resultados medibles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- PROBLEMA (PAS Framework - Agitate) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="problema" class="py-20 md:py-28 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto mb-16">
+                <p class="text-brand-danger font-semibold text-sm uppercase tracking-widest mb-4">
+                    El Problema Real
+                </p>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Tu equipo de <span class="text-brand-danger">$2M está parado el 24% del tiempo</span>
+                </h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Eso significa dinero que sabes que podrías estar ganando pero <strong>se evapora cada día</strong> en ausentismo de citas, cancelaciones de última hora y slots vacíos que nadie rellena.
+                </p>
+            </div>
+
+            <!-- Pain Points Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pain 1 -->
+                <div class="bg-white border-2 border-red-200 rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">⏱️</div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">Caos de Agendamiento</h3>
+                            <p class="text-gray-700">No tienes visibilidad real de cuántas citas se concretarán. Equipos esperando pacientes que nunca llegan. Nómina fija con ingresos variables.</p>
+                            <p class="text-2xl font-bold text-brand-danger mt-4">Costo: 10-20 horas perdidas/semana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pain 2 -->
+                <div class="bg-white border-2 border-red-200 rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">💰</div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">Dinero Evaporándose</h3>
+                            <p class="text-gray-700">$300K-$500K anuales en ingresos que podrías estar facturando pero no lo estás. Es dinero real que va directo de tu cuenta bancaria.</p>
+                            <p class="text-2xl font-bold text-brand-danger mt-4">Impacto: ~$25K-$40K/mes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pain 3 -->
+                <div class="bg-white border-2 border-red-200 rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">📊</div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">Impredecibilidad</h3>
+                            <p class="text-gray-700">No puedes proyectar flujo de caja con certeza. ¿Cuánto facturarás esta semana? No lo sabes. Difícil de planificar y crecer.</p>
+                            <p class="text-2xl font-bold text-brand-danger mt-4">Problema: Paraliza inversiones</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pain 4 -->
+                <div class="bg-white border-2 border-red-200 rounded-lg p-8 hover:shadow-lg transition-all">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">⚙️</div>
+                        <div>
+                            <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">Procesos Manuales</h3>
+                            <p class="text-gray-700">Sin sistema inteligente de confirmación y re-agendamiento. Los pacientes olvidan, cancelen, y nadie los recupera.</p>
+                            <p class="text-2xl font-bold text-brand-danger mt-4">Resultado: 24% ausentismo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Message -->
+            <div class="max-w-3xl mx-auto mt-16 bg-red-50 border-l-4 border-brand-danger rounded-r-lg p-8">
+                <p class="text-lg font-semibold text-gray-900 mb-2">
+                    La pregunta clave:
+                </p>
+                <p class="text-gray-700">
+                    ¿Cuánto tiempo más vas a permitir que tu equipo de $2M trabaje al 76% cuando podría estar al 90%+? <strong>Cada mes que esperes son ~$25K-$40K que se evaporan.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- TRANSFORMACIÓN (Before-After-Bridge) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="transformacion" class="py-20 md:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <p class="text-brand-primary font-semibold text-sm uppercase tracking-widest mb-4">
+                    Transformación Demostrada
+                </p>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">
+                    De caos operativo a sistema predecible
+                </h2>
+            </div>
+
+            <!-- Before-After Comparison -->
+            <div class="bg-gradient-to-r from-red-50 to-green-50 rounded-lg overflow-hidden shadow-lg mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <!-- ANTES -->
+                    <div class="p-10 border-r border-gray-200">
+                        <h3 class="font-heading text-2xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+                            <span class="text-3xl">❌</span> ANTES (Día 0)
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Equipos al 76% utilización</p>
+                                    <p class="text-sm text-gray-600">$2M de capacidad ociosa</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">24% de cancelaciones</p>
+                                    <p class="text-sm text-gray-600">Ausentismo y cancelaciones de última hora</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Flujo de caja impredecible</p>
+                                    <p class="text-sm text-gray-600">No sabes cuánto facturarás</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Procesos manuales</p>
+                                    <p class="text-sm text-gray-600">Sin confirmación inteligente</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-red-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">-$300K-$500K/año</p>
+                                    <p class="text-sm text-gray-600">Dinero directo que no entra a banco</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- DESPUÉS -->
+                    <div class="p-10">
+                        <h3 class="font-heading text-2xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+                            <span class="text-3xl">✅</span> DESPUÉS (Día 45)
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Equipos al 90%+ utilización</p>
+                                    <p class="text-sm text-gray-600">+14 puntos porcentuales = $300K-$500K adicionales</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">-30% a -50% cancelaciones</p>
+                                    <p class="text-sm text-gray-600">Confirmación automática + re-agendamiento</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Flujo predecible</p>
+                                    <p class="text-sm text-gray-600">Sabes exactamente cuánto facturarás</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Sistema inteligente 24/7</p>
+                                    <p class="text-sm text-gray-600">IA rellena slots automáticamente</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-green-500 font-bold text-xl">•</span>
+                                <div>
+                                    <p class="font-semibold text-gray-900">+$300K-$500K/año</p>
+                                    <p class="text-sm text-gray-600">ROI visible + Paz mental</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bridge: Cómo Llegamos Ahí -->
+            <div class="max-w-3xl mx-auto">
+                <h3 class="font-heading text-2xl font-bold text-gray-900 mb-12 text-center">
+                    El Puente: Cómo Llegamos del Antes al Después en 45 Días
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Paso 1 -->
+                    <div class="relative">
+                        <div class="bg-blue-50 rounded-lg p-8 border-2 border-brand-primary text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-brand-primary text-white font-bold rounded-full text-lg mb-4">
+                                1
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-gray-900 mb-3">Auditoría (Semana 1)</h4>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Analizamos tus datos: cancelaciones, ausentismo, slots vacíos. Cuantificamos exactamente cuánto dinero estás perdiendo.
+                            </p>
+                            <p class="text-brand-primary font-bold text-sm mt-4">Entregable: Reporte + Roadmap ROI</p>
+                        </div>
+                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-3xl hidden md:block">→</div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="relative md:mt-8">
+                        <div class="bg-blue-50 rounded-lg p-8 border-2 border-brand-primary text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-brand-primary text-white font-bold rounded-full text-lg mb-4">
+                                2
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-gray-900 mb-3">Implementación (Semanas 2-4)</h4>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Desplegamos agente de citas inteligente, confirmación automática y re-agendamiento. Sistema funcionando en vivo.
+                            </p>
+                            <p class="text-brand-primary font-bold text-sm mt-4">Entregable: Sistema + Training</p>
+                        </div>
+                        <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-3xl hidden md:block">→</div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="relative md:mt-16">
+                        <div class="bg-green-50 rounded-lg p-8 border-2 border-brand-accent text-center">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-brand-accent text-white font-bold rounded-full text-lg mb-4">
+                                3
+                            </div>
+                            <h4 class="font-heading font-bold text-lg text-gray-900 mb-3">Resultados (Día 45)</h4>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Medimos impacto real: +14pp utilización, -30-50% cancelaciones, $300K-$500K/año recuperados.
+                            </p>
+                            <p class="text-brand-accent font-bold text-sm mt-4">Entregable: Dashboard + Case Study</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guarantee Badge -->
+            <div class="mt-16 bg-green-100 border-2 border-brand-accent rounded-lg p-8 max-w-2xl mx-auto text-center">
+                <p class="text-lg font-bold text-brand-secondary mb-2">
+                    🏆 Garantía Comprobada
+                </p>
+                <p class="text-gray-900 font-semibold">
+                    Reducción mínima de 30% en tiempo operativo en 45 días o reembolso 100%
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- CÓMO FUNCIONA (StoryBrand Plan Step) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="como-funciona" class="py-20 md:py-28 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">
+                    Cómo Trabajamos Contigo
+                </h2>
+                <p class="text-gray-700 mt-4">
+                    Proceso simple y transparente. Sin sorpresas. Sin cambios de sistemas.
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="text-5xl font-bold text-brand-primary mb-4">01</div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        Diagnóstico (30 min)
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Analizamos tu situación actual sin compromiso. Hablamos con tu gerente/director. Entiendemos tus números reales.
+                    </p>
+                    <p class="text-sm text-gray-600 mt-4 font-medium">
+                        Entrega: Reporte de oportunidad
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="text-5xl font-bold text-brand-primary mb-4">02</div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        Propuesta Ejecutiva (1 semana)
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Te presentamos plan específico con metrics, timeline y pricing. ROI cuantificado. Sin ambigüedades.
+                    </p>
+                    <p class="text-sm text-gray-600 mt-4 font-medium">
+                        Entrega: One-pager + Contrato
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                    <div class="text-5xl font-bold text-brand-primary mb-4">03</div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        Implementación (4 semanas)
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Desplegamos, entrenamos a tu equipo, medimos resultados. Dashboard en vivo. Soporte durante el proceso.
+                    </p>
+                    <p class="text-sm text-gray-600 mt-4 font-medium">
+                        Entrega: Sistema + Métricas
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="mt-16 bg-white rounded-lg p-8 border border-gray-200">
+                <h3 class="font-heading font-bold text-xl text-gray-900 mb-8">
+                    Timeline de Implementación
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold">
+                                0
+                            </div>
+                            <div class="w-1 h-12 bg-gray-200 my-2"></div>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Día 1: Auditoría & Análisis</p>
+                            <p class="text-gray-600 text-sm">Acceso a datos, revisión de sistemas, cálculo de oportunidad</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-400 text-white flex items-center justify-center font-bold">
+                                7
+                            </div>
+                            <div class="w-1 h-12 bg-gray-200 my-2"></div>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Día 7: Propuesta Ejecutiva</p>
+                            <p class="text-gray-600 text-sm">Plan detallado, pricing, timeline, garantías</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-blue-400 text-white flex items-center justify-center font-bold">
+                                21
+                            </div>
+                            <div class="w-1 h-12 bg-gray-200 my-2"></div>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Día 21: Sistema en Vivo</p>
+                            <p class="text-gray-600 text-sm">Deploy del agente, training del equipo, primeras confirmaciones automáticas</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-12 h-12 rounded-full bg-brand-accent text-white flex items-center justify-center font-bold">
+                                45
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-900">Día 45: Resultados Medibles</p>
+                            <p class="text-gray-600 text-sm">Dashboard en vivo, métricas de impacto, recomendaciones de escalado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- BENEFICIOS (AIDA Framework) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="beneficios" class="py-20 md:py-28 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <p class="text-brand-primary font-semibold text-sm uppercase tracking-widest mb-4">
+                    Lo Que Obtienes
+                </p>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">
+                    Resultados Concretos y Medibles
+                </h2>
+            </div>
+
+            <!-- KPI Panel -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="kpi-card rounded-lg p-8 text-center">
+                    <p class="kpi-value">-30-50%</p>
+                    <p class="text-gray-700 font-semibold mt-3">Cancelaciones</p>
+                    <p class="text-gray-600 text-sm mt-2">Confirmación automática + re-agendamiento</p>
+                </div>
+
+                <div class="kpi-card success rounded-lg p-8 text-center">
+                    <p class="kpi-value">+14pp</p>
+                    <p class="text-gray-700 font-semibold mt-3">Utilización Equipos</p>
+                    <p class="text-gray-600 text-sm mt-2">Del 76% al 90%+ en 45 días</p>
+                </div>
+
+                <div class="kpi-card success rounded-lg p-8 text-center">
+                    <p class="kpi-value">$300K-$500K</p>
+                    <p class="text-gray-700 font-semibold mt-3">Ingresos Adicionales/Año</p>
+                    <p class="text-gray-600 text-sm mt-2">ROI visible en 45 días</p>
+                </div>
+
+                <div class="kpi-card rounded-lg p-8 text-center">
+                    <p class="kpi-value">45</p>
+                    <p class="text-gray-700 font-semibold mt-3">Días para Ver Resultados</p>
+                    <p class="text-gray-600 text-sm mt-2">O reembolso 100%</p>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-blue-50 rounded-lg p-8 border border-blue-200">
+                    <div class="text-3xl mb-4">🤖</div>
+                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">
+                        Agente de Citas Inteligente
+                    </h3>
+                    <p class="text-gray-700">
+                        Bot 24/7 que confirma citas, recuerda a pacientes y re-agenda automáticamente cuando cancelan. Reduce trabajo manual en 90%.
+                    </p>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-8 border border-blue-200">
+                    <div class="text-3xl mb-4">📊</div>
+                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">
+                        Dashboard de Métricas
+                    </h3>
+                    <p class="text-gray-700">
+                        Visualiza en tiempo real: tasa de confirmación, utilización de equipos, ingresos protegidos. Datos siempre a mano.
+                    </p>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-8 border border-blue-200">
+                    <div class="text-3xl mb-4">🚀</div>
+                    <h3 class="font-heading font-bold text-lg text-gray-900 mb-3">
+                        Soporte Especializado
+                    </h3>
+                    <p class="text-gray-700">
+                        Equipo que entiende imagenología. No consultores genéricos. Optimización continua basada en tus datos reales.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Additional Benefits -->
+            <div class="mt-16 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-12">
+                <h3 class="font-heading font-bold text-2xl text-gray-900 mb-8 text-center">
+                    Otros Beneficios
+                </h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-primary font-bold text-xl">✓</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Sin cambios en tus sistemas actuales</p>
+                            <p class="text-gray-700 text-sm">Integramos con lo que ya tienes. Cero disrupción.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-primary font-bold text-xl">✓</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Implementación rápida (4 semanas)</p>
+                            <p class="text-gray-700 text-sm">No esperaras meses. Resultados visibles en 45 días.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-primary font-bold text-xl">✓</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">Garantía de resultados</p>
+                            <p class="text-gray-700 text-sm">Si no logramos -30% en operaciones, devolvemos tu dinero.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-primary font-bold text-xl">✓</span>
+                        <div>
+                            <p class="font-semibold text-gray-900">ROI visibles en primer mes</p>
+                            <p class="text-gray-700 text-sm">Ves dinero adicional en tu cuenta bancaria desde día 45.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- FAQ -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="py-20 md:py-28 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900">
+                    Preguntas Frecuentes
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-md transition-all group">
+                    <summary class="font-semibold text-lg text-gray-900 flex items-center justify-between">
+                        ¿Necesito cambiar mis sistemas actuales?
+                        <span class="text-2xl text-brand-primary group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        No. Nuestro sistema se integra con lo que ya tienes. Ya sea que uses un RIS específico, un calendario manual o un CMS, nos adaptamos. Cero disrupción, solo resultados.
+                    </p>
+                </details>
+
+                <!-- FAQ 2 -->
+                <details class="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-md transition-all group">
+                    <summary class="font-semibold text-lg text-gray-900 flex items-center justify-between">
+                        ¿Cuánto tiempo hasta ver resultados?
+                        <span class="text-2xl text-brand-primary group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        Resultados medibles en 45 días. Los primeros cambios en confirmación de citas los ves en semana 3. En día 45 tienes métricas claras de impacto anual.
+                    </p>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-md transition-all group">
+                    <summary class="font-semibold text-lg text-gray-900 flex items-center justify-between">
+                        ¿Cuál es el costo exacto?
+                        <span class="text-2xl text-brand-primary group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        Depende del tamaño de tu centro. Ofrecemos un diagnóstico gratuito donde cuantificamos exactamente tu oportunidad. El ROI es tan claro que muchos clientes tiene acceso a programas de ayudas (Kit Digital, etc).
+                    </p>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-md transition-all group">
+                    <summary class="font-semibold text-lg text-gray-900 flex items-center justify-between">
+                        ¿Qué sucede si no vemos los resultados?
+                        <span class="text-2xl text-brand-primary group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        Garantía clara: reducción mínima de 30% en tiempo operativo en 45 días o te devolvemos el 100% de tu inversión. Sin preguntas, sin sorpresas. Nuestro trabajo depende de tus resultados.
+                    </p>
+                </details>
+
+                <!-- FAQ 5 -->
+                <details class="bg-white rounded-lg border border-gray-200 p-6 cursor-pointer hover:shadow-md transition-all group">
+                    <summary class="font-semibold text-lg text-gray-900 flex items-center justify-between">
+                        ¿Por qué confiar en ustedes?
+                        <span class="text-2xl text-brand-primary group-open:rotate-180 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-700 mt-4">
+                        Somos el único equipo en LATAM combinando 20 años de experiencia empresarial real + formación en IA de Silicon Valley. No vendemos tecnología. Vendemos dinero recuperado. Nuestro fundador ha quebrado empresas, ha gestionado nóminas, ha perdido dinero. Entiende tu realidad porque la ha vivido.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- FORMULARIO (Progressive Disclosure) -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="formulario" class="py-20 md:py-28 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Solicita tu Diagnóstico Gratuito
+                </h2>
+                <p class="text-gray-700 text-lg">
+                    30 minutos. Sin compromiso. Cuantificamos exactamente cuánto dinero estás dejando sobre la mesa.
+                </p>
+            </div>
+
+            <!-- Form Container -->
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-10 shadow-lg">
+                <!-- Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex justify-between text-sm font-semibold text-gray-700 mb-2">
+                        <span>Paso <span class="form-current">1</span> de 4</span>
+                        <span id="progress-text">25%</span>
+                    </div>
+                    <div class="progress-bar h-2 rounded-full" style="--progress: 25%"></div>
+                </div>
+
+                <form id="mainForm" class="space-y-6">
+                    <!-- Step 1: Información Básica -->
+                    <div class="form-step active">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-6">
+                            Información Básica
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="nombre" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    Tu nombre *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="nombre"
+                                    name="nombre"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                    placeholder="Juan García"
+                                />
+                            </div>
+                            <div>
+                                <label for="empresa" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    Nombre del centro *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="empresa"
+                                    name="empresa"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                    placeholder="Centro Médico XYZ"
+                                />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    Email *
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                    placeholder="juan@centro.com"
+                                />
+                            </div>
+                            <div>
+                                <label for="telefono" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    Teléfono
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="telefono"
+                                    name="telefono"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                    placeholder="+34 600 000 000"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Contexto del Negocio -->
+                    <div class="form-step">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-6">
+                            Contexto del Negocio
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="ubicacion" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    ¿Dónde está ubicado tu centro? *
+                                </label>
+                                <select
+                                    id="ubicacion"
+                                    name="ubicacion"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                >
+                                    <option value="">Selecciona tu país</option>
+                                    <option value="ec">Ecuador</option>
+                                    <option value="co">Colombia</option>
+                                    <option value="pe">Perú</option>
+                                    <option value="mx">México</option>
+                                    <option value="other">Otro (LATAM)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="equipos" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    ¿Cuántos equipos de imagenología tienes? *
+                                </label>
+                                <select
+                                    id="equipos"
+                                    name="equipos"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                >
+                                    <option value="">Selecciona cantidad</option>
+                                    <option value="1">1 equipo (MRI, CT, etc)</option>
+                                    <option value="2-3">2-3 equipos</option>
+                                    <option value="4-5">4-5 equipos</option>
+                                    <option value="5+">Más de 5</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="citas-mensual" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    ¿Aproximadamente cuántas citas manejas por mes? *
+                                </label>
+                                <input
+                                    type="number"
+                                    id="citas-mensual"
+                                    name="citas_mensual"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                    placeholder="500"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Objetivos -->
+                    <div class="form-step">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-6">
+                            Tus Objetivos
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-900 mb-4">
+                                    ¿Cuál es tu mayor dolor? *
+                                </label>
+                                <div class="space-y-3">
+                                    <label class="flex items-start gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                                        <input type="radio" name="dolor" value="cancelaciones" required class="mt-1">
+                                        <span class="text-gray-700">Demasiadas cancelaciones/ausentismo de pacientes</span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                                        <input type="radio" name="dolor" value="equipos-parados" required class="mt-1">
+                                        <span class="text-gray-700">Equipos parados con equipos esperando pacientes</span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                                        <input type="radio" name="dolor" value="flujo-caja" required class="mt-1">
+                                        <span class="text-gray-700">Flujo de caja impredecible</span>
+                                    </label>
+                                    <label class="flex items-start gap-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-blue-50 transition-colors">
+                                        <input type="radio" name="dolor" value="procesos-manual" required class="mt-1">
+                                        <span class="text-gray-700">Procesos manuales que consumen mucho tiempo</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="presupuesto" class="block text-sm font-semibold text-gray-900 mb-2">
+                                    ¿Cuál es tu presupuesto estimado para una solución como esta? *
+                                </label>
+                                <select
+                                    id="presupuesto"
+                                    name="presupuesto"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent"
+                                >
+                                    <option value="">Selecciona rango</option>
+                                    <option value="bajo">Menos de $5,000</option>
+                                    <option value="medio">$5,000 - $15,000</option>
+                                    <option value="alto">$15,000 - $50,000</option>
+                                    <option value="abierto">$50,000+</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Resumen y Confirmación -->
+                    <div class="form-step">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-6">
+                            Revisa tus Datos
+                        </h3>
+                        <div class="bg-white rounded-lg p-6 border border-gray-200 mb-6 space-y-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Centro:</span>
+                                <span class="font-semibold text-gray-900" id="summary-empresa">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Contacto:</span>
+                                <span class="font-semibold text-gray-900" id="summary-email">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Equipos:</span>
+                                <span class="font-semibold text-gray-900" id="summary-equipos">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Mayor Dolor:</span>
+                                <span class="font-semibold text-gray-900" id="summary-dolor">-</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 border-2 border-brand-accent rounded-lg p-6 mb-6">
+                            <p class="text-gray-900 font-semibold mb-2">
+                                ✓ Todo listo para tu diagnóstico gratuito
+                            </p>
+                            <p class="text-gray-700 text-sm">
+                                Te contactaremos en las próximas 24 horas para agendar tu sesión de 30 minutos. Analizaremos tu situación específica y cuantificamos exactamente cuánto dinero estás dejando sobre la mesa.
+                            </p>
+                        </div>
+
+                        <label class="flex items-start gap-2 text-sm text-gray-700 mb-6">
+                            <input type="checkbox" name="privacidad" required class="mt-1">
+                            <span>He leído y acepto la <a href="#" class="text-brand-primary hover:underline">política de privacidad</a> *</span>
+                        </label>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex gap-4 justify-between pt-6 border-t border-gray-300">
+                        <button
+                            type="button"
+                            id="prevBtn"
+                            class="px-8 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            ← Atrás
+                        </button>
+                        <button
+                            type="button"
+                            id="nextBtn"
+                            class="px-8 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all"
+                        >
+                            Siguiente →
+                        </button>
+                        <button
+                            type="submit"
+                            id="submitBtn"
+                            class="px-8 py-3 bg-brand-accent text-white font-semibold rounded-lg hover:bg-green-600 transition-all hidden"
+                        >
+                            Solicitar Diagnóstico
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- STICKY CTA BAR -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <div class="sticky-cta bg-white border-t-2 border-brand-primary shadow-2xl">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div>
+                <p class="font-semibold text-gray-900">
+                    Aún no lo decidiste?
+                </p>
+                <p class="text-sm text-gray-600">
+                    Obtén tu diagnóstico sin compromiso. Solo 30 minutos.
+                </p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#formulario" class="inline-flex items-center gap-2 px-6 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-all">
+                    Solicitar Diagnóstico →
+                </a>
+                <button id="closeStickyBtn" class="text-gray-500 hover:text-gray-900 text-2xl">
+                    ✕
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- FOOTER -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="bg-brand-secondary text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="font-heading font-bold text-xl mb-4">ImagemIA</h3>
+                    <p class="text-gray-300 text-sm">
+                        Recuperamos ingresos perdidos en centros de imagenología mediante IA. Especialistas en transformación, no en tecnología.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <p class="text-gray-300 text-sm mb-2">
+                        <strong>Email:</strong> hola@imagemia.com
+                    </p>
+                    <p class="text-gray-300 text-sm">
+                        <strong>Teléfono:</strong> +593 98 XXX XXXX
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Ubicación</h4>
+                    <p class="text-gray-300 text-sm">
+                        Quito, Ecuador
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">LinkedIn</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">Twitter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+                <p>&copy; 2025 ImagemIA. Todos los derechos reservados.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                    <a href="#" class="hover:text-white transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- JAVASCRIPT -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <script>
+        // Form Multi-Step Logic
+        let currentStep = 1;
+        const totalSteps = 4;
+        const formSteps = document.querySelectorAll('.form-step');
+        const form = document.getElementById('mainForm');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressText = document.getElementById('progress-text');
+        const progressBar = document.querySelector('.progress-bar');
+
+        function updateForm() {
+            // Show/hide steps
+            formSteps.forEach((step, index) => {
+                step.classList.toggle('active', index + 1 === currentStep);
+            });
+
+            // Update buttons
+            prevBtn.disabled = currentStep === 1;
+            nextBtn.classList.toggle('hidden', currentStep === totalSteps);
+            submitBtn.classList.toggle('hidden', currentStep !== totalSteps);
+
+            // Update progress
+            const progress = (currentStep / totalSteps) * 100;
+            progressBar.style.setProperty('--progress', progress + '%');
+            progressText.textContent = Math.round(progress) + '%';
+            document.querySelector('.form-current').textContent = currentStep;
+
+            // Update summary
+            if (currentStep === totalSteps) {
+                updateSummary();
+            }
+
+            // Scroll to form
+            document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateSummary() {
+            document.getElementById('summary-empresa').textContent = document.getElementById('empresa').value || '-';
+            document.getElementById('summary-email').textContent = document.getElementById('email').value || '-';
+            document.getElementById('summary-equipos').textContent = document.getElementById('equipos').value || '-';
+
+            const dolorValue = document.querySelector('input[name="dolor"]:checked')?.value || '-';
+            const dolorMap = {
+                'cancelaciones': 'Cancelaciones/Ausentismo',
+                'equipos-parados': 'Equipos Parados',
+                'flujo-caja': 'Flujo de Caja Impredecible',
+                'procesos-manual': 'Procesos Manuales'
+            };
+            document.getElementById('summary-dolor').textContent = dolorMap[dolorValue] || '-';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateForm();
+                }
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateForm();
+            }
+        });
+
+        function validateStep(step) {
+            const inputs = formSteps[step - 1].querySelectorAll('input[required], select[required]');
+            for (let input of inputs) {
+                if (!input.value) {
+                    input.classList.add('border-brand-danger');
+                    input.focus();
+                    return false;
+                }
+                input.classList.remove('border-brand-danger');
+            }
+            return true;
+        }
+
+        // Form Submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Simulate success
+            alert('¡Gracias! Hemos recibido tu solicitud. Te contactaremos en 24 horas para agendar tu diagnóstico gratuito.');
+
+            // Reset form
+            form.reset();
+            currentStep = 1;
+            updateForm();
+        });
+
+        // Sticky CTA Logic
+        const stickyBar = document.querySelector('.sticky-cta');
+        const closeBtn = document.getElementById('closeStickyBtn');
+        const heroSection = document.getElementById('hero');
+
+        window.addEventListener('scroll', () => {
+            const heroBottom = heroSection.offsetHeight;
+            const shouldShow = window.scrollY > heroBottom && localStorage.getItem('stickyBarClosed') !== 'true';
+            stickyBar.classList.toggle('show', shouldShow);
+        });
+
+        closeBtn.addEventListener('click', () => {
+            stickyBar.classList.add('hidden');
+            localStorage.setItem('stickyBarClosed', 'true');
+        });
+
+        // Reset localStorage every page load for demo
+        localStorage.removeItem('stickyBarClosed');
+
+        // Scroll Spy (highlight active nav link)
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // GA4 Event Tracking (placeholder - reemplazar con tu ID)
+        function trackEvent(eventName, eventData = {}) {
+            if (window.gtag) {
+                gtag('event', eventName, eventData);
+            }
+        }
+
+        // Track form interactions
+        nextBtn.addEventListener('click', () => {
+            trackEvent('form_step_completed', { step: currentStep });
+        });
+
+        document.getElementById('closeStickyBtn').addEventListener('click', () => {
+            trackEvent('sticky_cta_closed');
+        });
+
+        document.querySelectorAll('a[href*="#formulario"]').forEach(link => {
+            link.addEventListener('click', () => {
+                trackEvent('cta_click', { location: 'hero' });
+            });
+        });
+    </script>
+</body>
+</html>

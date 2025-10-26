@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImagemIA - Recupera $300K-$500K Anuales en Centros de Imagenología</title>
+    <meta name="description" content="Aumentamos utilización de equipos del 76% al 90%+. Recupera $300K-$500K anuales en ingresos perdidos por cancelaciones.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paleta Profesional - Medical/Healthcare Tech */
+            --primary: #1E3A8A;        /* Azul profundo médico */
+            --primary-light: #3B82F6;  /* Azul medio */
+            --accent: #059669;         /* Verde médico */
+            --accent-light: #10B981;   /* Verde claro */
+            --warning: #DC2626;        /* Rojo problema */
+            --bg: #FFFFFF;             /* Blanco puro */
+            --bg-gray: #F8FAFC;        /* Gris muy claro */
+            --bg-blue: #EFF6FF;        /* Azul muy claro */
+            --text: #0F172A;           /* Texto principal */
+            --text-light: #64748B;     /* Texto secundario */
+            --border: #E2E8F0;         /* Bordes */
+
+            /* Sombras */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            /* Tipografía */
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-heading: 'Sora', 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 120px;
+            background: linear-gradient(135deg, var(--bg-blue) 0%, #FFFFFF 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #DCFCE7, #D1FAE5);
+            color: var(--accent);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 28px;
+            border: 1px solid var(--accent-light);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 62px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 22px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 44px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .hero-ctas .btn {
+            padding: 18px 40px;
+            font-size: 17px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 44px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: var(--text-light);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Problema */
+        .problema {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 72px;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #FEE2E2;
+            color: #991B1B;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .pain-card {
+            background: var(--bg-gray);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pain-card:hover {
+            border-color: var(--warning);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            background: white;
+        }
+
+        .pain-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .pain-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .pain-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .pain-impact {
+            display: inline-block;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #FEE2E2, #FEF2F2);
+            color: #991B1B;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        /* Transformación */
+        .transformacion {
+            padding: 120px 0;
+            background: var(--bg-gray);
+        }
+
+        .section-badge.success {
+            background: linear-gradient(135deg, #D1FAE5, #ECFDF5);
+            color: #065F46;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto 72px;
+        }
+
+        .comparison-side {
+            background: white;
+            padding: 48px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comparison-side.before {
+            border-top: 5px solid var(--warning);
+        }
+
+        .comparison-side.after {
+            border-top: 5px solid var(--accent);
+            background: linear-gradient(135deg, #ECFDF5 0%, white 100%);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .comparison-icon {
+            font-size: 40px;
+        }
+
+        .comparison-title {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .comparison-item-icon {
+            font-size: 24px;
+            margin-top: 2px;
+        }
+
+        .comparison-item-text {
+            flex: 1;
+        }
+
+        .comparison-item-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 17px;
+        }
+
+        .comparison-item-desc {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .bridge-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .bridge-title {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .bridge-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .bridge-step {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .bridge-step:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .step-number {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .step-deliverable {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--bg-blue);
+            color: var(--primary);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* Garantía */
+        .garantia {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .garantia-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+            padding: 64px;
+            border-radius: 24px;
+            text-align: center;
+            border: 3px solid var(--accent);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .garantia-icon {
+            font-size: 72px;
+            margin-bottom: 28px;
+        }
+
+        .garantia-title {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .garantia-text {
+            font-size: 20px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* CTA Final */
+        .cta-final {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1E40AF 100%);
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 28px;
+            line-height: 1.2;
+        }
+
+        .cta-description {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            padding: 18px 40px;
+            font-size: 17px;
+        }
+
+        .btn-light:hover {
+            background: var(--bg-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0F172A;
+            color: #94A3B8;
+            padding: 56px 0 28px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand span {
+            color: var(--accent-light);
+        }
+
+        .footer-description {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-title {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1E293B;
+            padding-top: 28px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .pain-grid,
+            .comparison-container,
+            .bridge-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.7s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">Imagem<span>IA</span></a>
+            <div class="nav-links">
+                <a href="#problema" class="nav-link">El Problema</a>
+                <a href="#transformacion" class="nav-link">Transformación</a>
+                <a href="#garantia" class="nav-link">Garantía</a>
+                <a href="#cta" class="btn btn-primary">Solicitar Auditoría</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content fade-in">
+            <div class="hero-badge">✨ Para Centros de Imagenología Premium</div>
+            <h1>Recupera <span class="highlight">$300K-$500K anuales</span><br>en ingresos perdidos</h1>
+            <p class="hero-description">
+                Llevamos la utilización de tus equipos de imagenología del <strong>76% al 90%+</strong>.
+                Sin invertir un solo peso en equipamiento nuevo. <strong>Resultados medibles en 45 días o reembolso 100%.</strong>
+            </p>
+            <div class="hero-ctas">
+                <a href="#cta" class="btn btn-primary">Solicitar Auditoría Gratuita →</a>
+                <a href="#transformacion" class="btn btn-secondary">Ver Transformación</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">$300K-$500K</div>
+                    <div class="stat-label">Ingresos recuperables<br>por año</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">+14pp</div>
+                    <div class="stat-label">Aumento utilización<br>de equipos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">45 días</div>
+                    <div class="stat-label">Para ver resultados<br>medibles</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema -->
+    <section id="problema" class="problema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">El Problema Real</div>
+                <h2 class="section-title">Tu equipo de $2M está parado<br>el 24% del tiempo</h2>
+                <p class="section-description">
+                    Eso significa dinero real evaporándose cada día en cancelaciones,
+                    ausentismo y slots vacíos que nadie rellena.
+                </p>
+            </div>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">⏱️</div>
+                    <h3 class="pain-title">Caos de Agendamiento</h3>
+                    <p class="pain-description">
+                        No tienes visibilidad real de cuántas citas se concretarán.
+                        Equipos esperando pacientes que nunca llegan. Nómina fija con ingresos variables.
+                    </p>
+                    <div class="pain-impact">Costo: 10-20 horas perdidas/semana</div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">💰</div>
+                    <h3 class="pain-title">Dinero Evaporándose</h3>
+                    <p class="pain-description">
+                        $300K-$500K anuales que podrías estar facturando pero no lo estás.
+                        Es dinero real que va directo de tu cuenta bancaria.
+                    </p>
+                    <div class="pain-impact">Impacto: ~$25K-$40K/mes</div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">📊</div>
+                    <h3 class="pain-title">Flujo de Caja Impredecible</h3>
+                    <p class="pain-description">
+                        No puedes proyectar con certeza. ¿Cuánto facturarás esta semana?
+                        No lo sabes. Difícil de planificar y crecer.
+                    </p>
+                    <div class="pain-impact">Problema: Paraliza inversiones</div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">⚙️</div>
+                    <h3 class="pain-title">Procesos Manuales</h3>
+                    <p class="pain-description">
+                        Sin sistema inteligente de confirmación y re-agendamiento.
+                        Los pacientes olvidan, cancelan, y nadie los recupera.
+                    </p>
+                    <div class="pain-impact">Resultado: 24% ausentismo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformación -->
+    <section id="transformacion" class="transformacion">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge success">Transformación Comprobada</div>
+                <h2 class="section-title">De caos operativo a sistema predecible</h2>
+                <p class="section-description">
+                    No más equipos parados. No más dinero evaporándose.
+                    Sistema inteligente que garantiza cada slot ocupado.
+                </p>
+            </div>
+
+            <div class="comparison-container">
+                <!-- ANTES -->
+                <div class="comparison-side before">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">❌</span>
+                        <h3 class="comparison-title">ANTES (Día 0)</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #DC2626;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Equipos al 76% utilización</div>
+                                <div class="comparison-item-desc">$2M de capacidad ociosa cada año</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #DC2626;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">24% de cancelaciones</div>
+                                <div class="comparison-item-desc">Ausentismo y cancelaciones de última hora</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #DC2626;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Flujo impredecible</div>
+                                <div class="comparison-item-desc">No sabes cuánto facturarás este mes</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #DC2626;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">−$300K-$500K/año</div>
+                                <div class="comparison-item-desc">Dinero que no entra a tu banco</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- DESPUÉS -->
+                <div class="comparison-side after">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">✅</span>
+                        <h3 class="comparison-title">DESPUÉS (Día 45)</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #059669;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Equipos al 90%+ utilización</div>
+                                <div class="comparison-item-desc">+14 puntos porcentuales de productividad</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #059669;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">-30% a -50% cancelaciones</div>
+                                <div class="comparison-item-desc">Confirmación automática + re-agendamiento IA</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #059669;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Flujo predecible</div>
+                                <div class="comparison-item-desc">Sabes exactamente cuánto facturarás</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #059669;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">+$300K-$500K/año</div>
+                                <div class="comparison-item-desc">Ingresos adicionales + Paz mental</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bridge: Cómo llegamos -->
+            <div class="bridge-container">
+                <h3 class="bridge-title">Cómo llegamos del Antes al Después en 45 Días</h3>
+
+                <div class="bridge-steps">
+                    <div class="bridge-step">
+                        <div class="step-number">1</div>
+                        <h4 class="step-title">Auditoría<br>(Semana 1)</h4>
+                        <p class="step-description">
+                            Analizamos tus datos: cancelaciones, slots vacíos.
+                            Cuantificamos exactamente cuánto dinero estás perdiendo.
+                        </p>
+                        <div class="step-deliverable">📋 Reporte + ROI Roadmap</div>
+                    </div>
+
+                    <div class="bridge-step">
+                        <div class="step-number">2</div>
+                        <h4 class="step-title">Implementación<br>(Semanas 2-4)</h4>
+                        <p class="step-description">
+                            Desplegamos agente inteligente de citas, confirmación automática
+                            y re-agendamiento. Sistema funcionando en vivo.
+                        </p>
+                        <div class="step-deliverable">🚀 Sistema + Training</div>
+                    </div>
+
+                    <div class="bridge-step">
+                        <div class="step-number">3</div>
+                        <h4 class="step-title">Resultados<br>(Día 45)</h4>
+                        <p class="step-description">
+                            Medimos impacto real: +14pp utilización, -30-50% cancelaciones,
+                            $300K-$500K/año recuperados.
+                        </p>
+                        <div class="step-deliverable">📊 Dashboard + Case</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantía -->
+    <section id="garantia" class="garantia">
+        <div class="container">
+            <div class="garantia-box">
+                <div class="garantia-icon">🏆</div>
+                <h2 class="garantia-title">Garantía Comprobada</h2>
+                <p class="garantia-text">
+                    <strong>Reducción mínima de 30% en cancelaciones en 45 días<br>o reembolso 100% sin preguntas.</strong><br><br>
+                    No asumes riesgos. Si no ves resultados medibles, devolvemos tu inversión completa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="cta-final">
+        <div class="container cta-content">
+            <h2 class="cta-title">¿Listo para recuperar $300K-$500K anuales?</h2>
+            <p class="cta-description">
+                Solicita una auditoría gratuita. Sin compromiso.
+                Analizamos tu operación y cuantificamos exactamente cuánto dinero estás dejando sobre la mesa.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:hola@imagemia.com" class="btn btn-light">
+                    Solicitar Auditoría Gratuita →
+                </a>
+                <a href="#transformacion" class="btn btn-secondary" style="color: white; border-color: white;">
+                    Ver Proceso Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">Imagem<span>IA</span></div>
+                    <p class="footer-description">
+                        Recuperamos ingresos perdidos en centros de imagenología mediante IA.
+                        Especialistas en transformación, no en tecnología.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hola@imagemia.com" class="footer-link">hola@imagemia.com</a></li>
+                        <li><a href="tel:+593981234567" class="footer-link">+593 98 123 4567</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Política de Privacidad</a></li>
+                        <li><a href="#" class="footer-link">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 ImagemIA. Todos los derechos reservados. | Quito, Ecuador
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

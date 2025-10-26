@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem.ia - Centros de Imagenología Premium LATAM</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logos/imagemia-favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1E293B;
+            background: #FFFFFF;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar médico institucional */
+        nav {
+            background: #2563EB;
+            color: white;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 42px;
+            filter: brightness(0) invert(1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* Hero médico clásico */
+        .hero {
+            background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+            padding: 80px 0;
+            border-bottom: 4px solid #2563EB;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1E293B;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #64748B;
+            margin-bottom: 32px;
+        }
+
+        .btn-medical {
+            display: inline-block;
+            padding: 16px 36px;
+            background: #16A34A;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-medical:hover {
+            background: #15803D;
+            transform: translateY(-2px);
+        }
+
+        .trust-badge {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 6px solid #06B6D4;
+        }
+
+        .trust-badge h3 {
+            color: #2563EB;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+
+        .trust-badge p {
+            color: #64748B;
+            font-size: 15px;
+        }
+
+        /* Stats médico */
+        .stats {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-box {
+            padding: 32px;
+            background: #EFF6FF;
+            border-radius: 8px;
+            border-top: 4px solid #2563EB;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2563EB;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #64748B;
+            font-size: 14px;
+        }
+
+        /* Problem section */
+        .problem {
+            padding: 80px 0;
+            background: #F8FAFC;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 60px;
+        }
+
+        .problem-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .problem-item {
+            background: white;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #DC2626;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .problem-item h4 {
+            color: #DC2626;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .problem-item p {
+            color: #64748B;
+        }
+
+        /* CTA section */
+        .cta {
+            padding: 80px 0;
+            background: #2563EB;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+        }
+
+        .cta .btn-white {
+            background: white;
+            color: #2563EB;
+            padding: 18px 44px;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: #1E293B;
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <img src="assets/logos/imagemia-logo-horizontal-final.svg" alt="Imagem.ia" class="logo">
+            <a href="#contacto">Solicitar Diagnóstico</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <h1>Recupere $300K-$500K Anuales en su Centro de Imagenología</h1>
+                    <p>Aumentamos la utilización de equipos del 76% al 90%+ mediante sistemas comprobados que eliminan cancelaciones y maximizan activos.</p>
+                    <a href="#contacto" class="btn-medical">Solicitar Diagnóstico Gratuito</a>
+                </div>
+                <div>
+                    <div class="trust-badge">
+                        <h3>✓ Especialistas en LATAM</h3>
+                        <p>20 años de experiencia empresarial + tecnología de IA de Silicon Valley aplicada exclusivamente a centros de imagenología premium.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">$300K-$500K</div>
+                    <div class="stat-label">Ingresos Recuperables por Año</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">+14pp</div>
+                    <div class="stat-label">Aumento en Utilización de Equipos</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">45 días</div>
+                    <div class="stat-label">Tiempo para Ver Resultados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">Los Desafíos Operacionales que Enfrentan Centros de Imagenología</h2>
+            <div class="problem-list">
+                <div class="problem-item">
+                    <h4>24% de Ausentismo y Cancelaciones</h4>
+                    <p>1 de cada 4 citas programadas nunca se materializa, generando equipos parados y pérdida de ingresos directa.</p>
+                </div>
+                <div class="problem-item">
+                    <h4>Pérdidas Anuales de $300K-$500K</h4>
+                    <p>Cada slot vacío en equipos de $2M+ representa dinero que no ingresa. Diariamente.</p>
+                </div>
+                <div class="problem-item">
+                    <h4>Flujo de Caja Impredecible</h4>
+                    <p>La imposibilidad de proyectar facturación dificulta la planificación de nóminas, mantenimiento y expansión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="cta">
+        <div class="container">
+            <h2>Solicite su Diagnóstico Gratuito</h2>
+            <p style="margin-bottom: 32px; font-size: 18px;">Sesión de 30 minutos para identificar oportunidades específicas en su centro.</p>
+            <a href="mailto:hector@imagemia.com?subject=Solicitud de Diagnóstico" class="btn-white">
+                Agendar Diagnóstico Ahora
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2025 Imagem.ia - Tecnología aplicada a resultados medibles | Ecuador & LATAM
+        </div>
+    </footer>
+</body>
+</html>

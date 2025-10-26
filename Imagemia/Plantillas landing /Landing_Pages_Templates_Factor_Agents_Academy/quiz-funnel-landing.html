@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================
+         SEO META TAGS - PERSONALIZAR
+         ============================================ -->
+    <title>[TU_AGENCIA] | Descubre por qué [PROBLEMA] en 3 minutos</title>
+    <meta name="description" content="Responde [NUM_PREGUNTAS] preguntas y descubre por qué [PROBLEMA] y qué hacer para lograr [RESULTADO_DESEADO].">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Descubre por qué [PROBLEMA] en 3 minutos">
+    <meta property="og:description" content="Cuestionario gratuito con recomendaciones personalizadas">
+    <meta property="og:image" content="https://tudominio.com/og-quiz.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <!-- ============================================
+         TAILWIND CSS + CONFIGURACIÓN
+         ============================================ -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        // CONFIGURACIÓN DE COLORES PARA QUIZ FUNNEL
+        // Usar colores que generen confianza y llamados a la acción claros
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Colores para Quiz Funnel (optimizados para conversión)
+                        brand: {
+                            primary: '#2563EB',    // Azul confianza
+                            secondary: '#1E293B',  // Gris oscuro
+                            accent: '#10B981',     // Verde acción (CTA)
+                            highlight: '#F59E0B',  // Ámbar para destacados
+                        },
+                        quiz: {
+                            progress: '#10B981',   // Barra de progreso
+                            bg: '#F8FAFC',         // Fondo suave
+                            card: '#FFFFFF',       // Cards blancas
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        heading: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-cta': 'pulseCTA 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pulseCTA: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 10px 25px -5px rgba(16, 185, 129, 0.3)' },
+                            '50%': { transform: 'scale(1.02)', boxShadow: '0 15px 35px -5px rgba(16, 185, 129, 0.4)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Analytics (opcional) -->
+    <!-- <script defer data-domain="tudominio.com" src="https://plausible.io/js/script.js"></script> -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        /* Prevenir zoom en iOS */
+        input, select, textarea {
+            font-size: 16px;
+        }
+
+        /* Botón CTA con animación */
+        .btn-cta {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px -5px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-cta:active {
+            transform: translateY(0);
+        }
+
+        /* Focus visible para accesibilidad */
+        *:focus-visible {
+            outline: 3px solid #10B981;
+            outline-offset: 2px;
+        }
+
+        /* Efecto de gradiente en el fondo */
+        .gradient-bg {
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+        }
+
+        /* Iconos animados */
+        .icon-bounce {
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Checkmark animado */
+        .checkmark {
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            animation: checkmark 0.5s ease-in-out 0.3s forwards;
+        }
+
+        @keyframes checkmark {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-quiz-bg">
+
+    <!-- ============================================
+         PASO 1: EL GANCHO (HOOK)
+
+         Dos opciones:
+         A) Gancho de Frustración
+         B) Gancho de Resultado
+
+         Elegir UNA y comentar la otra
+         ============================================ -->
+
+    <section class="min-h-screen flex items-center justify-center px-6 py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto text-center">
+
+            <!-- OPCIÓN A: GANCHO DE FRUSTRACIÓN -->
+            <div class="animate-fade-in">
+
+                <!-- Emoji o icono relevante (opcional) -->
+                <div class="mb-8">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-accent/10 icon-bounce">
+                        <svg class="w-10 h-10 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- H1 - Gancho Principal (Fórmula de Frustración) -->
+                <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
+                    ¿Te Sientes Frustrado por <span class="text-brand-primary">[EL PROBLEMA]</span> a Pesar de que <span class="text-brand-accent">[EL ESFUERZO]</span>?
+                </h1>
+
+                <!--
+                EJEMPLOS POR VERTICAL:
+
+                FITNESS:
+                "¿Te Sientes Frustrado por No Ver Resultados en el Gimnasio
+                a Pesar de que Entrenas Cada Semana?"
+
+                MARKETING:
+                "¿Te Sientes Frustrado porque No Logras Escalar tu Marketing
+                a Pesar de que Inviertes en Publicidad?"
+
+                PRODUCTIVIDAD:
+                "¿Te Sientes Frustrado por No Terminar tus Proyectos
+                a Pesar de que Trabajas 10 Horas al Día?"
+
+                SUEÑO:
+                "¿Te Sientes Frustrado por Dormir Mal
+                a Pesar de que Intentas Todas las Recomendaciones?"
+                -->
+
+            </div>
+
+            <!-- OPCIÓN B: GANCHO DE RESULTADO (Comentado por defecto)
+            <div class="animate-fade-in">
+                <div class="mb-8">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-accent/10 icon-bounce">
+                        <svg class="w-10 h-10 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
+                    ¿Estás Listo para <span class="text-brand-accent">[EL RESULTADO DESEADO]</span>?
+                </h1>
+
+                EJEMPLOS:
+                - "¿Estás Listo para Tener la Relación de tus Sueños?"
+                - "¿Estás Listo para Proteger tu Negocio de una Amenaza de Ciberseguridad?"
+                - "¿Estás Listo para Dormir 8 Horas sin Interrupciones?"
+            </div>
+            -->
+
+
+            <!-- ============================================
+                 PASO 2: EL SUBTÍTULO
+                 Fórmula: "Responde [X] preguntas para descubrir
+                          por qué [problema] y qué hacer al respecto"
+                 ============================================ -->
+            <div class="animate-slide-up" style="animation-delay: 0.2s">
+                <p class="text-2xl lg:text-3xl text-gray-700 mb-12 leading-relaxed max-w-3xl mx-auto">
+                    Responde <strong class="text-brand-primary">[15]</strong> preguntas para descubrir por qué
+                    <strong>[problema específico]</strong> y qué hacer al respecto.
+                </p>
+
+                <!--
+                EJEMPLOS:
+                "Responde 15 preguntas para descubrir por qué no ves resultados
+                en el gimnasio y qué hacer al respecto"
+
+                "Responde 12 preguntas para descubrir por qué tu marketing no escala
+                y cómo solucionarlo"
+                -->
+            </div>
+
+
+            <!-- ============================================
+                 PASO 3: PROPUESTA DE VALOR
+                 Fórmula: "Medir y mejorar estas 3 áreas clave"
+                 ============================================ -->
+            <div class="animate-slide-up" style="animation-delay: 0.4s">
+                <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12 mb-12 border border-gray-100">
+
+                    <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-8">
+                        Realiza Este Cuestionario para que Podamos Medir y Mejorar:
+                    </h2>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+
+                        <!-- Área 1 -->
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-primary/10 mb-4">
+                                <svg class="w-8 h-8 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                [ÁREA 1]
+                            </h3>
+                            <p class="text-gray-600">
+                                [Breve descripción de qué medirás en esta área]
+                            </p>
+                        </div>
+
+                        <!-- Área 2 -->
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-accent/10 mb-4">
+                                <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                [ÁREA 2]
+                            </h3>
+                            <p class="text-gray-600">
+                                [Breve descripción de qué medirás en esta área]
+                            </p>
+                        </div>
+
+                        <!-- Área 3 -->
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-highlight/10 mb-4">
+                                <svg class="w-8 h-8 text-brand-highlight" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                [ÁREA 3]
+                            </h3>
+                            <p class="text-gray-600">
+                                [Breve descripción de qué medirás en esta área]
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!--
+                    EJEMPLO SUEÑO:
+                    Área 1: Tu Entorno de Sueño
+                    Área 2: Tu Rutina de Descanso
+                    Área 3: Tu Nutrición para el Sueño
+
+                    EJEMPLO FITNESS:
+                    Área 1: Tu Programa de Entrenamiento
+                    Área 2: Tu Nutrición y Recuperación
+                    Área 3: Tu Mindset y Consistencia
+
+                    EJEMPLO MARKETING:
+                    Área 1: Tu Estrategia de Contenido
+                    Área 2: Tu Embudo de Conversión
+                    Área 3: Tu Retención de Clientes
+                    -->
+
+                </div>
+            </div>
+
+
+            <!-- ============================================
+                 PASO 4: CREDIBILIDAD
+                 - ¿Quién lo creó?
+                 - ¿Qué has hecho?
+                 - ¿En qué investigación se basa?
+                 ============================================ -->
+            <div class="animate-slide-up" style="animation-delay: 0.6s">
+                <div class="bg-gray-50 rounded-2xl p-8 lg:p-12 mb-12 border border-gray-200">
+
+                    <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+
+                        <!-- Foto del creador -->
+                        <div class="flex-shrink-0">
+                            <img src="https://i.pravatar.cc/150?img=12"
+                                 alt="[Tu Nombre]"
+                                 class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg">
+                        </div>
+
+                        <!-- ¿Quién lo creó? -->
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                                Creado por [Tu Nombre]
+                            </h3>
+                            <p class="text-lg text-gray-700 mb-4">
+                                [Tu título/credencial principal]
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                [Breve bio: ¿Qué has hecho? ¿Por qué eres creíble?]
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Estadísticas de credibilidad -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+
+                        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-bold text-brand-primary mb-2">
+                                [X]+
+                            </div>
+                            <div class="text-gray-600">
+                                [Clientes/Estudiantes/Casos]
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-bold text-brand-accent mb-2">
+                                [Y]%
+                            </div>
+                            <div class="text-gray-600">
+                                [Tasa de éxito/Mejora]
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+                            <div class="text-4xl font-bold text-brand-highlight mb-2">
+                                [Z]+
+                            </div>
+                            <div class="text-gray-600">
+                                [Años experiencia/Certificaciones]
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Investigación/Respaldo científico -->
+                    <div class="bg-brand-primary/5 rounded-xl p-6 border-l-4 border-brand-primary">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-6 h-6 text-brand-primary flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">
+                                    Respaldado por la Ciencia
+                                </h4>
+                                <p class="text-gray-700 leading-relaxed">
+                                    <strong>[X]%</strong> de las personas luchan con <strong>[problema X]</strong>.
+                                    Un estudio reciente de <strong>[universidad/institución prestigiosa]</strong>
+                                    demostró que <strong>[hallazgo clave relevante]</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--
+                    EJEMPLOS:
+
+                    SUEÑO:
+                    "El 85% de las personas luchan con insomnio crónico. Un estudio de la
+                    Universidad de Stanford demostró que optimizar tu entorno de sueño puede
+                    mejorar la calidad del descanso hasta en un 67%."
+
+                    MARKETING:
+                    "El 73% de las empresas no logran escalar su marketing digital. Según
+                    un informe de McKinsey, las empresas que implementan sistemas de medición
+                    claros aumentan su ROI en un promedio de 41%."
+                    -->
+
+                </div>
+            </div>
+
+
+            <!-- ============================================
+                 PASO 5: LLAMADA A LA ACCIÓN (CTA)
+                 - El botón (claro y grande)
+                 - Tiempo requerido
+                 - Costo (gratis)
+                 - Beneficio inmediato
+                 ============================================ -->
+            <div class="animate-slide-up" style="animation-delay: 0.8s">
+
+                <!-- CTA Principal -->
+                <div class="mb-8">
+                    <button onclick="startQuiz()"
+                            class="btn-cta text-white font-bold text-xl px-12 py-6 rounded-full inline-flex items-center gap-3 animate-pulse-cta">
+                        <span>Empezar el Cuestionario</span>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Trust Indicators (Tiempo, Costo, Beneficio) -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-gray-600">
+
+                    <!-- Tiempo -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="font-medium">Solo 3 minutos</span>
+                    </div>
+
+                    <!-- Costo -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="font-medium">Completamente gratis</span>
+                    </div>
+
+                    <!-- Beneficio -->
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="font-medium">Recomendaciones inmediatas</span>
+                    </div>
+
+                </div>
+
+                <!-- Microcopy adicional (opcional) -->
+                <p class="text-sm text-gray-500 mt-6">
+                    🔒 Tus respuestas son 100% confidenciales. No spam, nunca.
+                </p>
+
+            </div>
+
+
+            <!-- Prueba Social (opcional pero recomendado) -->
+            <div class="animate-slide-up mt-16" style="animation-delay: 1s">
+                <p class="text-sm text-gray-500 uppercase tracking-wider mb-6">
+                    Ya han completado el cuestionario:
+                </p>
+                <div class="flex items-center justify-center gap-4 flex-wrap">
+                    <img src="https://i.pravatar.cc/50?img=1" alt="Usuario" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                    <img src="https://i.pravatar.cc/50?img=2" alt="Usuario" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                    <img src="https://i.pravatar.cc/50?img=3" alt="Usuario" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                    <img src="https://i.pravatar.cc/50?img=4" alt="Usuario" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                    <img src="https://i.pravatar.cc/50?img=5" alt="Usuario" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+                    <span class="text-2xl font-bold text-gray-700">+[1,247]</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         SECCIÓN DE QUIZ (Inicialmente oculta)
+         Se muestra cuando el usuario hace clic en el CTA
+         ============================================ -->
+    <section id="quizSection" class="hidden min-h-screen flex items-center justify-center px-6 py-20 bg-white">
+        <div class="max-w-3xl mx-auto w-full">
+
+            <!-- Barra de Progreso -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-medium text-gray-600">Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">15</span></span>
+                    <span class="text-sm font-medium text-brand-accent"><span id="progressPercent">7</span>%</span>
+                </div>
+                <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="progressBar" class="h-full bg-gradient-to-r from-brand-accent to-brand-primary transition-all duration-500" style="width: 7%"></div>
+                </div>
+            </div>
+
+            <!-- Contenedor de Preguntas -->
+            <div id="questionContainer" class="bg-white rounded-2xl shadow-xl p-8 lg:p-12 border border-gray-100">
+
+                <!-- Pregunta 1 (ejemplo) -->
+                <div class="question-card">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">
+                        [Pregunta 1: ¿...?]
+                    </h2>
+
+                    <!-- Opciones (ejemplo con radio buttons estilizados) -->
+                    <div class="space-y-4">
+                        <label class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-brand-accent hover:bg-brand-accent/5 transition">
+                            <input type="radio" name="q1" value="option1" class="w-5 h-5 text-brand-accent">
+                            <span class="ml-4 text-lg text-gray-700">Opción 1</span>
+                        </label>
+
+                        <label class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-brand-accent hover:bg-brand-accent/5 transition">
+                            <input type="radio" name="q1" value="option2" class="w-5 h-5 text-brand-accent">
+                            <span class="ml-4 text-lg text-gray-700">Opción 2</span>
+                        </label>
+
+                        <label class="flex items-center p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-brand-accent hover:bg-brand-accent/5 transition">
+                            <input type="radio" name="q1" value="option3" class="w-5 h-5 text-brand-accent">
+                            <span class="ml-4 text-lg text-gray-700">Opción 3</span>
+                        </label>
+                    </div>
+
+                    <!-- Botón Siguiente -->
+                    <div class="mt-8 flex justify-between items-center">
+                        <button onclick="previousQuestion()" class="text-gray-600 hover:text-gray-900 font-medium flex items-center gap-2 hidden" id="btnPrevious">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                            <span>Anterior</span>
+                        </button>
+
+                        <button onclick="nextQuestion()" class="btn-cta text-white font-bold px-8 py-4 rounded-lg ml-auto flex items-center gap-2">
+                            <span>Siguiente</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Nota: Aquí deberías implementar las 15 preguntas con JavaScript
+                 o integrar con una herramienta como Typeform, Tally, Google Forms -->
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         SECCIÓN DE CAPTURA DE EMAIL
+         (Antes de mostrar resultados)
+         ============================================ -->
+    <section id="emailCaptureSection" class="hidden min-h-screen flex items-center justify-center px-6 py-20 gradient-bg">
+        <div class="max-w-2xl mx-auto text-center">
+
+            <div class="bg-white rounded-2xl shadow-2xl p-8 lg:p-12 border border-gray-100">
+
+                <!-- Icono de éxito -->
+                <div class="mb-6">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-accent/10">
+                        <svg class="w-10 h-10 text-brand-accent checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    ¡Felicidades! Has Completado el Cuestionario
+                </h2>
+
+                <p class="text-xl text-gray-600 mb-8">
+                    Estamos analizando tus respuestas. Ingresa tu email para recibir tu reporte personalizado con recomendaciones específicas.
+                </p>
+
+                <!-- Formulario de email -->
+                <form id="emailForm" onsubmit="submitEmail(event)" class="space-y-6">
+
+                    <div class="text-left">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                            Nombre completo
+                        </label>
+                        <input type="text"
+                               id="name"
+                               name="name"
+                               required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"
+                               placeholder="Juan Pérez">
+                    </div>
+
+                    <div class="text-left">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            Email
+                        </label>
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent transition"
+                               placeholder="juan@ejemplo.com">
+                    </div>
+
+                    <!-- Consent -->
+                    <div class="flex items-start text-left">
+                        <input type="checkbox"
+                               id="consent"
+                               name="consent"
+                               required
+                               class="mt-1 w-5 h-5 text-brand-accent border-gray-300 rounded focus:ring-brand-accent">
+                        <label for="consent" class="ml-3 text-sm text-gray-600">
+                            Acepto recibir mi reporte personalizado y comunicaciones relevantes.
+                            <a href="/privacidad" class="text-brand-primary hover:underline">Política de Privacidad</a>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                            class="w-full btn-cta text-white font-bold text-lg px-8 py-4 rounded-lg flex items-center justify-center gap-2">
+                        <span>Recibir Mi Reporte Personalizado</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+
+                    <!-- Trust Microcopy -->
+                    <p class="text-xs text-gray-500">
+                        🔒 Tus datos están seguros. No compartimos tu información con terceros.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ========================================
+        // Iniciar Quiz
+        // ========================================
+        function startQuiz() {
+            // Ocultar landing y mostrar quiz
+            document.querySelector('section:first-child').classList.add('hidden');
+            document.getElementById('quizSection').classList.remove('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Track event
+            trackEvent('quiz_started');
+        }
+
+        // ========================================
+        // Navegación de Preguntas (ejemplo simple)
+        // ========================================
+        let currentQuestionIndex = 1;
+        const totalQuestionsCount = 15;
+
+        function nextQuestion() {
+            if (currentQuestionIndex < totalQuestionsCount) {
+                currentQuestionIndex++;
+                updateProgress();
+
+                // Aquí deberías cargar la siguiente pregunta
+                // (Este es un ejemplo simplificado)
+
+            } else {
+                // Última pregunta completada → mostrar captura de email
+                document.getElementById('quizSection').classList.add('hidden');
+                document.getElementById('emailCaptureSection').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                trackEvent('quiz_completed');
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 1) {
+                currentQuestionIndex--;
+                updateProgress();
+                // Cargar pregunta anterior
+            }
+        }
+
+        function updateProgress() {
+            const percent = Math.round((currentQuestionIndex / totalQuestionsCount) * 100);
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex;
+            document.getElementById('totalQuestions').textContent = totalQuestionsCount;
+            document.getElementById('progressPercent').textContent = percent;
+            document.getElementById('progressBar').style.width = percent + '%';
+
+            // Mostrar/ocultar botón "Anterior"
+            const btnPrevious = document.getElementById('btnPrevious');
+            if (currentQuestionIndex > 1) {
+                btnPrevious.classList.remove('hidden');
+            } else {
+                btnPrevious.classList.add('hidden');
+            }
+        }
+
+        // ========================================
+        // Submit Email
+        // ========================================
+        async function submitEmail(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Aquí deberías enviar los datos a tu backend
+            console.log('Email submitted:', data);
+
+            try {
+                // Ejemplo de envío a backend
+                const response = await fetch('[FORM_ENDPOINT]', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        ...data,
+                        quizAnswers: {}, // Incluir respuestas del quiz
+                    }),
+                });
+
+                if (response.ok) {
+                    // Éxito → redirigir a página de resultados
+                    trackEvent('email_submitted');
+                    window.location.href = '[RESULTADOS_URL]' + encodeURIComponent(data.email);
+                } else {
+                    alert('Hubo un error. Por favor, inténtalo de nuevo.');
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un error. Por favor, inténtalo de nuevo.');
+            }
+        }
+
+        // ========================================
+        // Event Tracking
+        // ========================================
+        function trackEvent(eventName, eventParams = {}) {
+            // Google Analytics 4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, eventParams);
+            }
+
+            // Plausible Analytics
+            if (typeof plausible !== 'undefined') {
+                plausible(eventName, { props: eventParams });
+            }
+
+            console.log('Event tracked:', eventName, eventParams);
+        }
+
+        // Track page load
+        window.addEventListener('load', function() {
+            trackEvent('page_view', { page: 'quiz_landing' });
+        });
+    </script>
+
+</body>
+</html>

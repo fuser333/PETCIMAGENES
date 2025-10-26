@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TU_AGENCIA] - Calculadora de ROI | Automatización con IA para [NICHO]</title>
+
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Descubre cuánto puedes ahorrar automatizando [PROCESO] con IA. Calculadora interactiva de ROI con resultados en segundos.">
+    <meta name="keywords" content="calculadora roi, automatización ia, [NICHO], ahorro costes">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="[TU_AGENCIA] - Calculadora de ROI Gratuita">
+    <meta property="og:description" content="Calcula tu ROI en automatización con IA en [PLAZO_DIAGNOSTICO]">
+    <meta property="og:image" content="[OG_IMAGE_URL]">
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════
+    PERSONALIZACIÓN - CALCULADORA DE ROI
+    ═══════════════════════════════════════════════════════════════════
+    1. Reemplaza placeholders:
+       - [TU_AGENCIA], [NICHO], [PROCESO], [CTA_URL], [CTA_EMAIL]
+       - [PLAZO_DIAGNOSTICO], [PLAZO_IMPLEMENTACION], [EMPRESAS_CONFIAN], [CALIFICACION_PROMEDIO], [AHORRO_TOTAL]
+       - [BENEFICIO_1]...[BENEFICIO_3], [STACK_HERRAMIENTAS], [FORM_ENDPOINT]
+       - [LINK_CASOS], [LINK_SOBRE], [LINK_BLOG], [LINK_PRIVACIDAD], [LINK_TERMINOS], [LINK_COOKIES], [EMAIL_CONTACTO], [TELEFONO_CONTACTO]
+    2. Ajusta los valores por defecto de la calculadora a tu ICP.
+    3. Conecta el CTA a tu flujo real (formulario, Calendly, etc.).
+    4. Actualiza logos/testimonios con casos reales.
+    ═══════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="[TU_AGENCIA] - Calculadora de ROI">
+    <meta name="twitter:description" content="Calcula tu ROI en automatización con IA">
+
+    <!-- Tailwind CSS CDN (Para producción, usar build) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            /* Corporate Trust Palette */
+            --primary: #0B5FFF;
+            --secondary: #1E293B;
+            --accent: #21D19F;
+            --bg-light: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-light);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(11, 95, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #0047CC;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(11, 95, 255, 0.35);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Calculator Card */
+        .calculator-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            margin: 40px 0;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .calculator-card:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary);
+        }
+
+        /* Input Styles */
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11, 95, 255, 0.1);
+        }
+
+        .input-suffix {
+            position: relative;
+        }
+
+        .input-suffix span {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-weight: 500;
+            pointer-events: none;
+        }
+
+        /* Results Card */
+        .results-card {
+            background: linear-gradient(135deg, var(--primary) 0%, #0047CC 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 32px;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .results-card.show {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-metric {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .result-metric h3 {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .result-metric .value {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .result-metric .context {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        /* Social Proof */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
+            align-items: center;
+            opacity: 0.6;
+        }
+
+        .logo-grid img {
+            height: 32px;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+
+        .logo-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Stats */
+        .stat {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .stat-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calculator-card {
+                padding: 24px;
+            }
+
+            .result-metric .value {
+                font-size: 28px;
+            }
+
+            .stat-value {
+                font-size: 36px;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-bold text-xl" style="color: var(--primary);">
+                    [TU_AGENCIA]
+                </div>
+                <a href="[CTA_URL]" class="btn-primary">
+                    Reservar diagnóstico
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto">
+                <!-- Badge -->
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-gray-200 text-sm font-semibold text-gray-700 mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" style="color: var(--accent);" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Calculadora Gratuita
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-5xl sm:text-6xl font-extrabold mb-6" style="color: var(--text-dark); line-height: 1.1;">
+                    ¿Cuánto puedes ahorrar automatizando
+                    <span style="color: var(--primary);">[PROCESO]</span>
+                    con IA?
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl text-gray-600 mb-8">
+                    Descubre tu ROI potencial en <strong>60 segundos</strong>. Empresas [NICHO] están ahorrando hasta <strong class="text-green-600">[X]% en costes operativos</strong> con nuestra solución.
+                </p>
+
+                <!-- Social Proof -->
+                <div class="flex items-center justify-center space-x-6 mb-12">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-1" style="color: var(--warning);" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <span class="text-sm font-semibold text-gray-700">[CALIFICACION_PROMEDIO]</span>
+                    </div>
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <div class="text-sm text-gray-600">
+                        <strong class="text-gray-900">[EMPRESAS_CONFIAN]+</strong> empresas confían en nosotros
+                    </div>
+                    <div class="h-6 w-px bg-gray-300"></div>
+                    <div class="text-sm text-gray-600">
+                        <strong class="text-green-600">€[AHORRO_TOTAL]</strong> ahorrados
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+                    <div class="bg-white shadow-sm rounded-xl p-6 border border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">[BENEFICIO_1]</h3>
+                        <p class="text-sm text-gray-600">Roadmap de automatización priorizado y cuantificado para tu contexto [NICHO].</p>
+                    </div>
+                    <div class="bg-white shadow-sm rounded-xl p-6 border border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">[BENEFICIO_2]</h3>
+                        <p class="text-sm text-gray-600">Análisis de datos y costes reales para justificar la inversión ante dirección.</p>
+                    </div>
+                    <div class="bg-white shadow-sm rounded-xl p-6 border border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">[BENEFICIO_3]</h3>
+                        <p class="text-sm text-gray-600">Stack recomendado ([STACK_HERRAMIENTAS]) y plan de implementación en [PLAZO_IMPLEMENTACION].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-dark);">
+                    Calcula tu ROI en 3 pasos
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Responde estas preguntas sobre tu operación actual
+                </p>
+            </div>
+
+            <div class="calculator-card">
+                <form id="roiCalculator">
+                    <!-- Step 1: Situación Actual -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center" style="color: var(--text-dark);">
+                            <span class="flex items-center justify-center w-8 h-8 rounded-full text-white font-bold text-sm mr-3" style="background: var(--primary);">1</span>
+                            Situación actual
+                        </h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <label for="empleados">¿Cuántos empleados dedican tiempo a [PROCESO]?</label>
+                                <input type="number" id="empleados" name="empleados" min="1" required value="5">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="horas">¿Cuántas horas/semana dedican en promedio?</label>
+                                <input type="number" id="horas" name="horas" min="1" max="168" required value="20">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="salario">Salario promedio/hora (€)</label>
+                                <div class="input-suffix">
+                                    <input type="number" id="salario" name="salario" min="10" required value="25">
+                                    <span>€/h</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="errores">Coste de errores/retrasos al mes (€)</label>
+                                <div class="input-suffix">
+                                    <input type="number" id="errores" name="errores" min="0" required value="2000">
+                                    <span>€</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Potencial de Automatización -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center" style="color: var(--text-dark);">
+                            <span class="flex items-center justify-center w-8 h-8 rounded-full text-white font-bold text-sm mr-3" style="background: var(--primary);">2</span>
+                            Potencial de automatización
+                        </h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <label for="automatizable">% de tareas que pueden automatizarse</label>
+                                <select id="automatizable" name="automatizable" required>
+                                    <option value="30">30% - Bajo (tareas complejas)</option>
+                                    <option value="50" selected>50% - Medio (tareas repetitivas)</option>
+                                    <option value="70">70% - Alto (tareas estructuradas)</option>
+                                    <option value="85">85% - Muy alto (proceso estandarizado)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="reduccionErrores">Reducción esperada de errores</label>
+                                <select id="reduccionErrores" name="reduccionErrores" required>
+                                    <option value="40">40% - Conservador</option>
+                                    <option value="60" selected>60% - Realista</option>
+                                    <option value="80">80% - Optimista</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Inversión -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center" style="color: var(--text-dark);">
+                            <span class="flex items-center justify-center w-8 h-8 rounded-full text-white font-bold text-sm mr-3" style="background: var(--primary);">3</span>
+                            Inversión estimada
+                        </h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="input-group">
+                                <label for="inversionInicial">Inversión inicial proyecto (€)</label>
+                                <div class="input-suffix">
+                                    <input type="number" id="inversionInicial" name="inversionInicial" min="1000" required value="15000">
+                                    <span>€</span>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="costoMensual">Coste mensual mantenimiento (€)</label>
+                                <div class="input-suffix">
+                                    <input type="number" id="costoMensual" name="costoMensual" min="0" required value="500">
+                                    <span>€/mes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculate Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary w-full md:w-auto">
+                            <span class="flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                </svg>
+                                Calcular mi ROI
+                            </span>
+                        </button>
+                        <p class="text-sm text-gray-500 mt-3">
+                            🔒 Tus datos son privados y no se comparten
+                        </p>
+                    </div>
+                </form>
+
+                <!-- Results -->
+                <div id="results" class="results-card">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold mb-2">🎉 Tu potencial de ahorro</h3>
+                        <p class="opacity-90">Estos son tus resultados personalizados</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="result-metric">
+                            <h3>Ahorro anual</h3>
+                            <div class="value" id="ahorroAnual">€0</div>
+                            <div class="context">Sin contar reducción de errores</div>
+                        </div>
+
+                        <div class="result-metric">
+                            <h3>ROI a 12 meses</h3>
+                            <div class="value" id="roi">0%</div>
+                            <div class="context">Retorno sobre inversión</div>
+                        </div>
+
+                        <div class="result-metric">
+                            <h3>Payback period</h3>
+                            <div class="value" id="payback">0</div>
+                            <div class="context" id="paybackUnit">meses</div>
+                        </div>
+                    </div>
+
+                    <div class="result-metric mt-4">
+                        <h3>Ahorro total (incluye reducción errores)</h3>
+                        <div class="value" id="ahorroTotal">€0</div>
+                        <div class="context">Beneficio económico completo en 12 meses</div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="text-center mt-8 pt-6 border-t border-white/20">
+                        <p class="text-lg mb-4 font-semibold">
+                            ¿Listo para hacer estos ahorros realidad?
+                        </p>
+                        <a href="[CTA_URL]" class="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-all">
+                            Agendar blueprint →
+                        </a>
+                        <p class="text-sm text-gray-400 mt-3">O escríbenos a <a href="mailto:[CTA_EMAIL]" class="underline">[CTA_EMAIL]</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-12 text-center">
+                <p class="text-sm text-gray-500 mb-4">Confiado por equipos en:</p>
+                <div class="logo-grid max-w-3xl mx-auto">
+                    <img src="https://via.placeholder.com/150x32/0B5FFF/FFFFFF?text=Cliente+1" alt="Cliente 1">
+                    <img src="https://via.placeholder.com/150x32/0B5FFF/FFFFFF?text=Cliente+2" alt="Cliente 2">
+                    <img src="https://via.placeholder.com/150x32/0B5FFF/FFFFFF?text=Cliente+3" alt="Cliente 3">
+                    <img src="https://via.placeholder.com/150x32/0B5FFF/FFFFFF?text=Cliente+4" alt="Cliente 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16" style="background: linear-gradient(135deg, #0B5FFF 0%, #0047CC 100%);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
+                <div class="stat">
+                    <div class="stat-value" style="color: white;">[X]%</div>
+                    <div class="stat-label" style="color: rgba(255,255,255,0.8);">Ahorro medio</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: white;">[X]</div>
+                    <div class="stat-label" style="color: rgba(255,255,255,0.8);">Meses payback</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: white;">[X]+</div>
+                    <div class="stat-label" style="color: rgba(255,255,255,0.8);">Proyectos completados</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: white;">[X]%</div>
+                    <div class="stat-label" style="color: rgba(255,255,255,0.8);">Satisfacción cliente</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-dark);">
+                    Casos de éxito reales
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Empresas que ya están viendo resultados
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="testimonial">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/48" alt="CEO" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <div class="font-bold text-gray-900">[Nombre CEO]</div>
+                            <div class="text-sm text-gray-600">[Cargo] en [Empresa]</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">
+                        "En 90 días redujimos 60% el tiempo en [proceso]. El ROI fue de [X]% el primer año."
+                    </p>
+                    <div class="flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-1" style="color: var(--accent);" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="font-semibold" style="color: var(--accent);">Verificado</span>
+                        <span class="mx-2 text-gray-400">•</span>
+                        <span class="text-gray-600">[Industria]</span>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/48" alt="CTO" class="w-12 h-12 rounded-full mr-3">
+                        <div>
+                            <div class="font-bold text-gray-900">[Nombre CTO]</div>
+                            <div class="text-sm text-gray-600">[Cargo] en [Empresa]</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-3">
+                        "La calculadora fue exacta. Ahorramos €[X]K el primer año, justo como pronosticaban."
+                    </p>
+                    <div class="flex items-center text-sm">
+                        <svg class="w-4 h-4 mr-1" style="color: var(--accent);" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="font-semibold" style="color: var(--accent);">Verificado</span>
+                        <span class="mx-2 text-gray-400">•</span>
+                        <span class="text-gray-600">[Industria]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6" style="color: var(--text-dark);">
+                Haz realidad estos ahorros
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+                Agenda una consulta gratuita de 30 minutos. Sin compromiso.
+            </p>
+
+            <form class="max-w-md mx-auto space-y-4" action="[FORM_ENDPOINT]" method="POST">
+                <div class="input-group text-left">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="input-group text-left">
+                    <label for="email">Email corporativo</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-group text-left">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" name="empresa" required>
+                </div>
+
+                <div class="input-group text-left">
+                    <label for="telefono">Teléfono (opcional)</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+
+                <button type="submit" class="btn-primary w-full">
+                    Enviar mis datos
+                </button>
+
+                <p class="text-sm text-gray-500">
+                    🔒 GDPR compliant. Sin spam. Cancelas cuando quieras.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="font-bold text-xl mb-4">[TU_AGENCIA]</div>
+                    <p class="text-gray-400 text-sm">
+                        Automatización con IA para [NICHO]. Resultados medibles en [PLAZO_IMPLEMENTACION].
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Enlaces</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="[LINK_CASOS]" class="hover:text-white">Casos de éxito</a></li>
+                        <li><a href="[LINK_SOBRE]" class="hover:text-white">Sobre nosotros</a></li>
+                        <li><a href="[LINK_BLOG]" class="hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="[LINK_PRIVACIDAD]" class="hover:text-white">Política de privacidad</a></li>
+                        <li><a href="[LINK_TERMINOS]" class="hover:text-white">Términos y condiciones</a></li>
+                        <li><a href="[LINK_COOKIES]" class="hover:text-white">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm space-y-2">
+                <p>[EMAIL_CONTACTO] · [TELEFONO_CONTACTO]</p>
+                <p>&copy; 2025 [TU_AGENCIA]. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calculator Logic -->
+    <script>
+        document.getElementById('roiCalculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const empleados = parseInt(document.getElementById('empleados').value);
+            const horas = parseInt(document.getElementById('horas').value);
+            const salario = parseInt(document.getElementById('salario').value);
+            const errores = parseInt(document.getElementById('errores').value);
+            const automatizable = parseInt(document.getElementById('automatizable').value);
+            const reduccionErrores = parseInt(document.getElementById('reduccionErrores').value);
+            const inversionInicial = parseInt(document.getElementById('inversionInicial').value);
+            const costoMensual = parseInt(document.getElementById('costoMensual').value);
+
+            // Calculate current costs
+            const horasAnuales = horas * 52; // weeks per year
+            const costoLaboralAnual = empleados * horasAnuales * salario;
+            const costoErroresAnual = errores * 12;
+            const costoTotalAnual = costoLaboralAnual + costoErroresAnual;
+
+            // Calculate savings
+            const ahorroLaboral = costoLaboralAnual * (automatizable / 100);
+            const ahorroErrores = costoErroresAnual * (reduccionErrores / 100);
+            const ahorroAnualTotal = ahorroLaboral + ahorroErrores;
+
+            // Calculate investment costs
+            const costoAnualMantenimiento = costoMensual * 12;
+            const inversionTotal12Meses = inversionInicial + costoAnualMantenimiento;
+
+            // Calculate ROI
+            const beneficioNeto = ahorroAnualTotal - inversionTotal12Meses;
+            const roi = (beneficioNeto / inversionTotal12Meses) * 100;
+
+            // Calculate payback period (in months)
+            const ahorroMensual = ahorroAnualTotal / 12;
+            const paybackMonths = inversionInicial / ahorroMensual;
+
+            // Display results
+            document.getElementById('ahorroAnual').textContent =
+                '€' + Math.round(ahorroLaboral).toLocaleString('es-ES');
+
+            document.getElementById('roi').textContent =
+                Math.round(roi) + '%';
+
+            if (paybackMonths < 1) {
+                document.getElementById('payback').textContent = Math.round(paybackMonths * 30);
+                document.getElementById('paybackUnit').textContent = 'días';
+            } else {
+                document.getElementById('payback').textContent = Math.round(paybackMonths);
+                document.getElementById('paybackUnit').textContent = paybackMonths > 1 ? 'meses' : 'mes';
+            }
+
+            document.getElementById('ahorroTotal').textContent =
+                '€' + Math.round(ahorroAnualTotal).toLocaleString('es-ES');
+
+            // Show results
+            document.getElementById('results').classList.add('show');
+
+            // Smooth scroll to results
+            document.getElementById('results').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Track event (optional - integrate with your analytics)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'calculator_completed', {
+                    'event_category': 'engagement',
+                    'event_label': 'roi_calculator',
+                    'value': Math.round(ahorroAnualTotal)
+                });
+            }
+        });
+
+        function scrollToForm() {
+            document.getElementById('contacto').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+
+    <!-- Analytics (optional - replace with your tracking ID) -->
+    <!-- Google Analytics 4 -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+</body>
+</html>

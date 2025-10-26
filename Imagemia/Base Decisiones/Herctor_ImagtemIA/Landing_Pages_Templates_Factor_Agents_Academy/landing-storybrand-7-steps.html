@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TU_AGENCIA] - Tu Guía para [TRANSFORMACIÓN] con IA</title>
+    <meta name="description" content="Ayudamos a [ICP] a [resultado] sin [obstáculo]. Más de [X] empresas confían en nosotros.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudominio.com/">
+    <meta property="og:title" content="[TU_AGENCIA] - Tu Guía para [TRANSFORMACIÓN]">
+    <meta property="og:description" content="Ayudamos a [ICP] a [resultado] sin [obstáculo]">
+    <meta property="og:image" content="[OG_IMAGE_URL]">
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════
+    PERSONALIZACIÓN - STORYBRAND 7 PASOS
+    ═══════════════════════════════════════════════════════════════════
+    1. Define al héroe: [TU_VERTICAL], [ICP], [PROBLEMA_VISIBLE], [PROBLEMA_INTERNO], [PROBLEMA_FILOSOFICO].
+    2. Presenta al guía: [TU_AGENCIA], autoridad ([TESTIMONIO_X], [LOGOS_CLIENTES]), empatía.
+    3. Plan claro: [PASO_1], [PASO_2], [PASO_3], con métricas y plazos.
+    4. CTA principal/secundaria: usa [CTA_URL], [CTA_EMAIL], [CTA_SECUNDARIA_URL].
+    5. Beneficios/evitar fracaso: [KPI_SOLUCION_1]...[KPI_SOLUCION_3], [RIESGO_EVITADO_1].
+    ═══════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Manrope', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Paleta Growth Pulse (StoryBrand es narrativa/emocional)
+                        brand: {
+                            primary: '#2563EB',   // Azul eléctrico - confianza
+                            secondary: '#097969', // Teal profundo - crecimiento
+                            accent: '#10B981',    // Verde - éxito/progreso
+                            dark: '#1E293B',      // Gris oscuro profesional
+                            light: '#F8FAFC',     // Gris muy claro
+                        }
+                    },
+                    fontSize: {
+                        // Major Second Scale (1.125 ratio)
+                        'hero': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],  // 60px
+                        'h1': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.01em' }],      // 48px
+                        'h2': ['2.25rem', { lineHeight: '1.2' }],                               // 36px
+                        'h3': ['1.75rem', { lineHeight: '1.3' }],                               // 28px
+                        'body-lg': ['1.125rem', { lineHeight: '1.7' }],                         // 18px
+                        'body': ['1rem', { lineHeight: '1.7' }],                                // 16px BASE
+                    },
+                    spacing: {
+                        // 8pt Grid System
+                        '18': '4.5rem',   // 72px
+                        '22': '5.5rem',   // 88px
+                        '26': '6.5rem',   // 104px
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus visible for accessibility */
+        *:focus-visible {
+            outline: 3px solid #2563EB;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="font-body text-brand-dark antialiased">
+
+    <!-- PASO 1: CHARACTER (El Héroe es el Cliente) -->
+    <section class="bg-gradient-to-b from-brand-light to-white py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Logo -->
+            <div class="text-center mb-12">
+                <h1 class="font-heading text-2xl md:text-3xl text-brand-primary font-bold">[TU_AGENCIA]</h1>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="text-center max-w-4xl mx-auto">
+                <p class="text-brand-secondary font-semibold text-sm md:text-base uppercase tracking-wider mb-4">
+                    Para [ICP_PRINCIPAL]
+                </p>
+
+                <h2 class="font-heading text-hero text-brand-dark mb-6 animate-fadeInUp">
+                    ¿Quieres <span class="text-brand-primary">[TRANSFORMACION_DESEADA]</span> sin [OBSTACULO_PRINCIPAL]?
+                </h2>
+
+                <p class="text-body-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Si eres <strong>[ICP_ESPECIFICO]</strong> y cada mes te frena <strong>[PROBLEMA_VISIBLE]</strong>,
+                    estás en el lugar correcto. Hemos ayudado a <strong>[EMPRESAS_CONFIAN]+ empresas</strong>
+                    a lograr <strong>[KPI_SOLUCION_1]</strong> en <strong>[PLAZO_IMPLEMENTACION]</strong> sin sacrificar a sus equipos.
+                </p>
+
+                <!-- Hero CTA -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#cta-form" class="inline-block bg-brand-primary hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Reservar diagnóstico →
+                    </a>
+                    <a href="#plan" class="inline-block border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all">
+                        Ver Cómo Funciona
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-70">
+                    <p class="text-sm text-gray-500">Empresas que confían en nosotros:</p>
+                    <!-- Reemplazar con logos reales -->
+                    <div class="flex gap-8 items-center">
+                        <img src="logo-cliente-1.svg" alt="Cliente 1" class="h-8 grayscale hover:grayscale-0 transition-all">
+                        <img src="logo-cliente-2.svg" alt="Cliente 2" class="h-8 grayscale hover:grayscale-0 transition-all">
+                        <img src="logo-cliente-3.svg" alt="Cliente 3" class="h-8 grayscale hover:grayscale-0 transition-all">
+                        <img src="logo-cliente-4.svg" alt="Cliente 4" class="h-8 grayscale hover:grayscale-0 transition-all">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASO 2: PROBLEM (El Problema del Héroe) -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-brand-accent font-semibold text-sm uppercase tracking-wider mb-3">El Problema</p>
+                <h2 class="font-heading text-h1 text-brand-dark mb-4">
+                    Sabemos Lo Que Estás Pasando
+                </h2>
+                <p class="text-body-lg text-gray-600 max-w-3xl mx-auto">
+                    Todos los días hablas con <strong>[ICP]</strong> que se enfrentan a estos 3 problemas críticos:
+                </p>
+            </div>
+
+            <!-- Los 3 Niveles del Problema -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Problema Externo -->
+                <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-h3 text-red-900 mb-3">Problema Externo</h3>
+                    <p class="text-gray-700">
+                        <strong>[Problema visible]</strong><br>
+                        Ejemplo: "Pasas 20 horas/semana en tareas repetitivas que podrían automatizarse"
+                    </p>
+                </div>
+
+                <!-- Problema Interno (Emocional) -->
+                <div class="bg-orange-50 border-2 border-orange-200 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-h3 text-orange-900 mb-3">Problema Interno</h3>
+                    <p class="text-gray-700">
+                        <strong>[Cómo se sienten]</strong><br>
+                        Ejemplo: "Te sientes frustrado y quemado porque siempre estás apagando fuegos en lugar de crecer"
+                    </p>
+                </div>
+
+                <!-- Problema Filosófico (Por qué es injusto) -->
+                <div class="bg-purple-50 border-2 border-purple-200 rounded-xl p-8 text-center">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-h3 text-purple-900 mb-3">Problema Filosófico</h3>
+                    <p class="text-gray-700">
+                        <strong>[Por qué es injusto]</strong><br>
+                        Ejemplo: "No es justo que trabajes más horas para ganar menos mientras tu competencia con IA escala 3x"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Agravamiento del Problema -->
+            <div class="mt-12 max-w-3xl mx-auto bg-gray-50 border-l-4 border-brand-primary p-8 rounded-r-lg">
+                <p class="text-body-lg text-gray-700 italic">
+                    "Y lo peor de todo: cada día que pasa sin actuar, <strong>tu competencia se aleja más</strong>.
+                    Mientras tanto, tú sigues atrapado en el mismo ciclo de trabajo manual,
+                    <strong>perdiendo tiempo, dinero y oportunidades</strong>."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASO 3: GUIDE (Tú eres el Guía) -->
+    <section class="py-16 md:py-20 bg-brand-light">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Imagen/Foto del fundador -->
+                <div>
+                    <img src="foto-fundador.jpg" alt="[Tu Nombre], Fundador de [TU_AGENCIA]" class="rounded-2xl shadow-2xl w-full">
+                </div>
+
+                <!-- Contenido del Guía -->
+                <div>
+                    <p class="text-brand-accent font-semibold text-sm uppercase tracking-wider mb-3">Tu Guía</p>
+                    <h2 class="font-heading text-h1 text-brand-dark mb-6">
+                        Entendemos Tu Desafío Porque <span class="text-brand-primary">Hemos Estado Ahí</span>
+                    </h2>
+
+                    <!-- Empatía -->
+                    <div class="mb-8">
+                        <h3 class="font-heading text-h3 text-brand-dark mb-3 flex items-center gap-3">
+                            <svg class="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                            Empatía
+                        </h3>
+                        <p class="text-gray-700 text-body-lg">
+                            Hace [X] años, <strong>[Tu Nombre]</strong> era exactamente como tú: [breve historia personal del problema].
+                            Sabemos lo frustrante que es <strong>[pain point específico]</strong> porque lo vivimos en carne propia.
+                        </p>
+                    </div>
+
+                    <!-- Autoridad -->
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <h3 class="font-heading text-h3 text-brand-dark mb-4 flex items-center gap-3">
+                            <svg class="w-6 h-6 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Autoridad
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-accent font-bold text-xl">✓</span>
+                                <span><strong>[X]+</strong> proyectos exitosos completados</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-accent font-bold text-xl">✓</span>
+                                <span><strong>€[X]M+</strong> en ROI generado para clientes</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-accent font-bold text-xl">✓</span>
+                                <span><strong>[X]%</strong> tasa de éxito promedio</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-brand-accent font-bold text-xl">✓</span>
+                                <span><strong>[Certificación/Premio/Reconocimiento]</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASO 4: PLAN (3 Pasos Simples) -->
+    <section id="plan" class="py-16 md:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-brand-accent font-semibold text-sm uppercase tracking-wider mb-3">El Plan</p>
+                <h2 class="font-heading text-h1 text-brand-dark mb-4">
+                    Un Proceso Simple de <span class="text-brand-primary">3 Pasos</span>
+                </h2>
+                <p class="text-body-lg text-gray-600 max-w-3xl mx-auto">
+                    No necesitas hacer todo tú solo. Nosotros te guiamos en cada paso del camino:
+                </p>
+            </div>
+
+            <!-- Los 3 Pasos -->
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Paso 1 -->
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center font-heading text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-heading text-h3 text-brand-dark mb-3">
+                            Agenda una Sesión Estratégica (15 min)
+                        </h3>
+                        <p class="text-gray-700 text-body-lg mb-4">
+                            Analizamos tu situación actual y definimos tus objetivos específicos.
+                            Sin compromiso, sin presión de ventas. Solo un diagnóstico honesto.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Identificamos tus 3 quick wins de mayor impacto</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Calculamos tu ROI estimado en [plazo]</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Definimos si tiene sentido trabajar juntos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-brand-secondary text-white rounded-full flex items-center justify-center font-heading text-2xl font-bold">
+                            2
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-heading text-h3 text-brand-dark mb-3">
+                            Creamos Tu Roadmap Personalizado
+                        </h3>
+                        <p class="text-gray-700 text-body-lg mb-4">
+                            Diseñamos un plan de acción específico para tu empresa con hitos claros,
+                            responsables definidos y métricas de éxito.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Discovery profundo de [X] semanas</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Roadmap de [Y] meses con fases claras</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>KPIs específicos para medir progreso</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-brand-accent text-white rounded-full flex items-center justify-center font-heading text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-heading text-h3 text-brand-dark mb-3">
+                            Implementamos y Optimizamos Juntos
+                        </h3>
+                        <p class="text-gray-700 text-body-lg mb-4">
+                            Ejecutamos el plan con sprints de [X] semanas, checkpoints semanales
+                            y soporte continuo hasta alcanzar tus objetivos.
+                        </p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Implementación ágil con entregas cada [X] semanas</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Capacitación de tu equipo para adopción</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-brand-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Soporte continuo hasta conseguir [resultado]</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Transicional -->
+            <div class="mt-12 text-center">
+                <a href="#cta-form" class="inline-block bg-brand-primary hover:bg-blue-700 text-white font-semibold px-10 py-5 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Empezar con el Paso 1 →
+                </a>
+                <p class="mt-4 text-sm text-gray-500">Sin compromiso. Sin tarjeta de crédito.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASO 5: CALL TO ACTION (Directo + Transitional) -->
+    <section id="cta-form" class="py-16 md:py-20 bg-gradient-to-b from-brand-primary to-blue-700 text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-h1 mb-4">
+                    Agenda Tu Sesión Estratégica Gratuita
+                </h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">
+                    En 15 minutos descubrirás exactamente qué necesitas para lograr <strong>[resultado]</strong> en <strong>[plazo]</strong>
+                </p>
+            </div>
+
+            <!-- Formulario -->
+            <div class="bg-white text-brand-dark rounded-2xl p-8 shadow-2xl max-w-2xl mx-auto">
+                <form id="contactForm" class="space-y-6" action="[FORM_ENDPOINT]" method="POST">
+                    <!-- Nombre -->
+                    <div>
+                        <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Nombre Completo <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-primary focus:outline-none transition-colors"
+                            placeholder="Juan Pérez"
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Email Corporativo <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-primary focus:outline-none transition-colors"
+                            placeholder="juan@empresa.com"
+                        >
+                    </div>
+
+                    <!-- Empresa -->
+                    <div>
+                        <label for="empresa" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Empresa <span class="text-red-500">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="empresa"
+                            name="empresa"
+                            required
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-primary focus:outline-none transition-colors"
+                            placeholder="Mi Empresa S.L."
+                        >
+                    </div>
+
+                    <!-- Mayor Desafío -->
+                    <div>
+                        <label for="desafio" class="block text-sm font-semibold text-gray-700 mb-2">
+                            ¿Cuál es tu mayor desafío ahora mismo?
+                        </label>
+                        <textarea
+                            id="desafio"
+                            name="desafio"
+                            rows="4"
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-brand-primary focus:outline-none transition-colors resize-none"
+                            placeholder="Ejemplo: Pasamos demasiado tiempo en tareas manuales..."
+                        ></textarea>
+                    </div>
+
+                    <!-- GDPR -->
+                    <div class="flex items-start gap-3">
+                        <input
+                            type="checkbox"
+                            id="gdpr"
+                            name="gdpr"
+                            required
+                            class="mt-1 w-5 h-5 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
+                        >
+                        <label for="gdpr" class="text-sm text-gray-600">
+                            Acepto la <a href="[LINK_PRIVACIDAD]" class="text-brand-primary hover:underline">política de privacidad</a>
+                            y el envío de comunicaciones comerciales. <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button
+                        type="submit"
+                        class="w-full bg-brand-primary hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    >
+                        Reservar diagnóstico →
+                    </button>
+
+                    <!-- Trust micro-copy -->
+                    <div class="flex items-center justify-center gap-4 text-sm text-gray-500 flex-wrap">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Sin compromiso
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            100% Confidencial
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Respuesta en < 1h
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CTA Transicional (Alternativa de bajo compromiso) -->
+            <div class="mt-12 text-center">
+                <p class="text-white opacity-90 mb-4">¿Prefieres más información primero?</p>
+                <a href="#recursos" class="inline-block bg-white text-brand-primary hover:bg-gray-100 font-semibold px-8 py-3 rounded-lg transition-all">
+                    Descargar Guía Gratuita
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASO 6: SUCCESS (Cómo se ve el Éxito) -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-green-50 to-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-brand-accent font-semibold text-sm uppercase tracking-wider mb-3">El Éxito</p>
+                <h2 class="font-heading text-h1 text-brand-dark mb-4">
+                    Así Se Ve Tu <span class="text-brand-accent">Vida Después</span>
+                </h2>
+                <p class="text-body-lg text-gray-600 max-w-3xl mx-auto">
+                    Cuando implementes nuestro sistema, esto es lo que conseguirás:
+                </p>
+            </div>
+
+            <!-- Grid de Beneficios del Éxito -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Beneficio 1 -->
+                <div class="bg-white border-2 border-green-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-brand-dark mb-2">Más Ingresos</h3>
+                    <p class="text-gray-600">
+                        <strong>+[X]%</strong> de revenue promedio en los primeros <strong>[Y] meses</strong> tras implementar
+                    </p>
+                </div>
+
+                <!-- Beneficio 2 -->
+                <div class="bg-white border-2 border-green-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-brand-dark mb-2">Más Tiempo</h3>
+                    <p class="text-gray-600">
+                        <strong>[X] horas/semana</strong> ahorradas en tareas operativas, que puedes dedicar a <strong>crecer</strong>
+                    </p>
+                </div>
+
+                <!-- Beneficio 3 -->
+                <div class="bg-white border-2 border-green-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-brand-dark mb-2">Menos Estrés</h3>
+                    <p class="text-gray-600">
+                        Procesos claros y automatizados. <strong>Sin apagar fuegos.</strong> Control total de tu operación
+                    </p>
+                </div>
+
+                <!-- Beneficio 4 -->
+                <div class="bg-white border-2 border-green-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-brand-dark mb-2">Equipo Feliz</h3>
+                    <p class="text-gray-600">
+                        Menos tareas repetitivas para tu equipo = <strong>+[X]% satisfacción</strong> y retención
+                    </p>
+                </div>
+
+                <!-- Beneficio 5 -->
+                <div class="bg-white border-2 border-green-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-brand-dark mb-2">Escalabilidad</h3>
+                    <p class="text-gray-600">
+                        Podrás manejar <strong>[X]x más volumen</strong> sin necesidad de contratar proporcionalmente
+                    </p>
+                </div>
+
+                <!-- Beneficio 6 -->
+                <div class="bg-white border-2 border-green-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl text-brand-dark mb-2">Tranquilidad Mental</h3>
+                    <p class="text-gray-600">
+                        Recupera el <strong>control</strong> de tu negocio. Duerme tranquilo sabiendo que todo funciona
+                    </p>
+                </div>
+            </div>
+
+            <!-- Testimonial de Éxito -->
+            <div class="mt-16 max-w-4xl mx-auto bg-white rounded-2xl p-8 shadow-xl border-2 border-green-200">
+                <div class="flex items-start gap-6">
+                    <img src="testimonio-foto.jpg" alt="Cliente exitoso" class="w-20 h-20 rounded-full flex-shrink-0">
+                    <div>
+                        <p class="text-gray-700 text-lg italic mb-4">
+                            "Antes de trabajar con [TU_AGENCIA], pasábamos [X] horas/semana en [tarea].
+                            Hoy, todo está automatizado y hemos conseguido [resultado específico].
+                            <strong>Fue la mejor inversión que hicimos este año</strong>."
+                        </p>
+                        <p class="font-semibold text-brand-dark">— [Nombre Cliente]</p>
+                        <p class="text-sm text-gray-500">[Cargo], [Empresa]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PASO 7: FAILURE (Qué pasa si NO actúan) -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-red-50 to-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <p class="text-red-600 font-semibold text-sm uppercase tracking-wider mb-3">El Costo de No Actuar</p>
+                <h2 class="font-heading text-h1 text-brand-dark mb-4">
+                    ¿Qué Pasa Si <span class="text-red-600">No Haces Nada</span>?
+                </h2>
+                <p class="text-body-lg text-gray-600 max-w-3xl mx-auto">
+                    Seamos honestos. Tienes dos caminos desde este momento:
+                </p>
+            </div>
+
+            <!-- Comparación -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Camino del Fracaso -->
+                <div class="bg-red-50 border-2 border-red-300 rounded-xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading text-h3 text-red-900">Camino 1: Seguir Como Siempre</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold flex-shrink-0">✗</span>
+                            <span>Seguir perdiendo <strong>[X] horas/semana</strong> en tareas manuales</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold flex-shrink-0">✗</span>
+                            <span>Tu competencia se alejará <strong>cada día más</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold flex-shrink-0">✗</span>
+                            <span>Continuar quemado y sin tiempo para <strong>lo importante</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold flex-shrink-0">✗</span>
+                            <span>Dejar <strong>€[X]K/año</strong> sobre la mesa (coste de oportunidad)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-red-500 font-bold flex-shrink-0">✗</span>
+                            <span>Seguir sin <strong>escalabilidad</strong> real en tu negocio</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 p-4 bg-red-100 rounded-lg">
+                        <p class="text-sm text-red-900 font-semibold">
+                            ⚠️ Dentro de 12 meses: Mismos problemas, pero agravados. Tu competencia habrá ganado terreno irreversible.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Camino del Éxito -->
+                <div class="bg-green-50 border-2 border-green-300 rounded-xl p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-heading text-h3 text-green-900">Camino 2: Actuar Ahora</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-500 font-bold flex-shrink-0">✓</span>
+                            <span>Recuperar <strong>[X] horas/semana</strong> para crecer</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-500 font-bold flex-shrink-0">✓</span>
+                            <span>Superar a tu competencia con <strong>ventaja tecnológica</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-500 font-bold flex-shrink-0">✓</span>
+                            <span>Tener <strong>paz mental</strong> y control total de tu operación</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-500 font-bold flex-shrink-0">✓</span>
+                            <span>Generar <strong>+€[X]K/año</strong> en ROI medible</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-green-500 font-bold flex-shrink-0">✓</span>
+                            <span>Construir un negocio <strong>verdaderamente escalable</strong></span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6 p-4 bg-green-100 rounded-lg">
+                        <p class="text-sm text-green-900 font-semibold">
+                            🚀 Dentro de 12 meses: Negocio optimizado, equipo feliz, revenue +[X]%, tú durmiendo tranquilo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Urgencia Final -->
+            <div class="mt-12 max-w-3xl mx-auto bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-lg">
+                <p class="text-gray-800 text-lg">
+                    <strong>La verdad incómoda:</strong> Cada día que pasa sin actuar,
+                    tu competencia que YA está usando IA <strong>se aleja más</strong>.
+                    En 6 meses, la distancia será casi imposible de recuperar.
+                    <strong>¿De verdad quieres arriesgarte a eso?</strong>
+                </p>
+            </div>
+
+            <!-- CTA Final Urgente -->
+            <div class="mt-12 text-center">
+                <a href="#cta-form" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold px-12 py-5 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    No, Quiero Actuar AHORA →
+                </a>
+                <p class="mt-4 text-sm text-gray-600">Solo quedan [X] slots este mes. Primero en agendar, primero en empezar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Columna 1: Marca -->
+                <div>
+                    <h3 class="font-heading text-xl font-bold mb-4">[TU_AGENCIA]</h3>
+                    <p class="text-gray-400 text-sm">
+                        Tu guía para transformar tu negocio con IA y automatización.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces -->
+                <div>
+                    <h4 class="font-heading font-bold mb-4">Enlaces</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#plan" class="hover:text-white transition-colors">Cómo Funciona</a></li>
+                        <li><a href="#cta-form" class="hover:text-white transition-colors">Agendar Sesión</a></li>
+                        <li><a href="/casos" class="hover:text-white transition-colors">Casos de Éxito</a></li>
+                        <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Legal -->
+                <div>
+                    <h4 class="font-heading font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="/privacidad" class="hover:text-white transition-colors">Política de Privacidad</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition-colors">Términos y Condiciones</a></li>
+                        <li><a href="/cookies" class="hover:text-white transition-colors">Política de Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div>
+                    <h4 class="font-heading font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Email: <a href="mailto:[CTA_EMAIL]" class="hover:text-white">[CTA_EMAIL]</a></li>
+                        <li>Teléfono: [TELEFONO_CONTACTO]</li>
+                        <li class="flex gap-3 mt-4">
+                            <a href="#" class="hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                            </a>
+                            <a href="#" class="hover:text-white transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2025 [TU_AGENCIA]. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Analytics Placeholder -->
+    <script>
+        // Google Analytics 4
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+        // gtag('config', 'G-XXXXXXXXXX');
+
+        // Plausible Analytics (alternativa privacy-first)
+        // <script defer data-domain="tudominio.com" src="https://plausible.io/js/script.js"></script>
+    </script>
+
+    <!-- Form handling script -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+
+            // Opción 1: Enviar a Formspree
+            // fetch('https://formspree.io/f/TU_ID', {
+            //     method: 'POST',
+            //     body: JSON.stringify(data),
+            //     headers: {'Content-Type': 'application/json'}
+            // })
+
+            // Opción 2: Enviar a webhook propio
+            // fetch('/api/contact', {
+            //     method: 'POST',
+            //     body: JSON.stringify(data),
+            //     headers: {'Content-Type': 'application/json'}
+            // })
+
+            // Placeholder: mostrar mensaje de éxito
+            alert('¡Gracias! Hemos recibido tu solicitud. Te contactaremos en menos de 1 hora laboral.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

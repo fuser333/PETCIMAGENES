@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem.ia - Recupera $300K-$500K Anuales</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logos/imagemia-favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2563EB;
+            --secondary: #16A34A;
+            --accent: #06B6D4;
+            --dark: #0F172A;
+            --light: #FFFFFF;
+            --gray: #64748B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* MINIMALISTA: Mucho espacio en blanco */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Navbar ultra limpio */
+        nav {
+            padding: 40px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Hero MINIMALISTA: headline gigante + mucho espacio */
+        .hero {
+            padding: 140px 0 180px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 88px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 26px;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+        }
+
+        /* Stats - Cards flotantes con glassmorphism */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 100px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            padding: 50px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        /* Problem section - Grid asimétrico */
+        .problem {
+            padding: 140px 0;
+            background: #FAFAFA;
+        }
+
+        .section-title {
+            font-size: 64px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 100px;
+            letter-spacing: -0.02em;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        .pain-card {
+            background: white;
+            padding: 60px;
+            border-radius: 16px;
+            border-left: 6px solid var(--accent);
+        }
+
+        .pain-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .pain-card p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        /* CTA final - ultra limpio */
+        .cta {
+            padding: 180px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta .btn {
+            font-size: 18px;
+            padding: 24px 60px;
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid #E5E7EB;
+            color: var(--gray);
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 48px; }
+            .stats { grid-template-columns: 1fr; }
+            .pain-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 40px; }
+            .cta h2 { font-size: 42px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <img src="assets/logos/imagemia-logo-horizontal-final.svg" alt="Imagem.ia" class="logo">
+            <a href="#contacto" class="btn">Solicitar Diagnóstico</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>
+                Recupera<br>
+                <span>$300K-$500K</span><br>
+                Este Año
+            </h1>
+            <p>
+                Aumentamos la utilización de tus equipos de imagenología del 76% al 90%+ mediante sistemas que eliminan cancelaciones
+            </p>
+            <a href="#contacto" class="btn">Solicita tu Diagnóstico Gratuito</a>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-number">$400K</div>
+                    <div class="stat-label">Promedio Recuperable</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+14pp</div>
+                    <div class="stat-label">Aumento Utilización</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45 días</div>
+                    <div class="stat-label">Para Resultados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">El Problema</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>24% de Ausentismo</h3>
+                    <p>1 de cada 4 citas programadas nunca se materializa. Tus equipos de $2M están parados mientras el personal espera pacientes que nunca llegan.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>$300K-$500K Perdidos</h3>
+                    <p>Cada slot vacío es dinero que no entra. Cada día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="cta">
+        <div class="container">
+            <h2>¿Listo?</h2>
+            <a href="mailto:hector@imagemia.com?subject=Diagnóstico Gratuito" class="btn">
+                Solicita tu Diagnóstico de 30 Minutos
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2025 Imagem.ia - Recuperamos ingresos, no vendemos tecnología
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "email": "petcimagenes@imagemia.com",
+    "password": "demo123",
+    "subdomain": "petcimagenes",
+    "nombre_empresa": "PETCIMAGENES"
+  },
+  {
+    "email": "vetclinic@imagemia.com",
+    "password": "vet2024",
+    "subdomain": "vetclinic",
+    "nombre_empresa": "VET CLINIC"
+  },
+  {
+    "email": "mascotas@imagemia.com",
+    "password": "mascotas123",
+    "subdomain": "mascotas",
+    "nombre_empresa": "MASCOTAS FELICES"
+  },
+  {
+    "email": "grooming@imagemia.com",
+    "password": "groom456",
+    "subdomain": "grooming",
+    "nombre_empresa": "GROOMING PRO"
+  },
+  {
+    "email": "petshop@imagemia.com",
+    "password": "shop789",
+    "subdomain": "petshop",
+    "nombre_empresa": "PET SHOP CENTRAL"
+  }
+]

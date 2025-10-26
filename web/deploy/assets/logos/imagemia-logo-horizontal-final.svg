@@ -1,0 +1,30 @@
+<svg width="280" height="70" viewBox="0 0 280 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Logo Horizontal Imagem.ia PREMIUM - Basado en opción #5/6 -->
+
+  <!-- Símbolo: Grid 3x3 Slot-Fill -->
+  <g id="slot-grid" transform="translate(35, 35)">
+    <!-- Fila 1 -->
+    <rect x="-24" y="-24" width="14" height="14" rx="2" fill="#1E293B"/>
+    <rect x="-7" y="-24" width="14" height="14" rx="2" fill="#1E293B"/>
+    <rect x="10" y="-24" width="14" height="14" rx="2" fill="#06B6D4"/>
+
+    <!-- Fila 2 -->
+    <rect x="-24" y="-7" width="14" height="14" rx="2" fill="#1E293B"/>
+    <rect x="-7" y="-7" width="14" height="14" rx="2" fill="#1E293B"/>
+    <rect x="10" y="-7" width="14" height="14" rx="2" fill="#1E293B"/>
+
+    <!-- Fila 3 -->
+    <rect x="-24" y="10" width="14" height="14" rx="2" fill="#1E293B"/>
+    <rect x="-7" y="10" width="14" height="14" rx="2" fill="#1E293B"/>
+    <rect x="10" y="10" width="14" height="14" rx="2" fill="#1E293B"/>
+  </g>
+
+  <!-- Texto: imagem.IA -->
+  <text x="85" y="45" font-family="Inter, sans-serif" font-weight="700" font-size="26" fill="#1E293B" letter-spacing="-0.5">
+    imagem<tspan fill="#06B6D4">.IA</tspan>
+  </text>
+
+  <!-- Línea decorativa -->
+  <line x1="85" y1="52" x2="190" y2="52" stroke="#1E293B" stroke-width="2.5"/>
+  <line x1="175" y1="52" x2="232" y2="52" stroke="#06B6D4" stroke-width="2.5"/>
+</svg>

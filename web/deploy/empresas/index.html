@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Version: 2025-10-25-23:30 | DEV_MODE: true -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Empresarial - Imagem.ia</title>
-    <link rel="icon" type="image/svg+xml" href="../deploy/assets/logos/imagemia-favicon.svg">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Portal Empresarial - imagemIA</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logos/imagemia-favicon-SIN-PUNTO.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
     <!-- Supabase JS -->
@@ -493,9 +497,9 @@
             <div class="dots-pattern"></div>
             <div class="branding">
                 <div class="logo-section">
-                    <img src="../deploy/assets/logos/imagemia-logo-horizontal-final.svg" alt="Imagem.ia Logo" class="logo">
+                    <img src="../assets/logos/imagemia-logo-SIN-PUNTO.svg" alt="imagemIA Logo" class="logo">
                     <div class="tagline">Inteligencia Artificial que Recupera Ingresos</div>
-                    <h2 class="slogan">Portal Empresarial para Centros de Imagenología</h2>
+                    <h2 class="slogan">imagemIA - Portal Empresarial para Centros de Imagenología</h2>
                 </div>
 
                 <div class="features">
@@ -582,7 +586,7 @@
                 </form>
 
                 <div class="help-text">
-                    ¿Necesitas ayuda? <a href="mailto:soporte@imagemia.com">Contactar soporte</a>
+                    ¿Necesitas ayuda? <a href="mailto:soporte@imagemIA.com">Contactar soporte</a>
                 </div>
             </div>
         </div>
@@ -592,12 +596,12 @@
         // ============================================
         // CONFIGURACIÓN DE SUPABASE
         // ============================================
-        // TODO: Reemplaza estos valores con tus credenciales reales de Supabase
-        const SUPABASE_URL = 'YOUR_SUPABASE_URL'  // e.g., 'https://xxxxx.supabase.co'
-        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'
+        // Proyecto: imagemia (ref: tnohrdssgbnqiohjexfr)
+        const SUPABASE_URL = 'https://tnohrdssgbnqiohjexfr.supabase.co'
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRub2hyZHNzZ2JucWlvaGpleGZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU0OTA2ODIsImV4cCI6MjA3MTA2NjY4Mn0.ZNixGVXjek0xIOp4YBA5hN7VjelPzU9n78jtGg1DSp4'
 
         // Modo de desarrollo: usar auth hardcodeada (cambiar a false en producción)
-        const DEV_MODE = true
+        const DEV_MODE = true  // 🔧 DESARROLLO - Sin necesidad de Supabase
 
         // Inicializar Supabase (solo si no estamos en modo dev)
         let supabaseClient
@@ -615,6 +619,12 @@
                 subdomain: 'petcimagenes',
                 nombre: 'PETCIMAGENES',
                 userId: 'demo-user-001'
+            },
+            'inlliyaku@gmail.com': {
+                password: 'puPquq-1dammi-wespuh',
+                subdomain: 'petcimagenes',
+                nombre: 'PETCIMAGENES',
+                userId: 'demo-user-002'
             }
             // Agregar más empresas aquí
         };
@@ -659,7 +669,9 @@
             if (session) {
                 // Ya está autenticado, obtener subdomain y redirigir
                 const subdomain = await getEmpresaSubdomain(session.user.id)
-                window.location.href = `/empresas/${subdomain}`
+
+                const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                window.location.href = isLocalhost ? 'http://localhost:8080' : `/empresas/${subdomain}`
             }
         }
 
@@ -774,7 +786,16 @@
 
                 // Redirigir al subdirectorio de la empresa
                 setTimeout(() => {
-                    window.location.href = `/empresas/${result.subdomain}`
+                    // Detectar si estamos en localhost para desarrollo
+                    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+
+                    if (isLocalhost) {
+                        // En desarrollo, redirigir a localhost:8080
+                        window.location.href = `http://localhost:8080`
+                    } else {
+                        // En producción, redirigir a subdomain
+                        window.location.href = `/empresas/${result.subdomain}`
+                    }
                 }, 1000)
 
             } catch (error) {
@@ -793,7 +814,9 @@
 
                 if (event === 'SIGNED_IN' && session) {
                     const subdomain = await getEmpresaSubdomain(session.user.id)
-                    window.location.href = `/empresas/${subdomain}`
+
+                    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+                    window.location.href = isLocalhost ? 'http://localhost:8080' : `/empresas/${subdomain}`
                 }
             })
         }
@@ -803,7 +826,7 @@
         // ============================================
         console.log(`
 ╔═══════════════════════════════════════════════════════════╗
-║                  IMAGEM.IA LOGIN PAGE                      ║
+║                  imagemIA LOGIN PAGE                        ║
 ╠═══════════════════════════════════════════════════════════╣
 ║                                                            ║
 ║  MODO ACTUAL: ${DEV_MODE ? 'DESARROLLO 🔧' : 'PRODUCCIÓN 🚀'}                      ║

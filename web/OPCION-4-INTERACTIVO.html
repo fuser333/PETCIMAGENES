@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem.ia - Interactivo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logos/imagemia-favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8FAFC;
+            color: #0F172A;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar con efecto scroll */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            border-bottom: 1px solid #E2E8F0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { height: 45px; }
+
+        .btn-interactive {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #06B6D4, #16A34A);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .btn-interactive:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Hero con contador animado */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #EFF6FF, #F0FDF4);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .money-counter {
+            font-size: 88px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #06B6D4, #16A34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle-animated {
+            font-size: 22px;
+            color: #64748B;
+            margin: 32px 0;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats cards con hover animado */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-card-animated {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .stat-card-animated:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number-animated {
+            font-size: 48px;
+            font-weight: 900;
+            color: #2563EB;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            color: #64748B;
+            font-size: 15px;
+        }
+
+        /* Problem section con reveal animation */
+        .problem {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 80px;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .pain-card-animated {
+            background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid #DC2626;
+            transition: all 0.3s ease;
+        }
+
+        .pain-card-animated:hover {
+            transform: translateX(10px);
+            box-shadow: -4px 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .pain-card-animated h3 {
+            font-size: 22px;
+            color: #DC2626;
+            margin-bottom: 16px;
+        }
+
+        /* CTA animado */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #2563EB, #06B6D4);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 32px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            background: #0F172A;
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 42px; }
+            .money-counter { font-size: 58px; }
+            .stats { grid-template-columns: 1fr; }
+            .pain-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <img src="assets/logos/imagemia-logo-horizontal-final.svg" alt="Imagem.ia" class="logo">
+            <a href="#contacto" class="btn-interactive">Diagnóstico Gratuito</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Estás Perdiendo</h1>
+            <div class="money-counter" id="counter">$400,000</div>
+            <p class="subtitle-animated">cada año en ingresos recuperables</p>
+            <a href="#contacto" class="btn-interactive">Descubre Cuánto Pierdes Tú</a>
+
+            <div class="stats">
+                <div class="stat-card-animated">
+                    <div class="stat-number-animated">$400K</div>
+                    <div class="stat-label">Promedio Recuperable</div>
+                </div>
+                <div class="stat-card-animated">
+                    <div class="stat-number-animated">+14pp</div>
+                    <div class="stat-label">Aumento Utilización</div>
+                </div>
+                <div class="stat-card-animated">
+                    <div class="stat-number-animated">45 días</div>
+                    <div class="stat-label">Para Resultados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">El Problema</h2>
+            <div class="pain-grid">
+                <div class="pain-card-animated">
+                    <h3>24% Cancelaciones</h3>
+                    <p>Equipos de $2M parados mientras esperas pacientes que nunca llegan.</p>
+                </div>
+                <div class="pain-card-animated">
+                    <h3>$400K Perdidos</h3>
+                    <p>Dinero que no entra cada año. Cada slot vacío es una oportunidad perdida.</p>
+                </div>
+                <div class="pain-card-animated">
+                    <h3>Flujo Impredecible</h3>
+                    <p>No sabes cuánto facturarás. Imposible planificar.</p>
+                </div>
+                <div class="pain-card-animated">
+                    <h3>Gestión Caótica</h3>
+                    <p>Procesos manuales que consumen tiempo y generan errores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="cta">
+        <div class="container">
+            <h2>Recupera Tu Dinero</h2>
+            <a href="mailto:hector@imagemia.com" class="btn-interactive" style="background: white; color: #2563EB;">
+                Solicitar Diagnóstico Ahora
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2025 Imagem.ia
+        </div>
+    </footer>
+
+    <script>
+        // Animación del contador de dinero
+        function animateCounter() {
+            const counter = document.getElementById('counter');
+            let value = 300000;
+            const target = 500000;
+            const duration = 3000;
+            const increment = (target - value) / (duration / 30);
+
+            const timer = setInterval(() => {
+                value += increment;
+                if (value >= target) {
+                    value = 300000;
+                }
+                counter.textContent = '$' + Math.floor(value).toLocaleString();
+            }, 30);
+        }
+
+        animateCounter();
+    </script>
+</body>
+</html>

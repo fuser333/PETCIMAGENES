@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TU_AGENCIA] | [PROMESA_PRINCIPAL] para [TU_VERTICAL]</title>
+    <meta name="description" content="Activa una barra CTA persistente y copy PAS para convertir visitantes en leads calificados para [TU_VERTICAL].">
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════
+    PERSONALIZACIÓN - TEMPLATE STICKY CTA BAR
+    ═══════════════════════════════════════════════════════════════════
+    1. Reemplaza placeholders clave:
+       - [TU_AGENCIA], [TU_VERTICAL], [PROMESA_PRINCIPAL], [CTA_URL], [CTA_EMAIL]
+       - [KPI_PROBLEMA_1], [KPI_PROBLEMA_2], [KPI_SOLUCION_1], [PLAZO_IMPLEMENTACION]
+       - [BENEFICIO_1]...[BENEFICIO_3], [TESTIMONIO_X]
+       - [LINK_BLOG], [LINK_GUIAS], [LINK_WEBINARS], [LINK_API], [LINK_SOBRE], [LINK_CARRERAS], [LINK_PARTNERS]
+       - [EMAIL_CONTACTO], [TELEFONO_CONTACTO]
+    2. Ajusta la lógica del sticky CTA si tu página tiene otras secciones críticas.
+    3. Conecta los botones con tu stack real (Calendly, Typeform, CRM, etc.).
+    4. Actualiza logos, stats y testimonios con datos reales.
+    ═══════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           RESET & BASE STYLES
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Tech Horizon Palette - Light Mode */
+            --primary: #3B82F6;
+            --primary-dark: #2563EB;
+            --primary-light: #60A5FA;
+            --secondary: #1E293B;
+            --secondary-light: #334155;
+            --accent: #F59E0B;
+            --accent-light: #FCD34D;
+
+            /* Neutrals */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --bg-tertiary: #EFF6FF;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --border: #E2E8F0;
+
+            /* Status Colors */
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Spacing */
+            --spacing-unit: 8px;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========================================
+           UTILITY CLASSES
+           ======================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 48px 0;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            min-height: 44px; /* Touch target */
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-white:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            background-color: var(--bg-tertiary);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .badge-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 100;
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            padding: 10px 20px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* ========================================
+           STICKY CTA BAR (HERO DE ESTA TEMPLATE)
+           ======================================== */
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 16px 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(100%);
+            transition: transform var(--transition-base);
+            z-index: 99;
+        }
+
+        .sticky-cta-bar.visible {
+            transform: translateY(0);
+            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .sticky-cta-bar.visible.slide-down {
+            animation-name: slideDown;
+        }
+
+        .sticky-cta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .sticky-cta-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .sticky-cta-icon {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sticky-cta-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .sticky-cta-text {
+            flex: 1;
+        }
+
+        .sticky-cta-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .sticky-cta-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.3;
+        }
+
+        .sticky-cta-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sticky-cta-close {
+            background: none;
+            border: none;
+            color: white;
+            opacity: 0.7;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity var(--transition-fast);
+            border-radius: 4px;
+        }
+
+        .sticky-cta-close:hover {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sticky-cta-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .sticky-cta-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .sticky-cta-actions {
+                width: 100%;
+            }
+
+            .sticky-cta-actions .btn {
+                flex: 1;
+            }
+
+            .sticky-cta-subtitle {
+                display: none;
+            }
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .hero-title-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.4s backwards;
+        }
+
+        .hero-social-proof {
+            margin-top: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+        }
+
+        /* ========================================
+           FEATURES SECTION
+           ======================================== */
+        .features {
+            background-color: var(--bg-primary);
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .section-badge {
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .section-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-secondary);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all var(--transition-base);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           HOW IT WORKS SECTION
+           ======================================== */
+        .how-it-works {
+            background-color: var(--bg-secondary);
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 31px;
+            top: 64px;
+            width: 2px;
+            height: calc(100% + 16px);
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            opacity: 0.3;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 8px;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .step-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .step-feature-tag {
+            padding: 6px 12px;
+            background-color: var(--bg-primary);
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        @media (max-width: 640px) {
+            .step {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        /* ========================================
+           BENEFITS SECTION
+           ======================================== */
+        .benefits {
+            background-color: var(--bg-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            background-color: var(--bg-secondary);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: all var(--transition-base);
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--bg-tertiary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .benefit-content {
+            flex: 1;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .benefit-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           SOCIAL PROOF SECTION
+           ======================================== */
+        .social-proof {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-primary);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .testimonial-author {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 12px;
+        }
+
+        .star {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .companies-section {
+            text-align: center;
+        }
+
+        .companies-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .companies-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .company-logo {
+            height: 32px;
+            opacity: 0.5;
+            filter: grayscale(100%);
+            transition: all var(--transition-base);
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 992px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           PRICING SECTION
+           ======================================== */
+        .pricing {
+            background-color: var(--bg-secondary);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background-color: var(--bg-primary);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            position: relative;
+            transition: all var(--transition-base);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .pricing-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .pricing-price {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-currency {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .pricing-amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .pricing-period {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-billing {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-feature-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--success);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pricing-cta {
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        /* ========================================
+           FAQ SECTION
+           ======================================== */
+        .faq {
+            background-color: var(--bg-primary);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all var(--transition-base);
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 24px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: color var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: transform var(--transition-base);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-base);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px 24px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* ========================================
+           FINAL CTA SECTION
+           ======================================== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta-title {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .final-cta-description {
+            font-size: 20px;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-white-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        @media (max-width: 640px) {
+            .final-cta-title {
+                font-size: 32px;
+            }
+
+            .final-cta-description {
+                font-size: 18px;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .final-cta-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background-color: var(--secondary);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 8px;
+        }
+
+        .footer-description {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all var(--transition-base);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-column-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 12px;
+        }
+
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-legal a:hover {
+            color: white;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon"></div>
+                [TU_AGENCIA]
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#features" class="nav-link">Características</a></li>
+                <li><a href="#how-it-works" class="nav-link">Cómo funciona</a></li>
+                <li><a href="#pricing" class="nav-link">Precios</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="btn btn-primary nav-cta">Reservar diagnóstico</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         STICKY CTA BAR (Initially hidden)
+         ======================================== -->
+    <div class="sticky-cta-bar" id="stickyCTA">
+        <div class="sticky-cta-container">
+            <div class="sticky-cta-content">
+                <div class="sticky-cta-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <div class="sticky-cta-text">
+                    <div class="sticky-cta-title">Estás a [PLAZO_IMPLEMENTACION] de recuperar [KPI_PROBLEMA_1]</div>
+                    <div class="sticky-cta-subtitle">[EMPRESAS_CONFIAN]+ empresas ya confían en [TU_AGENCIA]</div>
+                </div>
+            </div>
+            <div class="sticky-cta-actions">
+                <a href="#contact" class="btn btn-white">Quiero mi blueprint</a>
+                <button class="sticky-cta-close" onclick="hideStickyCTA()" aria-label="Cerrar">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="hero" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge">
+                        <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [TU_VERTICAL] · Caso Real
+                    </span>
+                </div>
+
+                <h1 class="hero-title">
+                    [TU_VERTICAL] pierde <span class="hero-title-gradient">[KPI_PROBLEMA_1]</span> por [PROBLEMA_PRINCIPAL]
+                </h1>
+
+                <p class="hero-description">
+                    Te mostramos cómo recuperarlo con agentes IA que se integran en [PLAZO_IMPLEMENTACION], reducen costes en <strong>[KPI_SOLUCION_1]</strong> y liberan a tu equipo para el trabajo estratégico.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        Reservar diagnóstico
+                        <svg style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary">
+                        Ver cómo funciona
+                    </a>
+                </div>
+
+                <div class="hero-social-proof">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">[EMPRESAS_CONFIAN]+</div>
+                        <div class="hero-stat-label">Empresas confían</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">[KPI_SOLUCION_1]</div>
+                        <div class="hero-stat-label">Ahorro promedio</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">[PLAZO_IMPLEMENTACION]</div>
+                        <div class="hero-stat-label">Implementación</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">[CALIFICACION_PROMEDIO]</div>
+                        <div class="hero-stat-label">Valoración</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FEATURES SECTION
+         ======================================== -->
+    <section class="features section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Características</span>
+                </div>
+                <h2 class="section-title">Todo lo que necesitas para transformar tu negocio</h2>
+                <p class="section-description">
+                    Soluciones completas de automatización con IA diseñadas para generar resultados medibles desde el día 1.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Automatización Inteligente</h3>
+                    <p class="feature-description">
+                        Agentes de IA que automatizan tareas repetitivas, reduciendo hasta 20h/semana de trabajo manual por empleado.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Implementación Rápida</h3>
+                    <p class="feature-description">
+                        De 0 a producción en 30 días. No necesitas equipo técnico, nosotros nos encargamos de todo.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">ROI Garantizado</h3>
+                    <p class="feature-description">
+                        Recupera tu inversión en menos de 6 meses. Si no alcanzas el ROI proyectado, trabajamos gratis hasta lograrlo.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Analytics en Tiempo Real</h3>
+                    <p class="feature-description">
+                        Dashboards que muestran el impacto real: horas ahorradas, costes reducidos, errores eliminados.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Soporte Dedicado</h3>
+                    <p class="feature-description">
+                        Account manager exclusivo + equipo técnico disponible 24/7 para garantizar tu éxito.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Seguridad Enterprise</h3>
+                    <p class="feature-description">
+                        Cumplimiento GDPR, encriptación end-to-end, auditorías de seguridad trimestrales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         HOW IT WORKS SECTION
+         ======================================== -->
+    <section class="how-it-works section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Proceso</span>
+                </div>
+                <h2 class="section-title">De 0 a producción en 4 pasos</h2>
+                <p class="section-description">
+                    Metodología probada con 500+ implementaciones exitosas. Sin sorpresas, sin retrasos.
+                </p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Discovery Profundo (Semana 1-2)</h3>
+                        <p class="step-description">
+                            Analizamos tus procesos actuales, identificamos cuellos de botella y calculamos el ROI potencial. Entregamos un roadmap detallado de automatización.
+                        </p>
+                        <div class="step-features">
+                            <span class="step-feature-tag">Auditoría de procesos</span>
+                            <span class="step-feature-tag">Cálculo ROI</span>
+                            <span class="step-feature-tag">Roadmap estratégico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Diseño e Infraestructura (Semana 2-3)</h3>
+                        <p class="step-description">
+                            Creamos los flujos de trabajo, configuramos integraciones con tus sistemas y preparamos la infraestructura cloud.
+                        </p>
+                        <div class="step-features">
+                            <span class="step-feature-tag">Arquitectura de agentes</span>
+                            <span class="step-feature-tag">Integraciones API</span>
+                            <span class="step-feature-tag">Setup cloud</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Implementación y Testing (Semana 3-4)</h3>
+                        <p class="step-description">
+                            Desplegamos los agentes de IA en producción, ejecutamos pruebas exhaustivas y capacitamos a tu equipo.
+                        </p>
+                        <div class="step-features">
+                            <span class="step-feature-tag">Deploy producción</span>
+                            <span class="step-feature-tag">QA completo</span>
+                            <span class="step-feature-tag">Training equipo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Optimización Continua (Ongoing)</h3>
+                        <p class="step-description">
+                            Monitoreamos el rendimiento 24/7, optimizamos basado en datos reales y escalamos según tus necesidades.
+                        </p>
+                        <div class="step-features">
+                            <span class="step-feature-tag">Monitoreo 24/7</span>
+                            <span class="step-feature-tag">Optimización IA</span>
+                            <span class="step-feature-tag">Escalado automático</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         BENEFITS SECTION
+         ======================================== -->
+    <section class="benefits section" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Beneficios</span>
+                </div>
+                <h2 class="section-title">Resultados que transforman tu negocio</h2>
+                <p class="section-description">
+                    No vendemos tecnología. Vendemos outcomes medibles que impactan directamente tu cuenta de resultados.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Reduce costes hasta 70%</h3>
+                        <p class="benefit-description">
+                            Ahorra €5,000-€25,000/mes automatizando tareas que antes requerían FTEs completos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">10x más rápido</h3>
+                        <p class="benefit-description">
+                            Procesos que tomaban horas ahora se completan en minutos. Responde a clientes en tiempo real.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">99.9% de precisión</h3>
+                        <p class="benefit-description">
+                            Elimina errores humanos. Procesamiento de datos y documentos con precisión de nivel enterprise.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Escala sin contratar</h3>
+                        <p class="benefit-description">
+                            Duplica o triplica tu capacidad operativa sin aumentar headcount. Crece sin quemar caja.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Insights accionables</h3>
+                        <p class="benefit-description">
+                            Analytics que revelan oportunidades ocultas. Toma decisiones basadas en datos, no intuición.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Clientes más felices</h3>
+                        <p class="benefit-description">
+                            Respuestas instantáneas, servicio 24/7, experiencias personalizadas. NPS promedio: 72.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SOCIAL PROOF SECTION
+         ======================================== -->
+    <section class="social-proof section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Testimonios</span>
+                </div>
+                <h2 class="section-title">500+ empresas ya están transformando sus negocios</h2>
+                <p class="section-description">
+                    De startups a Fortune 500. Lee lo que dicen nuestros clientes sobre los resultados reales.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MG</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">María García</div>
+                            <div class="testimonial-role">CEO, TechCorp</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Ahorramos €18,000/mes automatizando nuestro proceso de onboarding. La inversión se pagó sola en 3 meses. El equipo es increíblemente profesional."
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">Javier Rodríguez</div>
+                            <div class="testimonial-role">COO, LogisticsPro</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Procesábamos 200 pedidos/día. Ahora con agentes de IA manejamos 1,500/día con el mismo equipo. Game changer total para nuestra operación."
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AL</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">Ana López</div>
+                            <div class="testimonial-role">Directora Operaciones, HealthTech</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Compliance regulatorio era nuestra pesadilla. Ahora los agentes se encargan del 95% de la documentación. Auditorías aprobadas sin estrés."
+                    </p>
+                </div>
+            </div>
+
+            <div class="companies-section">
+                <p class="companies-title">Confiado por empresas líderes</p>
+                <div class="companies-logos">
+                    <div style="font-size: 18px; font-weight: 700; color: var(--text-muted);">TechCorp</div>
+                    <div style="font-size: 18px; font-weight: 700; color: var(--text-muted);">LogisticsPro</div>
+                    <div style="font-size: 18px; font-weight: 700; color: var(--text-muted);">HealthTech</div>
+                    <div style="font-size: 18px; font-weight: 700; color: var(--text-muted);">FinanceAI</div>
+                    <div style="font-size: 18px; font-weight: 700; color: var(--text-muted);">RetailMax</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PRICING SECTION
+         ======================================== -->
+    <section class="pricing section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Pricing</span>
+                </div>
+                <h2 class="section-title">Planes que se adaptan a tu negocio</h2>
+                <p class="section-description">
+                    Inversión transparente. ROI medible. Sin costes ocultos. Garantía de resultados o trabajamos gratis.
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Starter</h3>
+                        <p class="pricing-description">Para equipos pequeños que quieren automatizar sus primeros procesos</p>
+                        <div class="pricing-price">
+                            <span class="pricing-currency">€</span>
+                            <span class="pricing-amount">2,997</span>
+                            <span class="pricing-period">/mes</span>
+                        </div>
+                        <p class="pricing-billing">Facturación trimestral</p>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Hasta 3 agentes de IA
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            5,000 tareas automatizadas/mes
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Integraciones básicas (5 max)
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Dashboard analytics
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Soporte email (48h)
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="btn btn-secondary pricing-cta">Empezar ahora</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Más popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Professional</h3>
+                        <p class="pricing-description">Para empresas en crecimiento que necesitan escalar operaciones</p>
+                        <div class="pricing-price">
+                            <span class="pricing-currency">€</span>
+                            <span class="pricing-amount">7,997</span>
+                            <span class="pricing-period">/mes</span>
+                        </div>
+                        <p class="pricing-billing">Facturación trimestral</p>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Hasta 10 agentes de IA
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            25,000 tareas automatizadas/mes
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Integraciones ilimitadas
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Dashboard avanzado + Custom reports
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Account manager dedicado
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Soporte prioritario 24/7
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            ROI garantizado
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="btn btn-primary pricing-cta">Empezar ahora</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Enterprise</h3>
+                        <p class="pricing-description">Para organizaciones que requieren soluciones a medida</p>
+                        <div class="pricing-price">
+                            <span class="pricing-amount" style="font-size: 36px;">Personalizado</span>
+                        </div>
+                        <p class="pricing-billing">Según necesidades</p>
+                    </div>
+
+                    <ul class="pricing-features">
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Agentes ilimitados
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Volumen ilimitado
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Infraestructura dedicada
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Desarrollo custom
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            SLA garantizado 99.9%
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Equipo técnico dedicado
+                        </li>
+                        <li class="pricing-feature">
+                            <svg class="pricing-feature-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Compliance & security audit
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="btn btn-secondary pricing-cta">Contactar ventas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FAQ SECTION
+         ======================================== -->
+    <section class="faq section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">FAQ</span>
+                </div>
+                <h2 class="section-title">Preguntas frecuentes</h2>
+                <p class="section-description">
+                    Todo lo que necesitas saber antes de empezar tu transformación con IA.
+                </p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        ¿Cuánto tiempo toma la implementación?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            De 0 a producción en 30 días. Semana 1-2: Discovery y diseño. Semana 3: Implementación y testing. Semana 4: Deploy y training. Después: optimización continua con tu account manager.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        ¿Qué pasa si no alcanzo el ROI proyectado?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Garantía ROI: Si no alcanzas el ahorro proyectado en 6 meses, trabajamos gratis hasta lograrlo. Medimos resultados semanalmente: horas ahorradas, costes reducidos, errores eliminados. Transparencia total.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        ¿Necesito equipo técnico interno?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No. Nosotros nos encargamos de todo: implementación, mantenimiento, optimización y soporte. Solo necesitas un punto de contacto que conozca tus procesos. Capacitamos a tu equipo para usar el sistema (no para programarlo).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        ¿Qué sistemas se pueden integrar?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Conectamos con cualquier sistema que tenga API: CRMs (Salesforce, HubSpot), ERPs (SAP, Odoo), email, WhatsApp, Slack, bases de datos, hojas de cálculo, etc. Si no tiene API, creamos soluciones custom (RPA, web scraping).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        ¿Cómo garantizan la seguridad de los datos?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Cumplimiento GDPR total. Encriptación end-to-end. Infraestructura cloud europea (AWS Frankfurt). Auditorías de seguridad trimestrales. Contratos NDA y DPA. Tus datos nunca se usan para entrenar modelos de IA.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        ¿Puedo empezar con un proyecto piloto?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sí. Ofrecemos proyectos piloto de 2 semanas (€5,000 fijo) donde automatizamos 1 proceso crítico. Si funciona (siempre funciona), escalamos a toda la operación. Piloto incluye: discovery, implementación y resultados medibles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FINAL CTA SECTION
+         ======================================== -->
+    <section class="final-cta section" id="contact">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="final-cta-title">¿Listo para dejar de perder [KPI_PROBLEMA_1]?</h2>
+                <p class="final-cta-description">
+                    En una llamada de 30 minutos te entregamos el blueprint con ahorros estimados, roadmap y próximos pasos para <strong>[TU_VERTICAL]</strong>.
+                </p>
+                <div class="final-cta-buttons">
+                    <a href="[CTA_URL]" class="btn btn-white">Reservar diagnóstico</a>
+                    <a href="#pricing" class="btn btn-white-outline">Ver paquetes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"></div>
+                        [TU_AGENCIA]
+                    </div>
+                    <p class="footer-description">
+                        Transformamos empresas con agentes de IA que generan resultados medibles en [PLAZO_IMPLEMENTACION].
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Producto</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#features">Características</a></li>
+                        <li class="footer-link"><a href="#how-it-works">Cómo funciona</a></li>
+                        <li class="footer-link"><a href="#pricing">Precios</a></li>
+                        <li class="footer-link"><a href="#testimonials">Casos de éxito</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Recursos</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="[LINK_BLOG]">Blog</a></li>
+                        <li class="footer-link"><a href="[LINK_GUIAS]">Guías</a></li>
+                        <li class="footer-link"><a href="[LINK_WEBINARS]">Webinars</a></li>
+                        <li class="footer-link"><a href="[LINK_API]">API Docs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Empresa</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="[LINK_SOBRE]">Sobre nosotros</a></li>
+                        <li class="footer-link"><a href="mailto:[CTA_EMAIL]">Contacto</a></li>
+                        <li class="footer-link"><a href="[LINK_CARRERAS]">Carreras</a></li>
+                        <li class="footer-link"><a href="[LINK_PARTNERS]">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-description">[EMAIL_CONTACTO] · [TELEFONO_CONTACTO]</p>
+                <p class="footer-copyright">© 2025 [TU_AGENCIA]. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="[LINK_PRIVACIDAD]">Privacidad</a>
+                    <a href="[LINK_TERMINOS]">Términos</a>
+                    <a href="[LINK_COOKIES]">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+    <script>
+        // =====================================
+        // STICKY CTA BAR LOGIC
+        // =====================================
+        const stickyCTA = document.getElementById('stickyCTA');
+        const heroSection = document.getElementById('hero');
+        let stickyBarDismissed = false;
+
+        // Intersection Observer to detect when hero leaves viewport
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!stickyBarDismissed) {
+                    if (!entry.isIntersecting) {
+                        // Hero has scrolled out of view - show sticky bar
+                        stickyCTA.classList.add('visible');
+                    } else {
+                        // Hero is back in view - hide sticky bar
+                        stickyCTA.classList.remove('visible');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(heroSection);
+
+        // Function to hide sticky CTA (called by close button)
+        function hideStickyCTA() {
+            stickyCTA.classList.remove('visible');
+            stickyBarDismissed = true;
+
+            // Optional: Store in localStorage to persist across page refreshes
+            localStorage.setItem('stickyCtaDismissed', 'true');
+        }
+
+        // Check if user previously dismissed the sticky bar
+        if (localStorage.getItem('stickyCtaDismissed') === 'true') {
+            stickyBarDismissed = true;
+        }
+
+        // =====================================
+        // NAVIGATION SCROLL EFFECT
+        // =====================================
+        const nav = document.getElementById('mainNav');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // =====================================
+        // FAQ ACCORDION
+        // =====================================
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // =====================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // =====================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#contact') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const navHeight = document.querySelector('.nav').offsetHeight;
+                        const targetPosition = target.offsetTop - navHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // =====================================
+        // ANALYTICS TRACKING (Example)
+        // =====================================
+        // Track CTA clicks
+        document.querySelectorAll('.btn-primary, .btn-white').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Example: Send event to analytics
+                console.log('CTA clicked:', e.target.textContent);
+
+                // Replace with your analytics code:
+                // gtag('event', 'cta_click', { button_text: e.target.textContent });
+                // or
+                // analytics.track('CTA Clicked', { button: e.target.textContent });
+            });
+        });
+
+        // Track sticky bar appearance
+        const stickyBarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !stickyBarDismissed) {
+                    console.log('Sticky CTA bar appeared');
+                    // gtag('event', 'sticky_bar_view');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stickyBarObserver.observe(stickyCTA);
+
+        // =====================================
+        // PERFORMANCE MONITORING
+        // =====================================
+        window.addEventListener('load', () => {
+            // Log Core Web Vitals
+            if ('PerformanceObserver' in window) {
+                // LCP - Largest Contentful Paint
+                new PerformanceObserver((list) => {
+                    const entries = list.getEntries();
+                    const lastEntry = entries[entries.length - 1];
+                    console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
+                }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+                // FID - First Input Delay (INP in newer metrics)
+                new PerformanceObserver((list) => {
+                    list.getEntries().forEach((entry) => {
+                        console.log('FID:', entry.processingStart - entry.startTime);
+                    });
+                }).observe({ entryTypes: ['first-input'] });
+
+                // CLS - Cumulative Layout Shift
+                let clsScore = 0;
+                new PerformanceObserver((list) => {
+                    list.getEntries().forEach((entry) => {
+                        if (!entry.hadRecentInput) {
+                            clsScore += entry.value;
+                            console.log('CLS:', clsScore);
+                        }
+                    });
+                }).observe({ entryTypes: ['layout-shift'] });
+            }
+
+            // Log total page load time
+            const perfData = window.performance.timing;
+            const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+            console.log('Page Load Time:', pageLoadTime + 'ms');
+        });
+    </script>
+
+    <!--
+    ========================================
+    CUSTOMIZATION INSTRUCTIONS
+    ========================================
+
+    1. BRANDING:
+       - Replace "[TU_AGENCIA]" with your company name
+       - Update color palette in :root CSS variables
+       - Replace logo icon divs with actual logo images
+
+    2. CONTENT:
+       - Update hero headline with your unique value proposition
+       - Modify features/benefits to match your service offerings
+       - Replace testimonials with real client feedback
+       - Update pricing plans with your actual tiers
+
+    3. STICKY CTA BAR:
+       - Customize message in .sticky-cta-title and .sticky-cta-subtitle
+       - Modify CTA button text and destination
+       - Adjust trigger point by modifying Intersection Observer options
+       - Change position (bottom/top) by updating CSS
+
+    4. INTEGRATIONS:
+       - Add your analytics tracking code (GA4, Mixpanel, etc.)
+       - Connect form submissions to your CRM/Email service
+       - Set up conversion tracking pixels (Meta, LinkedIn, etc.)
+
+    5. PERFORMANCE:
+       - Optimize images (WebP format, lazy loading)
+       - Minify CSS/JS for production
+       - Consider loading fonts from self-hosted source
+       - Implement CDN for faster global delivery
+
+    6. ACCESSIBILITY:
+       - Test with screen readers
+       - Ensure keyboard navigation works
+       - Verify color contrast ratios
+       - Add ARIA labels where needed
+
+    7. A/B TESTING IDEAS:
+       - Test different sticky bar messages
+       - Experiment with CTA button colors
+       - Try alternative headlines
+       - Test pricing display order
+
+    TEMPLATE VERSION: 1.0
+    LAST UPDATED: 2025
+    AUTHOR: Factor Agents Academy
+    -->
+</body>
+</html>

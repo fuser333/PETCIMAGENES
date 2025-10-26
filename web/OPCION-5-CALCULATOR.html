@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagem.ia - Calcula Tu Pérdida</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logos/imagemia-favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8FAFC;
+            color: #0F172A;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            padding: 20px 0;
+            background: white;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { height: 45px; }
+
+        .btn {
+            padding: 14px 32px;
+            background: #06B6D4;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        /* Hero con calculadora destacada */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #EFF6FF, #FFFFFF);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #64748B;
+            margin-bottom: 32px;
+        }
+
+        /* CALCULADORA INTERACTIVA */
+        .calculator {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 2px solid #06B6D4;
+        }
+
+        .calculator h3 {
+            font-size: 24px;
+            margin-bottom: 32px;
+            text-align: center;
+            color: #2563EB;
+        }
+
+        .calc-input {
+            margin-bottom: 28px;
+        }
+
+        .calc-input label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #0F172A;
+        }
+
+        .calc-input input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: #E2E8F0;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .calc-input input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #06B6D4;
+            cursor: pointer;
+        }
+
+        .calc-value {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, #06B6D4, #16A34A);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 32px;
+            color: white;
+        }
+
+        .calc-result-label {
+            font-size: 15px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+
+        .calc-result-number {
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .calc-result-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Rest of page */
+        .benefits {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .benefit-card {
+            padding: 32px;
+            background: #F8FAFC;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .cta {
+            padding: 80px 0;
+            background: #2563EB;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 32px;
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background: #0F172A;
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <img src="assets/logos/imagemia-logo-horizontal-final.svg" alt="Imagem.ia" class="logo">
+            <a href="#contacto" class="btn">Contacto</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <h1>¿Cuánto Dinero Estás Perdiendo?</h1>
+                    <p>Calcula en 30 segundos cuánto podrías recuperar maximizando la utilización de tus equipos de imagenología.</p>
+                </div>
+                <div>
+                    <div class="calculator">
+                        <h3>Calculadora de Ingresos Recuperables</h3>
+
+                        <div class="calc-input">
+                            <label>Número de Equipos</label>
+                            <input type="range" min="1" max="10" value="3" id="equipos" oninput="calcular()">
+                            <div class="calc-value">
+                                <span>1</span>
+                                <span id="equipos-value">3</span>
+                                <span>10</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-input">
+                            <label>Cancelaciones Actuales (%)</label>
+                            <input type="range" min="10" max="40" value="24" id="cancelaciones" oninput="calcular()">
+                            <div class="calc-value">
+                                <span>10%</span>
+                                <span id="cancel-value">24%</span>
+                                <span>40%</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-input">
+                            <label>Precio Promedio por Estudio</label>
+                            <input type="range" min="50" max="500" value="150" step="10" id="precio" oninput="calcular()">
+                            <div class="calc-value">
+                                <span>$50</span>
+                                <span id="precio-value">$150</span>
+                                <span>$500</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-result">
+                            <div class="calc-result-label">Ingresos Recuperables Anuales</div>
+                            <div class="calc-result-number" id="resultado">$324,000</div>
+                            <div class="calc-result-desc">Aumentando utilización al 90%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Cómo Lo Logramos</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤖</div>
+                    <h4>Sistema Inteligente</h4>
+                    <p>Confirma y re-agenda automáticamente</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Dashboard en Tiempo Real</h4>
+                    <p>Visibilidad total de utilización</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>45 Días</h4>
+                    <p>Para ver resultados medibles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="cta">
+        <div class="container">
+            <h2>¿Listo Para Recuperar Ese Dinero?</h2>
+            <a href="mailto:hector@imagemia.com?subject=Diagnóstico" class="btn" style="background: white; color: #2563EB; font-size: 17px; padding: 18px 44px;">
+                Solicitar Diagnóstico Gratuito
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2025 Imagem.ia
+        </div>
+    </footer>
+
+    <script>
+        function calcular() {
+            const equipos = document.getElementById('equipos').value;
+            const cancelaciones = document.getElementById('cancelaciones').value;
+            const precio = document.getElementById('precio').value;
+
+            // Mostrar valores
+            document.getElementById('equipos-value').textContent = equipos;
+            document.getElementById('cancel-value').textContent = cancelaciones + '%';
+            document.getElementById('precio-value').textContent = '$' + precio;
+
+            // Cálculo simplificado
+            const estudiosxEquipoxDia = 8;
+            const diasAno = 250;
+            const totalEstudiosAnuales = equipos * estudiosxEquipoxDia * diasAno;
+            const estudiosPerdidos = totalEstudiosAnuales * (cancelaciones / 100);
+            const ingresoRecuperable = estudiosPerdidos * precio * 0.7; // 70% recuperable
+
+            document.getElementById('resultado').textContent = '$' + Math.floor(ingresoRecuperable).toLocaleString();
+        }
+
+        // Calcular al cargar
+        calcular();
+    </script>
+</body>
+</html>

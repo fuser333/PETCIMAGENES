@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmigrAI - Automatización Inteligente para Asesorías de Extranjería</title>
+    <meta name="description" content="Ahorra 10-20 horas semanales y reduce errores en 30-40%. Automatizamos gestión documental, citas y expedientes para asesorías de extranjería.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Paleta Profesional - Legal/Tech */
+            --primary: #2D3648;        /* Azul oscuro profesional */
+            --primary-light: #4A5568;  /* Azul medio */
+            --accent: #10B981;         /* Verde éxito */
+            --accent-dark: #059669;    /* Verde oscuro */
+            --warning: #F59E0B;        /* Naranja atención */
+            --bg: #FFFFFF;             /* Blanco puro */
+            --bg-gray: #F9FAFB;        /* Gris muy claro */
+            --bg-dark: #1F2937;        /* Gris oscuro */
+            --text: #111827;           /* Texto principal */
+            --text-light: #6B7280;     /* Texto secundario */
+            --border: #E5E7EB;         /* Bordes */
+
+            /* Sombras */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+            /* Tipografía */
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-heading: 'Sora', 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Contenedor */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 100px;
+            background: linear-gradient(135deg, #F9FAFB 0%, #FFFFFF 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #ECFDF5;
+            color: var(--accent-dark);
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .hero-ctas .btn {
+            padding: 16px 32px;
+            font-size: 16px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Problema Section */
+        .problema {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 64px;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #FEF3C7;
+            color: #92400E;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .pain-card {
+            background: var(--bg-gray);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pain-card:hover {
+            border-color: var(--warning);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pain-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .pain-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .pain-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .pain-impact {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #FEE2E2;
+            color: #991B1B;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Solución Section */
+        .solucion {
+            padding: 100px 0;
+            background: var(--bg-gray);
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .comparison-side {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-side.before {
+            border-top: 4px solid #EF4444;
+        }
+
+        .comparison-side.after {
+            border-top: 4px solid var(--accent);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .comparison-icon {
+            font-size: 32px;
+        }
+
+        .comparison-title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .comparison-item-icon {
+            font-size: 20px;
+            margin-top: 2px;
+        }
+
+        .comparison-item-text {
+            flex: 1;
+        }
+
+        .comparison-item-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .comparison-item-desc {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Cómo Funciona */
+        .como-funciona {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 39px;
+            top: 80px;
+            width: 2px;
+            height: calc(100% - 40px);
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 800;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-content {
+            padding: 12px 0;
+        }
+
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .step-deliverable {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #ECFDF5;
+            color: var(--accent-dark);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            background: var(--bg-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Garantía */
+        .garantia {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .garantia-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+            padding: 48px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid var(--accent);
+        }
+
+        .garantia-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .garantia-title {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .garantia-text {
+            font-size: 18px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* CTA Final */
+        .cta-final {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-light:hover {
+            background: var(--bg-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            color: #9CA3AF;
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand {
+            color: white;
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand span {
+            color: var(--accent);
+        }
+
+        .footer-description {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .pain-grid,
+            .comparison-container,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">Emigr<span>AI</span></a>
+            <div class="nav-links">
+                <a href="#problema" class="nav-link">El Problema</a>
+                <a href="#solucion" class="nav-link">Solución</a>
+                <a href="#como-funciona" class="nav-link">Cómo Funciona</a>
+                <a href="#cta" class="btn btn-primary">Solicitar Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content fade-in">
+            <div class="hero-badge">✨ Para Asesorías de Extranjería</div>
+            <h1>De trámites lentos a<br><span>procesos inteligentes</span></h1>
+            <p class="hero-description">
+                Automatizamos gestión documental, citas y comprobaciones de expedientes.
+                <strong>Ahorra 10-20 horas semanales</strong>, reduce errores 30-40% y muestra ROI en 45 días.
+            </p>
+            <div class="hero-ctas">
+                <a href="#cta" class="btn btn-primary">Solicitar Diagnóstico Gratis →</a>
+                <a href="#solucion" class="btn btn-secondary">Ver Cómo Funciona</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">10-20h</div>
+                    <div class="stat-label">Ahorro semanal</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">30-40%</div>
+                    <div class="stat-label">Menos errores</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">45 días</div>
+                    <div class="stat-label">ROI visible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema -->
+    <section id="problema" class="problema">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">El Problema</div>
+                <h2 class="section-title">¿Cuántas horas pierdes cada semana en tareas repetitivas?</h2>
+                <p class="section-description">
+                    Las asesorías de extranjería manejan trámites complejos que consumen tiempo valioso.
+                    Procesos manuales que podrían automatizarse.
+                </p>
+            </div>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-icon">📄</div>
+                    <h3 class="pain-title">Gestión Documental Caótica</h3>
+                    <p class="pain-description">
+                        Documentos perdidos, versiones incorrectas, checkings manuales.
+                        Cada expediente requiere revisar múltiples documentos y detectar lo que falta.
+                    </p>
+                    <div class="pain-impact">Impacto: 5-8h/semana</div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">📅</div>
+                    <h3 class="pain-title">Citas y Seguimiento Manual</h3>
+                    <p class="pain-description">
+                        Recordatorios manuales, reprogramaciones, confirmaciones telefónicas.
+                        Clientes que no se presentan o llaman fuera de horario.
+                    </p>
+                    <div class="pain-impact">Impacto: 4-6h/semana</div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">⚠️</div>
+                    <h3 class="pain-title">Errores que Cuestan Caro</h3>
+                    <p class="pain-description">
+                        Un documento faltante puede retrasar un expediente meses.
+                        Errores humanos en checklists causan retrabajos y clientes insatisfechos.
+                    </p>
+                    <div class="pain-impact">Coste: 800-2,000€/expediente fallido</div>
+                </div>
+
+                <div class="pain-card">
+                    <div class="pain-icon">💬</div>
+                    <h3 class="pain-title">Consultas Repetitivas</h3>
+                    <p class="pain-description">
+                        Las mismas preguntas una y otra vez: "¿Qué documentos necesito?",
+                        "¿Cuándo tengo cita?". Tu equipo responde lo mismo todo el día.
+                    </p>
+                    <div class="pain-impact">Impacto: 3-5h/semana</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solución -->
+    <section id="solucion" class="solucion">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">La Solución</div>
+                <h2 class="section-title">Transforma tu asesoría con automatización inteligente</h2>
+                <p class="section-description">
+                    No más procesos manuales. Sistema completo que automatiza tareas repetitivas
+                    mientras tu equipo se enfoca en lo que realmente importa: asesorar.
+                </p>
+            </div>
+
+            <div class="comparison-container">
+                <div class="comparison-side before">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">❌</span>
+                        <h3 class="comparison-title">Antes (Sin EmigrAI)</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #EF4444;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Procesos manuales</div>
+                                <div class="comparison-item-desc">Checking de documentos uno por uno</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #EF4444;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Errores frecuentes</div>
+                                <div class="comparison-item-desc">30-40% de tasa de error humano</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #EF4444;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Tiempo perdido</div>
+                                <div class="comparison-item-desc">10-20 horas/semana en tareas repetitivas</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #EF4444;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Cliente insatisfecho</div>
+                                <div class="comparison-item-desc">Esperas largas y poca comunicación</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comparison-side after">
+                    <div class="comparison-header">
+                        <span class="comparison-icon">✅</span>
+                        <h3 class="comparison-title">Después (Con EmigrAI)</h3>
+                    </div>
+                    <ul class="comparison-list">
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #10B981;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Automatización completa</div>
+                                <div class="comparison-item-desc">OCR + IA detecta documentos faltantes</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #10B981;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">-30-40% errores</div>
+                                <div class="comparison-item-desc">Sistema inteligente previene fallos</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #10B981;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">10-20h recuperadas</div>
+                                <div class="comparison-item-desc">Tu equipo hace trabajo estratégico</div>
+                            </div>
+                        </li>
+                        <li class="comparison-item">
+                            <span class="comparison-item-icon" style="color: #10B981;">•</span>
+                            <div class="comparison-item-text">
+                                <div class="comparison-item-title">Cliente feliz</div>
+                                <div class="comparison-item-desc">Respuestas instantáneas 24/7</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona -->
+    <section id="como-funciona" class="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Proceso Simple</div>
+                <h2 class="section-title">Cómo trabajamos contigo</h2>
+                <p class="section-description">
+                    Implementación rápida sin interrumpir tu operación. En 30 días tienes el sistema funcionando.
+                </p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Diagnóstico (30 min)</h3>
+                        <p class="step-description">
+                            Analizamos tu operación actual: volumen de expedientes, documentos que manejas,
+                            puntos críticos. Medimos horas perdidas y priorizamos automatizaciones.
+                        </p>
+                        <div class="step-deliverable">📋 Entrega: Reporte de oportunidad</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">QuickStart (30 días)</h3>
+                        <p class="step-description">
+                            Instalamos 3 automatizaciones core: gestión documental inteligente,
+                            bot de citas y asistente 24/7. Tu equipo recibe formación básica.
+                        </p>
+                        <div class="step-deliverable">🚀 Entrega: Sistema funcionando + Training</div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Resultados Medibles (45 días)</h3>
+                        <p class="step-description">
+                            Medimos impacto real: horas ahorradas, errores reducidos, clientes más satisfechos.
+                            Optimizamos basado en datos y proponemos mejoras.
+                        </p>
+                        <div class="step-deliverable">📊 Entrega: Dashboard + Reporte de impacto</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Qué Incluye</div>
+                <h2 class="section-title">3 automatizaciones que transforman tu asesoría</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3 class="feature-title">Gestión Documental Inteligente</h3>
+                    <p class="feature-description">
+                        OCR automático, clasificación por IA, checklist legal automático.
+                        Detecta documentos faltantes y te avisa. Reduce errores y rehacer trámites.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3 class="feature-title">Bot de Citas y Seguimiento</h3>
+                    <p class="feature-description">
+                        Agenda y recordatorios automáticos por email/SMS. Seguimiento de plazos legales.
+                        Notificaciones a clientes sin intervención humana.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Asistente 24/7 para Consultas</h3>
+                    <p class="feature-description">
+                        Chatbot con respuestas instantáneas (<10s). Escalado a humano cuando hace falta.
+                        Disminuye carga de consultas repetitivas en 60%.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantía -->
+    <section class="garantia">
+        <div class="container">
+            <div class="garantia-box">
+                <div class="garantia-icon">🏆</div>
+                <h2 class="garantia-title">Garantía de Resultados</h2>
+                <p class="garantia-text">
+                    <strong>Reducción mínima del 30% del tiempo operativo en 45 días o reembolso 100%.</strong><br>
+                    No asumes riesgos. Si no ves resultados medibles, devolvemos tu inversión completa.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="cta-final">
+        <div class="container cta-content">
+            <h2 class="cta-title">¿Listo para recuperar 10-20 horas semanales?</h2>
+            <p class="cta-description">
+                Solicita un diagnóstico gratuito de 30 minutos. Sin compromiso.
+                Analizamos tu operación y cuantificamos exactamente cuánto tiempo puedes ahorrar.
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:hola@emigrai.com" class="btn btn-light btn-primary">
+                    Solicitar Diagnóstico Gratis →
+                </a>
+                <a href="#como-funciona" class="btn btn-secondary" style="color: white; border-color: white;">
+                    Ver Proceso Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">Emigr<span>AI</span></div>
+                    <p class="footer-description">
+                        Automatización inteligente para asesorías de extranjería.
+                        Ahorra tiempo, reduce errores, mejora experiencia del cliente.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hola@emigrai.com" class="footer-link">hola@emigrai.com</a></li>
+                        <li><a href="tel:+34900000000" class="footer-link">+34 900 000 000</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Política de Privacidad</a></li>
+                        <li><a href="#" class="footer-link">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 EmigrAI. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

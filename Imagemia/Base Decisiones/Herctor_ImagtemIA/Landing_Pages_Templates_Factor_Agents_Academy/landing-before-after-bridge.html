@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TU_AGENCIA] | De [ESTADO_ANTES] a [ESTADO_DESPUES] en [PLAZO]</title>
+    <meta name="description" content="Mostramos cómo [TU_VERTICAL] pasa de [PROBLEMA_ACTUAL] a [RESULTADO_AFTER] con IA estratégica en [PLAZO].">
+
+    <!--
+    ════════════════════════════════════════════════════════════════════
+    INSTRUCCIONES DE PERSONALIZACIÓN (FRAMEWORK BEFORE-AFTER-BRIDGE)
+    ════════════════════════════════════════════════════════════════════
+    1. Reemplaza los placeholders principales:
+       - [TU_AGENCIA], [TU_VERTICAL], [ICP], [PLAZO]
+       - [ESTADO_ANTES], [ESTADO_DESPUES] → Titular hero (ej: "operaciones manuales" / "operación autónoma")
+       - [PROBLEMA_ACTUAL], [RESULTADO_AFTER] → Descripción meta/hero
+       - [KPI_BEFORE_X], [KPI_AFTER_X], [DELTA_X] → Métricas clave en tablas y cards
+       - [DOLOR_1_TITULO]...[DOLOR_4_TITULO], [HORAS_REPETITIVAS], [TAREA_REPETITIVA_CLAVE], [ROL_CRITICO_ACTUAL], [ERROR_CRITICO]
+       - [RESULTADO_X_TITULO], [RESULTADO_X_DESCRIPCION], [KPI_AFTER_X]
+       - [NOMBRE_METODOLOGIA], [DURACION_STEP1]...[DURACION_STEP4]
+       - [CTA_URL], [EMAIL_CONTACTO], [TELEFONO_CONTACTO], [CIF_EMPRESA], [CIUDAD], [REGION], [LINK_PRIVACIDAD], [LINK_TERMINOS], [LINK_COOKIES]
+       - [TESTIMONIO_X], [NOMBRE_CLIENTE_X], [ROL_CLIENTE_X], [EMPRESA_CLIENTE_X], [TRANSFORMACION_CLIENTE_X], [INICIALES_CLIENTE_X]
+    2. Ajusta la comparativa a tu caso real:
+       - Sustituye cifras por tus métricas reales (horas, costes, velocidad, CSAT, etc.)
+       - Cambia los iconos si aplica a tu vertical
+    3. Actualiza el Bridge (plan) con tu metodología concreta:
+       - Renombra pasos, añade duración y entregables específicos
+    4. Configura CTAs, enlaces legales y formularios según tu stack.
+    ════════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           RESET & BASE STYLES
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Growth Pulse Palette - Light Mode */
+            --primary: #7C3AED;
+            --primary-light: #A78BFA;
+            --primary-dark: #5B21B6;
+            --secondary: #10B981;
+            --secondary-light: #6EE7B7;
+            --accent: #F59E0B;
+            --accent-light: #FCD34D;
+
+            /* Backgrounds */
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F9FAFB;
+            --bg-tertiary: #F3F4F6;
+            --bg-purple-light: #FAF5FF;
+            --bg-green-light: #ECFDF5;
+
+            /* Text Colors */
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --text-muted: #6B7280;
+            --text-light: #9CA3AF;
+
+            /* Borders */
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            --gradient-secondary: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%);
+            --gradient-hero: linear-gradient(180deg, #FAF5FF 0%, #FFFFFF 100%);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-purple: 0 10px 40px rgba(124, 58, 237, 0.2);
+
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========================================
+           UTILITY CLASSES
+           ======================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.5;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            min-height: 48px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl), var(--shadow-purple);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-purple-light);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: var(--bg-purple-light);
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 24px;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            transition: all var(--transition-base);
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 100px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s backwards;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            color: var(--text-primary);
+            animation: fadeInUp 0.6s ease-out 0.2s backwards;
+        }
+
+        .hero-title-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.4s backwards;
+        }
+
+        .hero-scoreboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 48px;
+            animation: fadeInUp 0.6s ease-out 0.5s backwards;
+        }
+
+        .hero-score-card {
+            background-color: var(--bg-purple-light);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .score-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+
+        .score-value {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 4px 0;
+            color: var(--primary);
+        }
+
+        .score-delta {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 80px;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+        }
+
+        /* ========================================
+           BEFORE SECTION
+           ======================================== */
+        .before-section {
+            background-color: var(--bg-secondary);
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .section-badge {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .before-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .before-card {
+            background-color: var(--bg-primary);
+            padding: 36px;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+
+        .before-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .before-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .before-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--accent);
+        }
+
+        .before-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .before-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .before-stat {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background-color: var(--bg-tertiary);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .before-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           COMPARISON TABLE SECTION
+           ======================================== */
+        .comparison-section {
+            background-color: var(--bg-primary);
+        }
+
+        .comparison-table {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--bg-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            border: 2px solid var(--border);
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .comparison-header-cell {
+            padding: 28px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+
+        .comparison-header-cell:last-child {
+            border-right: none;
+        }
+
+        .comparison-header-cell:first-child {
+            text-align: left;
+        }
+
+        .comparison-label {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .comparison-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .comparison-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .comparison-row {
+            display: contents;
+        }
+
+        .comparison-cell {
+            padding: 24px 28px;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
+
+        .comparison-cell:last-child {
+            border-right: none;
+        }
+
+        .comparison-row:last-child .comparison-cell {
+            border-bottom: none;
+        }
+
+        .comparison-cell.feature-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .comparison-cell.before-value {
+            background-color: #FEF2F2;
+            color: var(--text-secondary);
+        }
+
+        .comparison-cell.after-value {
+            background-color: var(--bg-green-light);
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .comparison-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .comparison-icon.negative {
+            color: #EF4444;
+        }
+
+        .comparison-icon.positive {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 992px) {
+            .comparison-header,
+            .comparison-body {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-row {
+                display: block;
+                border-bottom: 2px solid var(--border);
+            }
+
+            .comparison-row:last-child {
+                border-bottom: none;
+            }
+
+            .comparison-cell {
+                border-right: none;
+            }
+
+            .comparison-cell.feature-name {
+                background-color: var(--bg-tertiary);
+                font-weight: 700;
+                border-bottom: none;
+            }
+        }
+
+        /* ========================================
+           AFTER SECTION
+           ======================================== */
+        .after-section {
+            background-color: var(--bg-green-light);
+        }
+
+        .after-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .after-card {
+            background-color: var(--bg-primary);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid var(--secondary);
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-base);
+        }
+
+        .after-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl), 0 0 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .after-icon {
+            width: 72px;
+            height: 72px;
+            background: var(--gradient-secondary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        .after-icon svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+        }
+
+        .after-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .after-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .after-stat {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--gradient-secondary);
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .after-stat svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .after-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           BRIDGE SECTION (THE SOLUTION)
+           ======================================== */
+        .bridge-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-purple-light) 100%);
+            position: relative;
+        }
+
+        .bridge-content {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .bridge-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .bridge-title-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bridge-description {
+            font-size: 22px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .bridge-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .bridge-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .bridge-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .bridge-step::after {
+            content: '→';
+            position: absolute;
+            top: 40px;
+            right: -24px;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .bridge-step:last-child::after {
+            display: none;
+        }
+
+        .bridge-step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow-purple);
+        }
+
+        .bridge-step-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .bridge-step-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 992px) {
+            .bridge-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bridge-step::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bridge-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .bridge-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .bridge-cta-group .btn {
+                width: 100%;
+            }
+        }
+
+        /* ========================================
+           TESTIMONIALS
+           ======================================== */
+        .testimonials {
+            background-color: var(--bg-secondary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-primary);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 22px;
+        }
+
+        .testimonial-author {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .testimonial-transformation {
+            background-color: var(--bg-green-light);
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .transformation-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .transformation-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 992px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           FINAL CTA
+           ======================================== */
+        .final-cta {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .final-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .final-cta-description {
+            font-size: 22px;
+            line-height: 1.6;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-white-outline {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-white-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 640px) {
+            .final-cta-title {
+                font-size: 36px;
+            }
+
+            .final-cta-description {
+                font-size: 18px;
+            }
+
+            .final-cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .final-cta-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background-color: var(--bg-tertiary);
+            padding: 60px 0 32px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .footer-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+         ======================================== -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">[TU_AGENCIA]</a>
+            <a href="#bridge" class="btn btn-primary nav-cta">Ver plan completo</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge">Caso real · [TU_VERTICAL]</span>
+                </div>
+
+                <h1 class="hero-title">
+                    [TU_VERTICAL]: de <span class="hero-title-gradient">[ESTADO_ANTES]</span> a [ESTADO_DESPUES] en [PLAZO]
+                </h1>
+
+                <p class="hero-subtitle">
+                    <strong>[TU_AGENCIA]</strong> transforma <strong>[PROBLEMA_ACTUAL]</strong> en resultados medibles. Compara el antes y el después con datos reales y descubre el puente que usamos para conseguirlo.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#comparison" class="btn btn-primary">
+                        Ver comparativa métrica por métrica
+                        <svg style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#bridge" class="btn btn-outline">Descubrir el plan en [PLAZO]</a>
+                </div>
+
+                <div class="hero-scoreboard">
+                    <div class="hero-score-card">
+                        <div class="score-label">Antes</div>
+                        <div class="score-value">[KPI_BEFORE_1]</div>
+                        <div class="score-label">Después</div>
+                        <div class="score-value" style="color: var(--secondary);">[KPI_AFTER_1]</div>
+                        <div class="score-delta">⏱ Ahorro de [DELTA_1]</div>
+                    </div>
+                    <div class="hero-score-card">
+                        <div class="score-label">Antes</div>
+                        <div class="score-value">[KPI_BEFORE_2]</div>
+                        <div class="score-label">Después</div>
+                        <div class="score-value" style="color: var(--secondary);">[KPI_AFTER_2]</div>
+                        <div class="score-delta">💶 Impacto: [DELTA_2]</div>
+                    </div>
+                    <div class="hero-score-card">
+                        <div class="score-label">Antes</div>
+                        <div class="score-value">[KPI_BEFORE_3]</div>
+                        <div class="score-label">Después</div>
+                        <div class="score-value" style="color: var(--secondary);">[KPI_AFTER_3]</div>
+                        <div class="score-delta">📈 Crecimiento: [DELTA_3]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         BEFORE SECTION
+         ======================================== -->
+    <section class="before-section section" id="before">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge" style="background-color: #FEF3C7; color: var(--accent); border-color: rgba(245, 158, 11, 0.2);">Antes</span>
+                </div>
+                <h2 class="section-title">Tu realidad actual (probablemente)</h2>
+                <p class="section-description">
+                    Si tu operación se parece a esto, estás dejando cientos de miles de euros sobre la mesa cada año.
+                </p>
+            </div>
+
+            <div class="before-grid">
+                <div class="before-card">
+                    <div class="before-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="before-title">[DOLOR_1_TITULO]</h3>
+                    <p class="before-description">
+                        Tu equipo dedica <strong>[HORAS_REPETITIVAS]</strong> a <strong>[TAREA_REPETITIVA_CLAVE]</strong>. Trabajo que no genera valor pero consume la agenda del equipo.
+                    </p>
+                    <div class="before-stat">
+                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        [KPI_BEFORE_1] desperdiciadas cada semana
+                    </div>
+                </div>
+
+                <div class="before-card">
+                    <div class="before-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="before-title">[DOLOR_2_TITULO]</h3>
+                    <p class="before-description">
+                        Cada nuevo cliente implica contratar <strong>[ROL_CRITICO_ACTUAL]</strong>. Los costes fijos se disparan mientras los márgenes caen.
+                    </p>
+                    <div class="before-stat">
+                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        [KPI_BEFORE_2]€/año en tareas automatizables
+                    </div>
+                </div>
+
+                <div class="before-card">
+                    <div class="before-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="before-title">[DOLOR_3_TITULO]</h3>
+                    <p class="before-description">
+                        <strong>[ERROR_CRITICO]</strong> provoca devoluciones, pérdida de confianza y reclamaciones. No puedes permitirte errores humanos en procesos críticos.
+                    </p>
+                    <div class="before-stat">
+                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        [KPI_BEFORE_3] tasa de error / reclamaciones
+                    </div>
+                </div>
+
+                <div class="before-card">
+                    <div class="before-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="before-title">[DOLOR_4_TITULO]</h3>
+                    <p class="before-description">
+                        Contrataste talento para pensar estratégicamente, pero están atrapados en trabajo repetitivo. La rotación es alta y pierdes conocimiento crítico cada trimestre.
+                    </p>
+                    <div class="before-stat">
+                        <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        [KPI_BEFORE_4] rotación anual / nivel de burnout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         COMPARISON TABLE SECTION
+         ======================================== -->
+    <section class="comparison-section section" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Comparativa</span>
+                </div>
+                <h2 class="section-title">La transformación, métrica por métrica</h2>
+                <p class="section-description">
+                    No es magia. Es automatización inteligente con agentes de IA. Esto es exactamente lo que cambia.
+                </p>
+            </div>
+
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div class="comparison-header-cell">
+                        <div class="comparison-label">Métrica</div>
+                        <div class="comparison-title">Factor</div>
+                    </div>
+                    <div class="comparison-header-cell">
+                        <div class="comparison-label">Sin IA</div>
+                        <div class="comparison-title" style="color: var(--accent);">Antes</div>
+                    </div>
+                    <div class="comparison-header-cell">
+                        <div class="comparison-label">Con Agentes IA</div>
+                        <div class="comparison-title" style="color: var(--secondary);">Después</div>
+                    </div>
+                </div>
+
+                <div class="comparison-body">
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-name">
+                            Tiempo en [PROCESO_CLAVE]
+                        </div>
+                        <div class="comparison-cell before-value">
+                            <svg class="comparison-icon negative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            [KPI_BEFORE_TIEMPO]
+                        </div>
+                        <div class="comparison-cell after-value">
+                            <svg class="comparison-icon positive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            [KPI_AFTER_TIEMPO]
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-name">
+                            Coste operativo mensual
+                        </div>
+                        <div class="comparison-cell before-value">
+                            <svg class="comparison-icon negative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            [KPI_BEFORE_COSTE]
+                        </div>
+                        <div class="comparison-cell after-value">
+                            <svg class="comparison-icon positive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            [KPI_AFTER_COSTE]
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-name">
+                            Tiempo de respuesta a clientes
+                        </div>
+                        <div class="comparison-cell before-value">
+                            <svg class="comparison-icon negative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            [KPI_BEFORE_RESPUESTA]
+                        </div>
+                        <div class="comparison-cell after-value">
+                            <svg class="comparison-icon positive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            [KPI_AFTER_RESPUESTA]
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-name">
+                            Tasa de error en procesos
+                        </div>
+                        <div class="comparison-cell before-value">
+                            <svg class="comparison-icon negative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            [KPI_BEFORE_ERROR]
+                        </div>
+                        <div class="comparison-cell after-value">
+                            <svg class="comparison-icon positive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            [KPI_AFTER_ERROR]
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-name">
+                            Capacidad para escalar
+                        </div>
+                        <div class="comparison-cell before-value">
+                            <svg class="comparison-icon negative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            [KPI_BEFORE_ESCALAR]
+                        </div>
+                        <div class="comparison-cell after-value">
+                            <svg class="comparison-icon positive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            [KPI_AFTER_ESCALAR]
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="comparison-cell feature-name">
+                            ROI del sistema
+                        </div>
+                        <div class="comparison-cell before-value">
+                            <svg class="comparison-icon negative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                            [KPI_BEFORE_ROI]
+                        </div>
+                        <div class="comparison-cell after-value">
+                            <svg class="comparison-icon positive" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            [KPI_AFTER_ROI]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         AFTER SECTION
+         ======================================== -->
+    <section class="after-section section" id="after">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge" style="background-color: var(--bg-green-light); color: var(--secondary); border-color: rgba(16, 185, 129, 0.3);">Después</span>
+                </div>
+                <h2 class="section-title">Así se ve el después: métricas y operaciones reales</h2>
+                <p class="section-description">
+                    Lo que antes era cuello de botella ahora es ventaja competitiva. Todo lo que aparece aquí es medible y se puede auditar.
+                </p>
+            </div>
+
+            <div class="after-grid">
+                <div class="after-card">
+                    <div class="after-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="after-title">[RESULTADO_1_TITULO]</h3>
+                    <p class="after-description">
+                        [RESULTADO_1_DESCRIPCION]
+                    </p>
+                    <div class="after-stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [KPI_AFTER_1]
+                    </div>
+                </div>
+
+                <div class="after-card">
+                    <div class="after-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="after-title">[RESULTADO_2_TITULO]</h3>
+                    <p class="after-description">
+                        [RESULTADO_2_DESCRIPCION]
+                    </p>
+                    <div class="after-stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [KPI_AFTER_2]
+                    </div>
+                </div>
+
+                <div class="after-card">
+                    <div class="after-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="after-title">[RESULTADO_3_TITULO]</h3>
+                    <p class="after-description">
+                        [RESULTADO_3_DESCRIPCION]
+                    </p>
+                    <div class="after-stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [KPI_AFTER_3]
+                    </div>
+                </div>
+
+                <div class="after-card">
+                    <div class="after-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="after-title">[RESULTADO_4_TITULO]</h3>
+                    <p class="after-description">
+                        [RESULTADO_4_DESCRIPCION]
+                    </p>
+                    <div class="after-stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [KPI_AFTER_4]
+                    </div>
+                </div>
+
+                <div class="after-card">
+                    <div class="after-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="after-title">[RESULTADO_5_TITULO]</h3>
+                    <p class="after-description">
+                        [RESULTADO_5_DESCRIPCION]
+                    </p>
+                    <div class="after-stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [KPI_AFTER_5]
+                    </div>
+                </div>
+
+                <div class="after-card">
+                    <div class="after-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="after-title">[RESULTADO_6_TITULO]</h3>
+                    <p class="after-description">
+                        [RESULTADO_6_DESCRIPCION]
+                    </p>
+                    <div class="after-stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        [KPI_AFTER_6]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         BRIDGE SECTION (THE SOLUTION)
+         ======================================== -->
+    <section class="bridge-section section" id="bridge">
+        <div class="container">
+            <div class="bridge-content">
+                <div class="section-badge">
+                    <span class="badge">El puente</span>
+                </div>
+                <h2 class="bridge-title">
+                    ¿Cómo pasas del <span class="bridge-title-gradient">antes al después</span> en [PLAZO]?
+                </h2>
+                <p class="bridge-description">
+                    El puente es nuestro programa <strong>[NOMBRE_METODOLOGIA]</strong>. Cuatro fases, entregables concretos y KPIs que comprobamos juntos en cada hito.
+                </p>
+                <div class="bridge-cta-group">
+                    <a href="#contact" class="btn btn-primary">
+                        Reservar sesión blueprint
+                        <svg style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#testimonials" class="btn btn-outline">Ver casos de éxito</a>
+                </div>
+            </div>
+
+            <div class="bridge-steps">
+                <div class="bridge-step">
+                    <div class="bridge-step-number">1</div>
+                    <h3 class="bridge-step-title">Discovery profundo ([DURACION_STEP1])</h3>
+                    <p class="bridge-step-description">
+                        Mapeamos procesos, datos y experiencias de cliente. Entregable: auditoría con 40+ hallazgos y quick wins priorizados con ROI estimado.
+                    </p>
+                </div>
+
+                <div class="bridge-step">
+                    <div class="bridge-step-number">2</div>
+                    <h3 class="bridge-step-title">Blueprint & Business Case ([DURACION_STEP2])</h3>
+                    <p class="bridge-step-description">
+                        Diseñamos workflows, arquitectura de datos y gobernanza. Entregable: roadmap 12 meses + business case financiero aprobado por dirección.
+                    </p>
+                </div>
+
+                <div class="bridge-step">
+                    <div class="bridge-step-number">3</div>
+                    <h3 class="bridge-step-title">Implementación operativa ([DURACION_STEP3])</h3>
+                    <p class="bridge-step-description">
+                        Construimos, integramos y lanzamos agentes IA en sprints quincenales. Entregable: sistemas en producción + capacitaciones por rol.
+                    </p>
+                </div>
+
+                <div class="bridge-step">
+                    <div class="bridge-step-number">4</div>
+                    <h3 class="bridge-step-title">Growth & optimización ([DURACION_STEP4])</h3>
+                    <p class="bridge-step-description">
+                        Monitoreamos KPIs, lanzamos nuevas automatizaciones y convertimos resultados en casos de éxito escalables.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         TESTIMONIALS
+         ======================================== -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="badge">Transformaciones reales</span>
+                </div>
+                <h2 class="section-title">500+ empresas ya hicieron la transición</h2>
+                <p class="section-description">
+                    Lee cómo pasaron del antes al después y nunca miraron atrás.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">[INICIALES_CLIENTE_1]</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">[NOMBRE_CLIENTE_1]</div>
+                            <div class="testimonial-role">[ROL_CLIENTE_1], [EMPRESA_CLIENTE_1]</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-transformation">
+                        <div class="transformation-label">Transformación</div>
+                        <div class="transformation-value">[TRANSFORMACION_CLIENTE_1]</div>
+                    </div>
+                    <p class="testimonial-text">
+                        "[TESTIMONIO_CLIENTE_1]"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">[INICIALES_CLIENTE_2]</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">[NOMBRE_CLIENTE_2]</div>
+                            <div class="testimonial-role">[ROL_CLIENTE_2], [EMPRESA_CLIENTE_2]</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-transformation">
+                        <div class="transformation-label">Transformación</div>
+                        <div class="transformation-value">[TRANSFORMACION_CLIENTE_2]</div>
+                    </div>
+                    <p class="testimonial-text">
+                        "[TESTIMONIO_CLIENTE_2]"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">[INICIALES_CLIENTE_3]</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-name">[NOMBRE_CLIENTE_3]</div>
+                            <div class="testimonial-role">[ROL_CLIENTE_3], [EMPRESA_CLIENTE_3]</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-transformation">
+                        <div class="transformation-label">Transformación</div>
+                        <div class="transformation-value">[TRANSFORMACION_CLIENTE_3]</div>
+                    </div>
+                    <p class="testimonial-text">
+                        "[TESTIMONIO_CLIENTE_3]"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FINAL CTA
+         ======================================== -->
+    <section class="final-cta section" id="contact">
+        <div class="container">
+            <div class="final-cta-content">
+                <h2 class="final-cta-title">
+                    ¿Listo para construir tu propio "después"?
+                </h2>
+                <p class="final-cta-description">
+                    En una sesión de 30 minutos revisamos tu estado actual, estimamos el ROI y te entregamos los próximos pasos para replicar esta transformación en <strong>[TU_VERTICAL]</strong>.
+                </p>
+                <div class="final-cta-buttons">
+                    <a href="[CTA_URL]" class="btn btn-white">
+                        Quiero mi blueprint
+                        <svg style="width: 20px; height: 20px; margin-left: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#comparison" class="btn btn-white-outline">Revisar métricas completas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">[TU_AGENCIA]</div>
+                <p class="footer-description">
+                    Socio de transformación con IA para <strong>[TU_VERTICAL]</strong>. Pasamos de <strong>[ESTADO_ANTES]</strong> a <strong>[ESTADO_DESPUES]</strong> en [PLAZO] con resultados medibles.
+                </p>
+                <div class="footer-links">
+                    <a href="[LINK_PRIVACIDAD]" class="footer-link">Privacidad</a>
+                    <a href="[LINK_TERMINOS]" class="footer-link">Términos</a>
+                    <a href="[LINK_COOKIES]" class="footer-link">Cookies</a>
+                    <a href="[CTA_URL]" class="footer-link">Contacto</a>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-description">[EMAIL_CONTACTO] · [TELEFONO_CONTACTO]</p>
+                    <p class="footer-description">Oficinas en [CIUDAD] · Trabajamos con clientes [REGION]</p>
+                    <p class="footer-description">NIF/CIF [CIF_EMPRESA]</p>
+                    <p class="footer-description">© 2025 [TU_AGENCIA]. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#contact') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const navHeight = document.querySelector('.nav').offsetHeight;
+                        const targetPosition = target.offsetTop - navHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.btn-primary, .btn-secondary, .btn-white').forEach(button => {
+            button.addEventListener('click', (e) => {
+                console.log('CTA clicked:', e.target.textContent);
+                // Add your analytics tracking here
+            });
+        });
+    </script>
+
+    <!--
+    ========================================
+    CUSTOMIZATION INSTRUCTIONS - BEFORE-AFTER-BRIDGE
+    ========================================
+
+    Esta template sigue el framework Before-After-Bridge:
+
+    1. BEFORE (Antes):
+       - Hero introduce el concepto de transformación
+       - Before section muestra la situación problemática actual
+       - Usa colores amarillo/ámbar para señales de advertencia
+
+    2. COMPARISON (Comparativa):
+       - Tabla comparativa lado a lado (Before vs After)
+       - Datos cuantitativos específicos
+       - Visuales con iconos X (antes) y ✓ (después)
+
+    3. AFTER (Después):
+       - After section muestra el estado aspiracional
+       - 6 tarjetas con beneficios post-transformación
+       - Usa color verde para éxito y logro
+       - Stats destacados en cada tarjeta
+
+    4. BRIDGE (Puente):
+       - Presenta la solución como el camino
+       - 4 pasos numerados de transformación
+       - CTAs para iniciar el journey
+
+    PERSONALIZACIONES:
+
+    1. BEFORE SECTION:
+       - Actualiza before-cards con problemas de tu audiencia
+       - Modifica before-stats con tus métricas específicas
+       - Ajusta el tono (más/menos dramático según vertical)
+
+    2. COMPARISON TABLE:
+       - Reemplaza comparison-rows con tus métricas reales
+       - Usa datos de clientes existentes para credibilidad
+       - Añade más filas si necesitas mostrar más factores
+
+    3. AFTER SECTION:
+       - Personaliza after-cards con tus beneficios únicos
+       - Actualiza after-stats con resultados verificables
+       - Usa testimonios para reforzar cada beneficio
+
+    4. BRIDGE SECTION:
+       - Adapta bridge-steps a tu metodología real
+       - Especifica timelines realistas
+       - Añade/quita pasos según tu proceso
+
+    5. COLORES:
+       - Púrpura (--primary): Marca/Solución
+       - Verde (--secondary): Éxito/Después
+       - Ámbar (--accent): Advertencia/Antes
+       - Ajusta en :root para personalizar paleta
+
+    6. VISUALES:
+       - Considera añadir screenshots reales del antes/después
+       - Usa gráficos para comparativas de datos
+       - Fotografías de clientes en testimonials
+
+    7. ANALYTICS:
+       - Track scroll depth para ver engagement en cada sección
+       - Mide conversiones desde comparison table
+       - A/B test el orden de los beneficios en After section
+
+    TEMPLATE VERSION: 1.0 Before-After-Bridge
+    LAST UPDATED: 2025
+    AUTHOR: Factor Agents Academy
+    -->
+</body>
+</html>
