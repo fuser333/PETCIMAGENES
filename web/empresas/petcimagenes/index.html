@@ -492,6 +492,101 @@
         .hidden {
             display: none;
         }
+
+        /* STATUS MESSAGE */
+        .status-message {
+            background: rgba(157, 212, 59, 0.1);
+            color: var(--azul-petci);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-left: 3px solid var(--verde-limon);
+            margin-bottom: 0.5rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* MARKDOWN STYLING */
+        .message-content h1,
+        .message-content h2,
+        .message-content h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--azul-petci);
+        }
+
+        .message-content p {
+            margin-bottom: 0.75rem;
+        }
+
+        .message-content code {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .message-content pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.75rem 0;
+        }
+
+        .message-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .message-content ul,
+        .message-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .message-content li {
+            margin-bottom: 0.25rem;
+        }
+
+        .message-content blockquote {
+            border-left: 3px solid var(--verde-limon);
+            padding-left: 1rem;
+            margin: 0.75rem 0;
+            color: var(--gris-oscuro);
+            font-style: italic;
+        }
+
+        .message-content a {
+            color: var(--azul-petci);
+            text-decoration: underline;
+        }
+
+        .message-content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0.75rem 0;
+        }
+
+        .message-content th,
+        .message-content td {
+            border: 1px solid var(--gris-medio);
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .message-content th {
+            background: var(--gris-claro);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -560,11 +655,26 @@
         </main>
     </div>
 
+    <!-- Marked.js para renderizar Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <script>
+        // Configurar marked.js con opciones seguras
+        if (typeof marked !== 'undefined') {
+            marked.setOptions({
+                breaks: true,
+                gfm: true,
+                headerIds: false,
+                mangle: false
+            });
+        }
+
         // Variables globales
         let vectorStoreFiles = [];
         let chatAttachments = [];
         let threadId = null;
+        let currentStreamReader = null;
+        const BACKEND_URL = 'https://petcimagenes-backend.vercel.app';
 
         // ==========================================
         // SECCIÓN 1: ALMACÉN PETCIMAGENES (SIDEBAR)
@@ -641,7 +751,7 @@
                 const formData = new FormData();
                 vectorStoreFiles.forEach(file => formData.append('files', file));
 
-                const response = await fetch('/api/upload', {
+                const response = await fetch(`${BACKEND_URL}/api/upload`, {
                     method: 'POST',
                     body: formData
                 });
@@ -716,7 +826,7 @@
 
         function addMessage(role, content, attachments = []) {
             const messagesContainer = document.getElementById('chatMessages');
-            
+
             const emptyState = messagesContainer.querySelector('.empty-state');
             if (emptyState) {
                 emptyState.remove();
@@ -724,9 +834,9 @@
 
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${role}`;
-            
+
             const avatar = role === 'user' ? 'TÚ' : 'AI';
-            
+
             let attachmentsHTML = '';
             if (attachments.length > 0) {
                 attachmentsHTML = '<div class="message-attachments">';
@@ -735,17 +845,30 @@
                 });
                 attachmentsHTML += '</div>';
             }
-            
+
+            // Si es mensaje del asistente y contiene markdown, renderizarlo
+            let contentHTML = content;
+            if (role === 'assistant' && typeof marked !== 'undefined') {
+                try {
+                    contentHTML = marked.parse(content);
+                } catch (e) {
+                    console.warn('Error renderizando markdown:', e);
+                    contentHTML = content;
+                }
+            }
+
             messageDiv.innerHTML = `
                 <div class="message-avatar">${avatar}</div>
                 <div class="message-content">
-                    ${content}
+                    ${contentHTML}
                     ${attachmentsHTML}
                 </div>
             `;
 
             messagesContainer.appendChild(messageDiv);
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            return messageDiv;
         }
 
         function showTypingIndicator() {
@@ -772,6 +895,41 @@
             if (indicator) indicator.remove();
         }
 
+        function showStatusMessage(message) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const existingStatus = document.getElementById('statusMessage');
+
+            if (existingStatus) {
+                existingStatus.textContent = message;
+            } else {
+                const statusDiv = document.createElement('div');
+                statusDiv.id = 'statusMessage';
+                statusDiv.className = 'status-message';
+                statusDiv.textContent = message;
+                messagesContainer.appendChild(statusDiv);
+            }
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeStatusMessage() {
+            const statusMessage = document.getElementById('statusMessage');
+            if (statusMessage) statusMessage.remove();
+        }
+
+        function stopStreaming() {
+            if (currentStreamReader) {
+                try {
+                    currentStreamReader.cancel();
+                    currentStreamReader = null;
+                    removeStatusMessage();
+                    console.log('Stream cancelado por el usuario');
+                } catch (e) {
+                    console.error('Error cancelando stream:', e);
+                }
+            }
+        }
+
         async function sendMessage() {
             const input = document.getElementById('messageInput');
             const message = input.value.trim();
@@ -780,37 +938,52 @@
 
             // Mostrar mensaje del usuario con attachments
             addMessage('user', message || 'Archivos adjuntos', chatAttachments);
-            
+
             const currentAttachments = [...chatAttachments];
             input.value = '';
             chatAttachments = [];
             updateChatAttachmentsPreview();
 
             const sendButton = document.getElementById('sendButton');
+            const messageInput = document.getElementById('messageInput');
             sendButton.disabled = true;
+            messageInput.disabled = true;
 
             showTypingIndicator();
 
             try {
                 const formData = new FormData();
                 formData.append('message', message || 'Analiza estos archivos');
+
+                // Si hay thread previo, incluirlo
+                if (threadId) {
+                    formData.append('threadId', threadId);
+                }
+
                 currentAttachments.forEach(file => formData.append('files', file));
 
-                const response = await fetch('/api/chat/stream', {
+                console.log('Enviando mensaje al backend streaming...');
+
+                const response = await fetch(`${BACKEND_URL}/api/chat/stream`, {
                     method: 'POST',
                     body: formData
                 });
 
                 if (!response.ok) {
-                    throw new Error('Error en la respuesta del servidor');
+                    const errorText = await response.text();
+                    console.error('Error response:', errorText);
+                    throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
                 }
 
                 const reader = response.body.getReader();
+                currentStreamReader = reader;
                 const decoder = new TextDecoder();
-                let assistantMessage = '';
+                let fullText = '';
+                let buffer = '';
 
                 removeTypingIndicator();
 
+                // Crear el mensaje del asistente
                 const messagesContainer = document.getElementById('chatMessages');
                 const messageDiv = document.createElement('div');
                 messageDiv.className = 'message assistant';
@@ -821,45 +994,121 @@
                 messagesContainer.appendChild(messageDiv);
 
                 const streamingElement = document.getElementById('streamingMessage');
+                let lastUpdateTime = Date.now();
 
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
 
-                    const chunk = decoder.decode(value);
-                    const lines = chunk.split('\n');
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+
+                    // Guardar la última línea incompleta en el buffer
+                    buffer = lines.pop() || '';
 
                     for (const line of lines) {
+                        if (!line.trim()) continue;
+
                         if (line.startsWith('data: ')) {
-                            const data = line.slice(6);
-                            
+                            const data = line.slice(6).trim();
+
                             if (data === '[DONE]') {
+                                console.log('Stream completado');
+                                removeStatusMessage();
                                 continue;
                             }
 
                             try {
                                 const parsed = JSON.parse(data);
-                                
-                                if (parsed.content) {
-                                    assistantMessage += parsed.content;
-                                    streamingElement.textContent = assistantMessage;
-                                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                                // Manejar diferentes tipos de eventos
+                                if (parsed.type === 'status') {
+                                    // Mostrar mensaje de estado
+                                    showStatusMessage(parsed.message);
+                                    console.log('Estado:', parsed.message);
+                                } else if (parsed.type === 'threadId') {
+                                    // Guardar threadId para conversación continua
+                                    threadId = parsed.threadId;
+                                    console.log('Thread ID:', threadId);
+                                } else if (parsed.type === 'error') {
+                                    // Manejar error del backend
+                                    throw new Error(parsed.error || 'Error desconocido');
+                                } else if (parsed.content) {
+                                    // Contenido del mensaje
+                                    removeStatusMessage();
+                                    fullText += parsed.content;
+
+                                    // Actualizar cada 50ms para mejor rendimiento
+                                    const now = Date.now();
+                                    if (now - lastUpdateTime > 50) {
+                                        // Renderizar markdown en tiempo real
+                                        try {
+                                            streamingElement.innerHTML = marked.parse(fullText);
+                                        } catch (markdownError) {
+                                            console.warn('Error renderizando markdown:', markdownError);
+                                            streamingElement.textContent = fullText;
+                                        }
+                                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                                        lastUpdateTime = now;
+                                    }
                                 }
                             } catch (e) {
-                                // Ignorar errores de parsing
+                                console.warn('Error parseando línea:', line, e);
                             }
                         }
                     }
                 }
 
+                // Renderizado final
+                removeStatusMessage();
+                currentStreamReader = null;
+
+                if (fullText) {
+                    try {
+                        streamingElement.innerHTML = marked.parse(fullText);
+                    } catch (markdownError) {
+                        console.warn('Error renderizando markdown final:', markdownError);
+                        streamingElement.textContent = fullText;
+                    }
+                } else {
+                    streamingElement.innerHTML = '<em>Sin respuesta del asistente</em>';
+                }
+
                 streamingElement.removeAttribute('id');
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                console.log('Mensaje procesado correctamente');
 
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error en sendMessage:', error);
                 removeTypingIndicator();
-                addMessage('assistant', '❌ Error al procesar el mensaje. Por favor intenta de nuevo.');
+                removeStatusMessage();
+                currentStreamReader = null;
+
+                // Si el error es por stream cancelado, no mostrar mensaje de error
+                if (error.name === 'AbortError' || error.message.includes('cancel')) {
+                    console.log('Stream cancelado correctamente');
+                    return;
+                }
+
+                let errorMessage = 'Error al procesar el mensaje. ';
+
+                if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+                    errorMessage += 'No se pudo conectar con el servidor. Verifica tu conexión.';
+                } else if (error.message.includes('504') || error.message.includes('timeout')) {
+                    errorMessage += 'El servidor tardó demasiado en responder. Intenta con una consulta más simple.';
+                } else if (error.message.includes('413')) {
+                    errorMessage += 'Los archivos adjuntos son demasiado grandes. Intenta con archivos más pequeños.';
+                } else {
+                    errorMessage += error.message;
+                }
+
+                addMessage('assistant', `❌ ${errorMessage}`);
             } finally {
                 sendButton.disabled = false;
+                messageInput.disabled = false;
+                currentStreamReader = null;
+                messageInput.focus();
             }
         }
 

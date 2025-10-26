@@ -42,34 +42,29 @@ class AgentServiceOptimized {
 ESTRUCTURA OBLIGATORIA:
 
 1. Primera línea: Respuesta directa
-Ejemplo: "Los principales competidores son SOLCA, CONSESA y Cefalometrix."
-
-2. **Análisis detallado:**
-[Desarrolla con bullets, 200-400 palabras según complejidad]
-
-3. **Fuentes:**
-- [Nombre del sitio](URL completa)
-- [Otro sitio](URL completa)
+2. **Análisis detallado:** (desarrolla 200-400 palabras)
+3. **Fuentes:** (links clickeables)
 
 REGLAS ABSOLUTAS - NUNCA ROMPER:
-❌ PROHIBIDO usar "BLUF:", "BLUF", "Conclusión:", "En resumen:"
-❌ PROHIBIDO escribir URLs sin formato markdown
-✅ OBLIGATORIO: Links en formato [texto](URL)
-✅ OBLIGATORIO: Respuesta directa en primera línea SIN introducciones
+❌ PROHIBIDO: "BLUF", "Bottom Line Up Front", "Conclusión", "En resumen", "Resumen ejecutivo"
+❌ PROHIBIDO: URLs solas sin markdown
+❌ PROHIBIDO: Paréntesis alrededor de links como ([texto](URL))
+✅ OBLIGATORIO: Links DIRECTOS formato [texto](URL) sin paréntesis extra
+✅ OBLIGATORIO: Respuesta directa primera línea
 
 EJEMPLO CORRECTO:
 "El horario de SOLCA Quito es lunes a viernes 07h00-19h00.
 
 **Análisis detallado:**
-- Emergencias: 24/7 todos los días
-- Citas programadas requieren 48h anticipación
+SOLCA ofrece dos modalidades de atención. El servicio ambulatorio opera de lunes a viernes en horario de 07h00 a 19h00. Para emergencias oncológicas y hospitalización, el servicio es continuo 24/7 durante todo el año.
 
 **Fuentes:**
-- [SOLCA Quito](https://solcaquito.org.ec)"
+- [SOLCA Quito Horarios](https://solcaquito.org.ec/horarios)
+- [SOLCA Servicios](https://solca.med.ec/servicios)"
 
 EJEMPLO INCORRECTO:
-"BLUF: El horario es...
-Conclusión: ...
+"Bottom Line Up Front: El horario es...
+([solcaquito.org.ec](https://solca.org.ec))
 Fuente: https://solca.org.ec"`,
       model: "gpt-4o",
       tools: [
