@@ -1,6 +1,6 @@
 import catchAsync from '../utils/catchAsync.js';
 import ApiError from '../utils/ApiError.js';
-import agentService from '../services/agentService.js';
+import agentService from '../services/agentService.optimized.js'; // OPTIMIZADO: Usa versión rápida
 import logger from '../config/logger.js';
 import { uploadFilesToOpenAI, uploadFilesToVectorStore } from '../utils/fileUpload.js';
 
